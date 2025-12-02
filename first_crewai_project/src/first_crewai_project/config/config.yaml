@@ -1,0 +1,9 @@
+# config.yaml 内容
+llm:
+  model: deepseek-chat  # 使用DeepSeek的对话模型
+  base_url: https://api.deepseek.com  # ⚠️ 关键：必须改成DeepSeek的地址
+  api_key: sk-e4cba97e544b4ee3827ce8d26cc9d4f8  # 请替换成你的真实密钥
+  temperature: 0.7  # 控制创造性，0-1之间，越高越随机
+
+crew:
+  verbose: true  # 设置为true，运行时会打印详细日志，方便调试
