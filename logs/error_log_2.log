@@ -1,0 +1,1500 @@
+2025/11/18 12:22:03 [error] 2390#6915: *1386 client intended to send too large body
+2025/10/11 15:27:10 [warn] 1585#3594: *3529 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/22 15:29:23 [crit] 9915#8288: *4113 client intended to send too large body
+2025/11/22 12:29:47 [error] 6964#8616: *2609 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/08 05:44:45 [warn] 3907#4868: *1890 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/26 04:20:28 [crit] 3844#3239: *4180 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/20 15:37:57 [warn] 8301#7793: *4304 rewrite or internal redirection cycle
+2025/08/06 06:04:22 [crit] 6929#8303: *1321 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/31 21:36:18 [warn] 9028#5572: *4081 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/21 10:00:51 [crit] 8449#8553: *2874 client prematurely closed connection while reading client request body
+2025/08/13 05:23:30 [alert] 8972#4634: *2660 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/08 10:18:17 [alert] 6071#5969: *4131 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/20 23:02:12 [alert] 6109#4404: *4006 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/19 07:26:40 [error] 6594#1137: *1568 client sent invalid method while reading client request line
+2025/11/18 02:04:47 [error] 5474#4712: *871 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/02 23:46:49 [crit] 5011#4448: *495 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/23 07:22:36 [error] 6936#6901: *1409 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/24 22:39:54 [error] 2887#2105: *208 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/25 09:22:25 [crit] 5189#3093: *1288 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/19 22:08:00 [error] 7317#1707: *2031 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/22 10:53:25 [error] 6639#2853: *2344 rewrite or internal redirection cycle
+2025/08/26 14:07:28 [error] 6052#8350: *4518 client prematurely closed connection while reading client request body
+2025/11/20 14:36:03 [crit] 7583#3514: *3874 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/11 08:23:25 [crit] 2671#1396: *3669 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/20 20:31:40 [alert] 8977#9434: *2687 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/24 06:30:11 [crit] 5289#7877: *148 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/02 04:48:55 [error] 5144#1549: *1079 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/27 08:20:46 [error] 8428#4795: *4164 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/12 13:55:42 [warn] 8285#2205: *2055 client sent invalid method while reading client request line
+2025/08/06 16:33:01 [warn] 6895#5204: *3466 client intended to send too large body
+2025/08/19 07:41:35 [error] 3475#1581: *3152 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/29 09:09:48 [error] 9389#2438: *1974 client sent invalid method while reading client request line
+2025/11/10 02:56:23 [error] 3977#4793: *862 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/24 18:01:01 [alert] 8436#6074: *4388 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/19 05:49:42 [warn] 8106#7973: *4191 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/08 15:54:15 [error] 7848#9602: *4763 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/11 06:50:16 [alert] 6999#1319: *4254 client sent invalid method while reading client request line
+2025/09/19 07:58:56 [crit] 7098#6050: *157 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/09 20:28:03 [error] 6012#4250: *129 no live upstreams while connecting to upstream
+2025/11/17 20:20:19 [alert] 8960#8591: *1706 client prematurely closed connection while reading client request body
+2025/11/15 04:01:58 [error] 5658#1395: *3055 client intended to send too large body
+2025/11/14 15:10:31 [warn] 9035#4151: *949 client prematurely closed connection while reading client request body
+2025/09/17 23:46:17 [alert] 8589#3288: *2826 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/05 20:36:56 [crit] 2995#3014: *660 client prematurely closed connection while reading client request body
+2025/09/25 13:06:41 [alert] 4473#2726: *203 client prematurely closed connection while reading client request body
+2025/08/30 03:48:43 [error] 9158#5763: *2930 no live upstreams while connecting to upstream
+2025/11/02 00:38:04 [crit] 5406#8933: *4312 no live upstreams while connecting to upstream
+2025/09/09 03:23:35 [alert] 5862#7466: *1898 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/26 13:59:31 [crit] 9987#8006: *691 client prematurely closed connection while reading client request body
+2025/08/09 16:43:18 [error] 2165#6833: *1443 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/01 01:10:18 [alert] 2095#2411: *308 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/02 22:40:24 [alert] 4796#6397: *3596 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/19 17:55:24 [crit] 2836#3556: *4431 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/10 19:48:13 [crit] 9462#5073: *4213 client intended to send too large body
+2025/10/27 13:40:54 [warn] 8552#4841: *3311 rewrite or internal redirection cycle
+2025/08/10 03:29:24 [warn] 8645#8228: *241 client prematurely closed connection while reading client request body
+2025/09/16 01:50:07 [warn] 7436#9358: *439 no live upstreams while connecting to upstream
+2025/10/07 07:12:57 [alert] 5156#7752: *3871 rewrite or internal redirection cycle
+2025/08/15 04:01:04 [crit] 2333#4686: *4366 client prematurely closed connection while reading client request body
+2025/10/24 00:21:06 [alert] 7267#1190: *2564 no live upstreams while connecting to upstream
+2025/08/19 19:53:15 [alert] 3906#2547: *141 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/18 10:49:34 [alert] 4530#2645: *3195 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/21 18:00:05 [crit] 4137#9024: *1130 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/06 03:28:29 [alert] 5156#9412: *4638 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/30 19:08:00 [warn] 2193#6738: *25 no live upstreams while connecting to upstream
+2025/08/17 23:10:53 [error] 8946#6486: *3763 client intended to send too large body
+2025/08/23 20:13:44 [alert] 1451#2307: *2848 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/11 22:51:05 [crit] 3209#1886: *1332 no live upstreams while connecting to upstream
+2025/09/16 09:14:08 [alert] 5830#3553: *86 client intended to send too large body
+2025/08/13 06:08:34 [alert] 1029#7004: *279 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/16 06:07:59 [alert] 4349#6053: *4082 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/27 13:18:26 [crit] 2256#5226: *2565 client intended to send too large body
+2025/09/25 16:43:42 [crit] 7438#9488: *762 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/19 14:23:26 [alert] 9691#3450: *4135 client sent invalid method while reading client request line
+2025/09/30 16:09:45 [error] 4816#8496: *4599 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/20 00:16:21 [crit] 2003#2833: *918 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/19 16:44:28 [warn] 6216#6834: *634 rewrite or internal redirection cycle
+2025/09/01 16:22:11 [crit] 3727#9152: *3621 client intended to send too large body
+2025/08/31 23:12:48 [warn] 8241#4537: *2237 rewrite or internal redirection cycle
+2025/10/29 14:59:35 [error] 4896#8682: *1553 rewrite or internal redirection cycle
+2025/10/24 12:11:42 [crit] 3297#3218: *1911 client intended to send too large body
+2025/08/14 13:56:06 [alert] 7557#6607: *2300 client prematurely closed connection while reading client request body
+2025/08/23 21:36:03 [crit] 7544#5777: *4358 client prematurely closed connection while reading client request body
+2025/11/15 09:15:13 [crit] 6055#7474: *3965 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/10 09:54:45 [crit] 8220#8809: *719 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/29 08:28:20 [alert] 3081#1459: *855 rewrite or internal redirection cycle
+2025/10/28 01:14:26 [crit] 2262#8150: *69 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/28 06:46:44 [warn] 7388#9866: *2332 no live upstreams while connecting to upstream
+2025/10/31 06:10:08 [crit] 6183#4311: *4084 client sent invalid method while reading client request line
+2025/11/01 21:12:58 [warn] 6428#5112: *1159 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/20 12:16:27 [crit] 2460#6614: *1537 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/13 21:01:22 [error] 6512#7107: *506 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/26 00:49:51 [error] 8041#8267: *2228 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/28 04:02:58 [error] 6538#7464: *1866 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/14 07:39:09 [alert] 9025#6191: *4462 client prematurely closed connection while reading client request body
+2025/11/11 21:56:03 [alert] 7574#8447: *1388 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/15 13:02:39 [alert] 1756#2773: *3698 client prematurely closed connection while reading client request body
+2025/11/04 14:24:42 [error] 9192#3868: *634 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/01 02:44:11 [alert] 1144#5144: *869 rewrite or internal redirection cycle
+2025/10/17 15:53:39 [warn] 1408#3406: *3501 client sent invalid method while reading client request line
+2025/09/25 05:59:25 [alert] 1815#8779: *1979 client sent invalid method while reading client request line
+2025/08/28 00:07:52 [warn] 1497#3271: *4114 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/17 18:51:23 [error] 4270#9948: *52 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/24 22:38:53 [warn] 3293#7087: *4032 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/03 21:51:12 [error] 5041#2773: *3821 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/19 04:11:18 [warn] 7211#6517: *3227 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/23 00:42:58 [warn] 9371#2727: *1241 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/26 19:29:03 [alert] 4307#5872: *2791 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/01 14:07:03 [alert] 3136#7523: *2570 client intended to send too large body
+2025/11/10 05:04:38 [error] 8746#5462: *2331 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/26 13:22:43 [crit] 4753#7892: *1128 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/09 07:19:22 [error] 4309#4478: *1593 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/08 21:55:54 [error] 3262#1385: *2151 no live upstreams while connecting to upstream
+2025/08/16 16:49:35 [error] 4678#3366: *4900 rewrite or internal redirection cycle
+2025/11/22 02:02:02 [warn] 2775#3300: *4459 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/11 13:51:04 [alert] 5780#4422: *1291 rewrite or internal redirection cycle
+2025/10/06 15:24:32 [error] 7761#7806: *277 no live upstreams while connecting to upstream
+2025/10/02 17:50:56 [error] 5460#1258: *1757 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/25 18:59:46 [crit] 9814#7429: *4863 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/21 10:27:21 [alert] 3109#3798: *3668 no live upstreams while connecting to upstream
+2025/09/23 08:08:20 [alert] 8753#5171: *1564 client prematurely closed connection while reading client request body
+2025/08/29 01:06:11 [alert] 4147#8689: *4697 rewrite or internal redirection cycle
+2025/09/30 09:43:13 [error] 3792#7053: *4957 no live upstreams while connecting to upstream
+2025/10/17 08:08:47 [warn] 6043#4396: *4386 client intended to send too large body
+2025/11/10 10:42:04 [error] 1475#4242: *2565 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/28 13:33:59 [crit] 6617#8218: *590 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/30 02:34:34 [error] 5630#3160: *1739 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/28 23:38:54 [alert] 2062#8327: *2288 client sent invalid method while reading client request line
+2025/08/25 06:35:27 [alert] 4892#3478: *4628 client intended to send too large body
+2025/10/16 09:22:27 [warn] 6487#7420: *4293 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/14 22:13:26 [warn] 2014#5284: *2044 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/14 12:36:47 [alert] 2956#8467: *3210 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/29 07:21:30 [alert] 5666#4524: *1972 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/18 19:46:46 [error] 9905#1058: *441 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/06 21:08:43 [alert] 4791#9432: *2235 client sent invalid method while reading client request line
+2025/09/19 17:26:08 [crit] 9518#9073: *4759 client sent invalid method while reading client request line
+2025/09/01 03:14:53 [warn] 5581#1405: *241 no live upstreams while connecting to upstream
+2025/11/21 09:21:03 [warn] 3322#4383: *2636 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/17 02:04:47 [error] 3373#5838: *837 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/16 11:15:35 [error] 3234#8166: *1149 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/30 04:43:37 [crit] 8753#1770: *4558 rewrite or internal redirection cycle
+2025/09/24 11:05:11 [error] 6891#2753: *4990 rewrite or internal redirection cycle
+2025/09/19 22:17:26 [crit] 8834#5636: *4173 client prematurely closed connection while reading client request body
+2025/10/31 09:46:13 [error] 1726#6576: *3556 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/22 15:26:10 [error] 2257#9852: *4151 client prematurely closed connection while reading client request body
+2025/09/05 22:08:13 [alert] 7871#4930: *1490 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/20 18:16:23 [error] 6784#3972: *2415 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/21 16:31:01 [warn] 4597#7600: *519 rewrite or internal redirection cycle
+2025/11/07 23:16:16 [error] 4975#4823: *4507 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/09 12:09:22 [error] 7640#2310: *4098 client intended to send too large body
+2025/08/08 11:34:42 [warn] 1858#9610: *4239 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/12 05:08:07 [alert] 3074#3536: *3498 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/01 05:03:53 [crit] 1865#3993: *4231 no live upstreams while connecting to upstream
+2025/09/05 13:10:03 [alert] 3660#9119: *4871 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/22 08:20:55 [warn] 1377#5117: *1534 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/10 10:58:44 [crit] 8247#8701: *3805 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/08 08:38:40 [alert] 5414#4594: *2894 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/13 20:38:55 [error] 7988#5952: *198 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/28 19:39:24 [crit] 5432#5048: *3821 no live upstreams while connecting to upstream
+2025/09/19 14:42:11 [alert] 5034#9760: *1307 no live upstreams while connecting to upstream
+2025/10/04 13:16:56 [crit] 7878#2797: *4141 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/15 09:07:40 [error] 8088#8560: *4271 no live upstreams while connecting to upstream
+2025/11/11 23:46:06 [alert] 8414#6943: *4564 rewrite or internal redirection cycle
+2025/10/28 08:17:54 [warn] 4824#3849: *3347 no live upstreams while connecting to upstream
+2025/08/24 15:07:21 [warn] 7668#5324: *2561 client prematurely closed connection while reading client request body
+2025/09/11 20:50:34 [crit] 5334#6137: *95 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/06 11:30:42 [error] 4376#8450: *831 client sent invalid method while reading client request line
+2025/11/27 10:07:12 [crit] 6284#6190: *3327 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/27 06:16:48 [error] 9632#8867: *3296 client prematurely closed connection while reading client request body
+2025/10/14 19:04:26 [alert] 2547#1302: *2823 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/01 15:51:19 [alert] 3293#1839: *78 rewrite or internal redirection cycle
+2025/09/11 16:45:58 [alert] 1081#8899: *4712 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/17 04:53:14 [crit] 3718#6471: *2484 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/11 04:15:31 [alert] 8624#5577: *704 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/19 00:37:05 [crit] 4960#6925: *3046 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/13 11:21:04 [warn] 4432#8674: *1951 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/08 21:15:35 [warn] 9369#3648: *13 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/29 15:48:55 [crit] 3947#4246: *4974 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/27 10:02:32 [error] 3188#4440: *1781 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/13 04:48:58 [alert] 4226#4029: *2237 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/25 06:31:52 [error] 6891#2897: *2498 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/10 14:43:48 [crit] 8743#7233: *997 client sent invalid method while reading client request line
+2025/08/31 15:16:58 [warn] 3341#8437: *516 client intended to send too large body
+2025/10/31 19:11:07 [alert] 9810#2224: *4314 client intended to send too large body
+2025/10/04 20:48:33 [error] 9961#4414: *638 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/05 02:18:40 [warn] 6048#8601: *1623 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/24 22:10:35 [alert] 2023#3522: *1871 client prematurely closed connection while reading client request body
+2025/09/22 08:26:57 [crit] 2771#4119: *1273 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/23 21:36:55 [crit] 2949#5468: *849 rewrite or internal redirection cycle
+2025/11/15 14:00:33 [warn] 6756#3150: *3471 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/30 06:06:26 [error] 1286#6578: *1226 client sent invalid method while reading client request line
+2025/08/15 19:36:50 [error] 3242#9081: *3418 rewrite or internal redirection cycle
+2025/08/28 04:01:33 [crit] 5867#2043: *1233 client sent invalid method while reading client request line
+2025/11/28 03:44:03 [error] 3338#6771: *1277 client intended to send too large body
+2025/08/11 12:06:11 [warn] 2463#4746: *4683 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/25 11:39:18 [error] 4059#8160: *1721 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/22 05:23:01 [crit] 8031#9149: *4590 rewrite or internal redirection cycle
+2025/10/24 14:48:10 [error] 1703#3052: *3097 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/08 17:37:46 [warn] 5395#9851: *1016 client sent invalid method while reading client request line
+2025/08/21 14:27:42 [warn] 4256#2184: *4401 rewrite or internal redirection cycle
+2025/11/04 09:15:58 [warn] 4895#8460: *3327 no live upstreams while connecting to upstream
+2025/11/08 18:44:24 [crit] 4802#1782: *2822 client sent invalid method while reading client request line
+2025/09/14 01:17:14 [error] 2918#5244: *2894 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/13 18:41:57 [crit] 7931#4713: *357 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/27 23:59:59 [warn] 3810#7420: *1238 client sent invalid method while reading client request line
+2025/10/02 03:39:32 [alert] 8594#1121: *906 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/29 05:04:00 [error] 1538#4110: *3555 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/23 01:54:24 [alert] 6139#3533: *1429 client intended to send too large body
+2025/10/08 19:03:09 [crit] 4814#9478: *2535 client intended to send too large body
+2025/08/12 04:11:42 [alert] 9166#8922: *3165 client intended to send too large body
+2025/09/14 01:55:06 [warn] 7888#5826: *4724 no live upstreams while connecting to upstream
+2025/08/19 03:22:06 [alert] 6273#9834: *590 client prematurely closed connection while reading client request body
+2025/11/27 23:12:35 [crit] 7758#8537: *736 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/16 10:21:07 [alert] 9582#5561: *1292 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/18 15:26:41 [error] 4636#4457: *3551 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/22 08:25:59 [warn] 9316#7388: *1332 client sent invalid method while reading client request line
+2025/09/30 16:48:37 [alert] 3316#9444: *758 rewrite or internal redirection cycle
+2025/10/24 08:55:51 [warn] 1697#8143: *4604 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/14 11:19:48 [crit] 4815#3645: *3265 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/21 13:26:32 [warn] 9223#5178: *4517 client intended to send too large body
+2025/10/09 15:54:24 [warn] 1418#7558: *4195 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/18 15:25:21 [alert] 4194#6306: *2397 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/30 17:23:58 [crit] 4018#8321: *391 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/19 03:39:32 [crit] 8281#5329: *4117 client intended to send too large body
+2025/11/20 06:18:18 [crit] 1184#7846: *1853 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/16 03:04:58 [alert] 3206#7913: *2430 client sent invalid method while reading client request line
+2025/10/26 18:31:46 [error] 7868#2086: *4356 client prematurely closed connection while reading client request body
+2025/10/30 18:44:46 [error] 1497#6998: *1753 client prematurely closed connection while reading client request body
+2025/08/16 21:30:12 [alert] 8056#6403: *845 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/14 13:05:37 [warn] 1379#9681: *4318 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/30 09:55:44 [error] 5838#5182: *983 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/07 16:59:24 [error] 6733#5510: *871 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/24 02:45:18 [alert] 1146#4873: *1784 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/05 20:30:07 [error] 5532#2673: *1963 client prematurely closed connection while reading client request body
+2025/10/13 08:51:02 [error] 4539#4873: *1442 client prematurely closed connection while reading client request body
+2025/11/29 09:19:23 [warn] 3020#4278: *1981 client intended to send too large body
+2025/09/26 09:13:44 [error] 4363#3159: *4670 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/09 00:05:40 [crit] 9059#4060: *1721 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/15 08:44:41 [crit] 1049#2384: *1874 client prematurely closed connection while reading client request body
+2025/10/01 02:01:34 [crit] 5784#9875: *2560 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/30 04:56:35 [error] 8779#9208: *1148 client prematurely closed connection while reading client request body
+2025/08/11 11:46:37 [crit] 5703#7918: *4877 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/10 05:35:56 [warn] 4815#3166: *529 no live upstreams while connecting to upstream
+2025/11/13 17:46:25 [warn] 8861#1484: *1241 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/23 13:33:52 [alert] 7143#9564: *1108 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/21 12:02:08 [error] 6536#6587: *2528 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/02 18:31:16 [warn] 5240#8716: *2667 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/20 16:34:20 [error] 2886#4392: *2407 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/04 14:51:47 [warn] 4380#4971: *631 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/24 06:19:30 [error] 7336#2831: *3407 client prematurely closed connection while reading client request body
+2025/08/06 05:32:05 [alert] 9427#1399: *219 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/05 09:34:54 [warn] 4711#2323: *2287 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/17 04:51:37 [crit] 2857#3983: *4885 client intended to send too large body
+2025/10/22 05:36:35 [error] 3892#1499: *51 client sent invalid method while reading client request line
+2025/09/01 03:35:32 [alert] 1288#1043: *1861 rewrite or internal redirection cycle
+2025/11/15 12:56:44 [warn] 5571#2902: *1377 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/13 02:40:22 [alert] 5536#9124: *957 client intended to send too large body
+2025/08/05 18:32:08 [warn] 6305#7170: *1795 client prematurely closed connection while reading client request body
+2025/10/16 21:17:28 [warn] 9036#8253: *926 no live upstreams while connecting to upstream
+2025/09/14 05:15:10 [crit] 1981#8524: *344 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/01 08:23:48 [warn] 7677#1912: *4321 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/08 07:28:57 [error] 8384#5721: *2484 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/13 23:45:49 [warn] 4984#2939: *237 client intended to send too large body
+2025/08/17 12:09:39 [warn] 7387#8088: *4770 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/03 02:05:13 [error] 1978#4391: *308 client intended to send too large body
+2025/08/16 22:32:03 [warn] 3572#9159: *2855 client sent invalid method while reading client request line
+2025/09/06 09:10:22 [warn] 2684#7845: *2357 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/28 16:56:37 [warn] 5364#1950: *1845 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/27 20:09:04 [alert] 8401#1265: *316 client intended to send too large body
+2025/09/11 06:08:06 [warn] 7954#2615: *3724 no live upstreams while connecting to upstream
+2025/08/19 04:02:34 [warn] 3845#5906: *1189 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/05 08:18:27 [warn] 1451#6476: *448 client prematurely closed connection while reading client request body
+2025/10/07 09:57:52 [alert] 6306#3123: *552 client prematurely closed connection while reading client request body
+2025/10/11 23:46:00 [warn] 6573#6269: *446 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/05 21:01:55 [error] 4130#6921: *504 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/27 03:40:09 [alert] 3453#1787: *4865 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/16 05:41:21 [crit] 3685#9684: *4225 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/09 03:24:13 [crit] 5129#6606: *4077 client intended to send too large body
+2025/08/31 02:58:18 [warn] 6413#1059: *11 client prematurely closed connection while reading client request body
+2025/08/07 02:49:52 [error] 7687#7983: *3449 client prematurely closed connection while reading client request body
+2025/09/01 10:48:08 [crit] 7839#1083: *2084 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/26 02:53:28 [warn] 6721#4541: *1769 client sent invalid method while reading client request line
+2025/08/14 12:36:09 [crit] 5824#6553: *406 client sent invalid method while reading client request line
+2025/09/23 20:09:40 [crit] 3959#3373: *2100 client intended to send too large body
+2025/08/26 07:28:40 [crit] 5817#6334: *4250 client prematurely closed connection while reading client request body
+2025/08/13 15:09:53 [alert] 8082#7342: *687 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/13 23:02:06 [warn] 2744#6256: *3225 no live upstreams while connecting to upstream
+2025/08/08 19:42:53 [error] 7770#7581: *3702 client prematurely closed connection while reading client request body
+2025/10/08 13:48:02 [alert] 1323#9966: *4076 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/20 13:30:35 [alert] 4304#2360: *74 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/09 15:51:31 [error] 5782#1544: *3474 client intended to send too large body
+2025/09/13 09:31:04 [warn] 8059#9294: *2200 client prematurely closed connection while reading client request body
+2025/09/17 13:56:58 [alert] 5433#1008: *2170 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/04 14:43:43 [error] 4259#1359: *1631 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/27 04:37:29 [crit] 4121#6516: *3187 client prematurely closed connection while reading client request body
+2025/11/04 23:01:57 [error] 1801#2676: *2036 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/06 12:02:14 [alert] 6080#3266: *2250 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/11 15:28:39 [error] 7900#7766: *2791 client sent invalid method while reading client request line
+2025/10/19 15:12:34 [alert] 3349#9718: *3783 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/28 11:34:18 [crit] 4708#7995: *3775 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/24 13:38:56 [crit] 4419#8773: *3086 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/09 01:18:24 [crit] 5887#6164: *1783 client prematurely closed connection while reading client request body
+2025/09/09 10:35:39 [error] 2363#2539: *1517 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/24 00:54:38 [crit] 9721#4682: *1603 client sent invalid method while reading client request line
+2025/11/09 12:57:03 [crit] 9672#8422: *2766 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/01 02:12:34 [warn] 4756#2939: *2472 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/27 01:46:12 [alert] 8428#9397: *2779 client intended to send too large body
+2025/10/31 10:10:33 [alert] 8292#1467: *3457 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/13 02:42:34 [warn] 4796#6269: *4261 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/05 06:08:05 [alert] 3178#5518: *2993 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/23 06:57:42 [warn] 7073#9566: *4609 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/08 05:11:17 [alert] 6561#9870: *1788 client intended to send too large body
+2025/11/02 09:51:10 [crit] 4866#2227: *123 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/27 07:07:38 [error] 9909#4280: *96 client sent invalid method while reading client request line
+2025/08/14 02:23:41 [crit] 3782#7478: *1473 client prematurely closed connection while reading client request body
+2025/08/06 10:23:46 [crit] 7784#6303: *1273 client prematurely closed connection while reading client request body
+2025/11/27 17:35:29 [alert] 1326#7235: *1369 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/12 16:08:38 [error] 8450#4459: *2805 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/14 07:18:08 [crit] 1841#2568: *2194 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/10 18:47:30 [error] 4291#7236: *1599 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/11 09:30:36 [warn] 8881#4559: *594 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/12 20:49:14 [error] 6999#4177: *1770 rewrite or internal redirection cycle
+2025/08/29 00:48:12 [crit] 5590#3960: *3661 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/06 19:26:07 [error] 1441#9608: *4467 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/26 16:20:29 [warn] 4853#4627: *1990 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/06 05:53:36 [crit] 3262#6078: *31 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/24 08:08:13 [alert] 3301#6059: *2720 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/08 04:58:14 [error] 3436#9683: *3318 client prematurely closed connection while reading client request body
+2025/09/18 03:25:02 [error] 7682#9067: *3166 client sent invalid method while reading client request line
+2025/11/12 17:06:10 [alert] 8623#8775: *384 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/12 02:18:52 [crit] 7447#6282: *2629 client prematurely closed connection while reading client request body
+2025/10/11 18:30:30 [alert] 7798#7899: *1078 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/31 17:47:30 [warn] 4485#4456: *853 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/20 00:44:01 [alert] 2217#7571: *4466 no live upstreams while connecting to upstream
+2025/10/27 01:55:22 [crit] 7180#3118: *35 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/12 01:09:53 [alert] 3435#4054: *4596 client intended to send too large body
+2025/11/02 02:18:15 [error] 2836#4070: *1713 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/22 13:35:22 [error] 6616#1651: *1961 rewrite or internal redirection cycle
+2025/11/21 08:07:02 [warn] 6470#1639: *4292 client intended to send too large body
+2025/10/13 10:00:13 [warn] 9997#4891: *1967 no live upstreams while connecting to upstream
+2025/11/19 21:16:39 [alert] 5966#8995: *4265 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/25 01:02:23 [warn] 2330#6748: *255 no live upstreams while connecting to upstream
+2025/08/06 03:31:26 [error] 8094#2944: *1858 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/25 21:50:36 [alert] 2693#4985: *3798 client sent invalid method while reading client request line
+2025/08/21 16:02:44 [warn] 3534#1418: *3923 no live upstreams while connecting to upstream
+2025/09/29 03:56:44 [alert] 8824#8337: *2534 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/02 23:08:10 [alert] 6040#2091: *773 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/08 07:11:52 [error] 6238#1779: *2512 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/20 11:24:07 [warn] 6852#6680: *1156 client sent invalid method while reading client request line
+2025/10/08 13:58:39 [error] 2035#3434: *4612 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/28 05:04:28 [crit] 3623#1513: *3142 rewrite or internal redirection cycle
+2025/11/12 18:24:30 [crit] 9114#8513: *1370 client prematurely closed connection while reading client request body
+2025/11/18 01:07:56 [warn] 7560#5140: *2773 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/11 14:54:48 [alert] 6628#2316: *2340 client intended to send too large body
+2025/10/20 03:43:53 [error] 2188#6627: *4206 no live upstreams while connecting to upstream
+2025/08/14 22:53:43 [error] 3121#6948: *2964 client intended to send too large body
+2025/08/29 05:32:10 [error] 3370#6769: *4468 client prematurely closed connection while reading client request body
+2025/10/29 18:20:25 [crit] 5138#5337: *1208 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/09 15:51:57 [warn] 7582#7317: *1007 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/22 10:58:26 [alert] 6188#5163: *2595 no live upstreams while connecting to upstream
+2025/11/22 11:13:34 [crit] 7475#5612: *561 client sent invalid method while reading client request line
+2025/08/28 21:36:35 [warn] 3984#2978: *3356 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/09 09:51:45 [alert] 1357#8216: *261 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/21 15:47:38 [error] 3086#8379: *4012 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/12 22:07:32 [warn] 9601#2024: *2446 client prematurely closed connection while reading client request body
+2025/10/31 12:41:01 [warn] 9721#8620: *1789 client intended to send too large body
+2025/08/27 12:08:44 [error] 3480#9031: *420 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/11 18:00:28 [crit] 1287#1800: *4625 rewrite or internal redirection cycle
+2025/08/20 02:08:33 [crit] 7222#8206: *4104 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/23 05:46:05 [crit] 4612#5148: *118 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/23 13:17:04 [alert] 1274#9342: *1954 no live upstreams while connecting to upstream
+2025/11/06 04:54:11 [alert] 1279#8406: *2728 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/04 16:03:32 [crit] 5848#6313: *2210 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/15 11:45:43 [alert] 6004#1836: *2238 rewrite or internal redirection cycle
+2025/08/23 15:17:26 [alert] 5684#3768: *644 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/01 10:03:58 [alert] 6989#9099: *533 client prematurely closed connection while reading client request body
+2025/10/09 15:52:42 [alert] 5705#2975: *4415 client prematurely closed connection while reading client request body
+2025/10/08 05:25:38 [crit] 2719#9754: *4951 client sent invalid method while reading client request line
+2025/09/10 19:58:51 [error] 1437#7817: *1689 rewrite or internal redirection cycle
+2025/10/21 10:09:16 [alert] 5672#8619: *2704 rewrite or internal redirection cycle
+2025/09/11 19:00:29 [crit] 1139#9643: *3880 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/28 04:48:08 [warn] 8305#4368: *903 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/17 21:06:30 [warn] 7501#7163: *1315 client prematurely closed connection while reading client request body
+2025/09/14 00:57:11 [crit] 1200#7351: *3408 client intended to send too large body
+2025/11/18 02:16:04 [crit] 2737#4997: *4549 client intended to send too large body
+2025/10/03 09:47:12 [error] 1738#6406: *212 rewrite or internal redirection cycle
+2025/10/03 06:22:31 [alert] 7994#4631: *1217 client prematurely closed connection while reading client request body
+2025/11/22 09:29:53 [alert] 8332#3914: *1581 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/30 02:43:48 [error] 2558#2168: *3556 client intended to send too large body
+2025/09/07 02:30:34 [crit] 5431#9727: *1590 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/05 13:42:21 [error] 3019#4175: *116 no live upstreams while connecting to upstream
+2025/11/12 15:58:19 [alert] 4023#2186: *2862 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/15 10:02:15 [alert] 7372#5535: *83 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/26 17:00:04 [alert] 1848#3234: *4785 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/13 11:48:40 [alert] 7922#6903: *1400 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/04 19:31:03 [alert] 7748#1998: *3423 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/22 05:01:45 [alert] 9418#6894: *4597 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/27 00:05:29 [warn] 6631#2345: *3043 client prematurely closed connection while reading client request body
+2025/11/20 16:08:26 [error] 3105#3598: *3798 client intended to send too large body
+2025/09/05 08:26:19 [error] 2870#6244: *1 no live upstreams while connecting to upstream
+2025/08/11 05:33:36 [crit] 5346#9591: *1680 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/03 04:12:54 [alert] 4032#4097: *3199 client intended to send too large body
+2025/08/18 05:58:35 [error] 6423#1430: *3037 client intended to send too large body
+2025/09/09 21:41:16 [crit] 8571#6733: *2213 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/07 01:51:41 [alert] 3723#5808: *3648 rewrite or internal redirection cycle
+2025/11/06 11:55:59 [alert] 7633#3262: *3068 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/25 04:23:53 [error] 4292#5654: *4620 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/29 07:46:40 [error] 3104#2506: *18 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/21 01:30:14 [warn] 9329#1180: *2884 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/21 06:39:05 [error] 2370#8753: *1846 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/06 22:47:21 [warn] 7755#1919: *1319 rewrite or internal redirection cycle
+2025/10/14 15:16:02 [crit] 8084#7600: *3564 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/24 14:59:42 [alert] 9119#5586: *1424 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/14 20:10:56 [warn] 4380#2720: *4396 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/27 03:44:47 [error] 1565#2551: *2021 no live upstreams while connecting to upstream
+2025/10/24 19:14:41 [warn] 3411#6973: *487 rewrite or internal redirection cycle
+2025/11/27 23:51:29 [crit] 5056#4251: *2354 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/24 13:33:53 [crit] 8788#9612: *4703 no live upstreams while connecting to upstream
+2025/10/26 15:04:31 [alert] 3617#2490: *276 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/15 05:16:13 [alert] 2334#6517: *1147 client sent invalid method while reading client request line
+2025/08/05 22:21:17 [crit] 7612#5461: *1218 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/20 01:02:59 [error] 9793#7348: *1470 rewrite or internal redirection cycle
+2025/10/31 05:29:53 [crit] 7429#2291: *1298 client sent invalid method while reading client request line
+2025/10/06 05:19:36 [alert] 5047#4841: *3224 client intended to send too large body
+2025/10/25 10:58:56 [warn] 7210#9469: *2626 client sent invalid method while reading client request line
+2025/10/02 06:30:53 [alert] 5336#1141: *3505 client intended to send too large body
+2025/10/05 16:44:50 [crit] 1469#5211: *2213 client prematurely closed connection while reading client request body
+2025/08/29 19:12:29 [error] 7523#4102: *742 client prematurely closed connection while reading client request body
+2025/09/10 09:59:47 [crit] 3047#5263: *4259 rewrite or internal redirection cycle
+2025/08/20 18:53:17 [error] 6356#5818: *2015 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/11 18:23:30 [error] 7943#3513: *1286 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/11 11:02:13 [alert] 7126#9772: *606 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/25 16:50:10 [error] 2178#8510: *1344 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/14 01:40:59 [crit] 7984#9678: *4066 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/23 07:56:38 [alert] 1223#5486: *4297 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/20 07:28:49 [crit] 5881#9756: *2003 rewrite or internal redirection cycle
+2025/11/19 19:58:42 [alert] 5666#2340: *3001 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/25 20:09:29 [warn] 2694#9592: *1757 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/22 17:23:43 [warn] 8266#5951: *4449 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/23 15:31:47 [warn] 1862#3860: *2687 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/18 11:56:39 [crit] 7713#6845: *4969 no live upstreams while connecting to upstream
+2025/10/24 19:46:17 [warn] 5970#8018: *2831 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/08 08:33:43 [crit] 4494#9702: *3705 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/31 05:01:58 [warn] 8987#6491: *4939 client intended to send too large body
+2025/09/25 04:17:35 [crit] 1050#8339: *3493 rewrite or internal redirection cycle
+2025/11/24 21:00:32 [crit] 4371#7565: *76 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/18 06:24:33 [error] 9093#3992: *3024 no live upstreams while connecting to upstream
+2025/09/16 00:48:39 [alert] 1276#4463: *2034 rewrite or internal redirection cycle
+2025/11/07 04:13:55 [warn] 3631#4738: *2040 client intended to send too large body
+2025/11/10 09:43:55 [warn] 1612#3539: *56 no live upstreams while connecting to upstream
+2025/08/08 18:51:29 [error] 4895#6780: *2963 client prematurely closed connection while reading client request body
+2025/08/09 19:42:23 [error] 5160#4326: *4666 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/27 20:32:28 [warn] 4025#6518: *3215 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/16 22:35:10 [warn] 3667#5992: *1853 no live upstreams while connecting to upstream
+2025/10/09 01:50:52 [crit] 4799#7676: *3070 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/06 14:10:38 [error] 2229#3033: *1325 rewrite or internal redirection cycle
+2025/09/14 12:28:13 [alert] 8217#3744: *33 no live upstreams while connecting to upstream
+2025/10/30 21:31:25 [alert] 8005#2378: *3411 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/25 14:46:06 [crit] 4718#2775: *736 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/13 16:22:10 [alert] 5473#5009: *3770 client prematurely closed connection while reading client request body
+2025/09/19 01:52:20 [crit] 7783#8127: *1783 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/08 21:09:04 [alert] 1243#6593: *2371 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/11 19:16:02 [alert] 8456#3376: *1227 client intended to send too large body
+2025/10/23 01:16:46 [alert] 4292#7671: *2658 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/12 01:50:16 [warn] 9694#5239: *4750 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/28 19:36:01 [alert] 4725#3121: *401 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/11 04:48:02 [error] 7311#8779: *2967 rewrite or internal redirection cycle
+2025/10/16 06:10:34 [crit] 8476#9202: *2578 rewrite or internal redirection cycle
+2025/10/26 13:25:09 [alert] 7486#4558: *730 no live upstreams while connecting to upstream
+2025/10/01 16:16:10 [crit] 4051#8738: *830 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/28 00:52:22 [error] 7041#6297: *3350 rewrite or internal redirection cycle
+2025/10/11 17:38:20 [warn] 9867#2572: *1471 rewrite or internal redirection cycle
+2025/10/12 14:09:29 [crit] 5629#9707: *3119 client prematurely closed connection while reading client request body
+2025/08/09 12:35:58 [crit] 8555#4693: *852 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/22 03:38:41 [crit] 6194#2859: *713 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/25 12:39:34 [crit] 2315#8488: *2098 client intended to send too large body
+2025/11/14 04:59:48 [error] 4008#1350: *967 no live upstreams while connecting to upstream
+2025/10/12 08:17:35 [alert] 2737#6781: *3869 client prematurely closed connection while reading client request body
+2025/08/23 23:39:52 [crit] 2123#5607: *1230 rewrite or internal redirection cycle
+2025/09/11 01:26:49 [alert] 4148#8681: *2350 client prematurely closed connection while reading client request body
+2025/09/08 17:51:09 [error] 7746#7621: *568 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/27 01:10:41 [crit] 4359#1564: *164 client intended to send too large body
+2025/10/27 11:24:25 [crit] 3173#8877: *2907 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/14 17:15:01 [crit] 1155#9316: *2868 rewrite or internal redirection cycle
+2025/09/07 22:01:32 [alert] 7974#6020: *3555 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/12 22:32:22 [error] 5657#1009: *2397 no live upstreams while connecting to upstream
+2025/09/16 17:40:09 [alert] 8687#2903: *2822 rewrite or internal redirection cycle
+2025/08/10 16:35:40 [warn] 6826#2906: *1125 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/21 12:09:39 [alert] 1718#5720: *675 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/04 14:43:01 [warn] 3076#1814: *1379 client sent invalid method while reading client request line
+2025/10/20 01:44:18 [error] 5150#9765: *2868 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/29 23:11:19 [error] 2620#5236: *3427 rewrite or internal redirection cycle
+2025/10/18 20:39:14 [alert] 2884#3598: *901 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/26 20:49:27 [warn] 8696#5760: *3206 no live upstreams while connecting to upstream
+2025/11/09 01:10:13 [warn] 7144#6718: *323 rewrite or internal redirection cycle
+2025/10/05 01:51:39 [alert] 1000#1505: *3976 client sent invalid method while reading client request line
+2025/10/25 22:26:37 [alert] 8233#8132: *120 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/18 10:46:02 [error] 9072#1377: *2265 client prematurely closed connection while reading client request body
+2025/08/29 19:09:24 [crit] 4982#8101: *771 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/13 03:06:57 [error] 4179#2050: *307 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/09 02:36:09 [crit] 2996#9850: *2232 client prematurely closed connection while reading client request body
+2025/08/13 18:19:35 [error] 1244#5107: *4926 client sent invalid method while reading client request line
+2025/08/23 10:34:57 [warn] 7363#5180: *1784 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/26 03:11:27 [alert] 1658#7764: *726 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/08 16:48:59 [error] 5693#5841: *1210 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/29 05:05:15 [error] 2988#3537: *3759 client prematurely closed connection while reading client request body
+2025/08/24 13:07:27 [warn] 1130#4136: *4846 client prematurely closed connection while reading client request body
+2025/08/07 08:17:36 [warn] 7796#9838: *1785 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/16 14:38:38 [crit] 6314#7000: *2440 client sent invalid method while reading client request line
+2025/09/16 10:37:54 [error] 3160#5154: *815 rewrite or internal redirection cycle
+2025/09/13 15:24:48 [alert] 8370#5968: *603 rewrite or internal redirection cycle
+2025/09/21 06:00:12 [error] 8965#2863: *2958 client prematurely closed connection while reading client request body
+2025/08/16 23:31:46 [alert] 7419#7520: *755 client prematurely closed connection while reading client request body
+2025/09/15 15:16:47 [warn] 2226#5204: *112 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/26 22:25:45 [warn] 3106#6225: *2989 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/13 19:55:06 [crit] 1125#6592: *1313 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/11 17:53:29 [crit] 4282#1191: *3397 client prematurely closed connection while reading client request body
+2025/11/16 11:27:57 [crit] 7767#7719: *2393 client prematurely closed connection while reading client request body
+2025/09/22 05:24:35 [crit] 6098#8746: *3409 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/02 01:38:26 [error] 3007#6536: *593 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/17 10:11:54 [error] 8297#3790: *1058 rewrite or internal redirection cycle
+2025/10/23 00:56:12 [error] 2299#1308: *827 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/31 17:24:52 [alert] 1597#9439: *1025 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/24 02:54:26 [alert] 8198#9373: *1019 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/16 20:55:17 [warn] 8368#9100: *571 rewrite or internal redirection cycle
+2025/08/16 00:54:38 [error] 4885#8195: *3432 client sent invalid method while reading client request line
+2025/11/25 18:30:14 [warn] 8284#2159: *2948 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/04 01:00:10 [crit] 6057#5873: *620 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/22 13:11:22 [warn] 2054#8079: *1572 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/10 12:45:14 [alert] 5240#1467: *4389 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/26 16:04:39 [error] 8141#2934: *147 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/05 12:46:46 [crit] 2695#6483: *958 client intended to send too large body
+2025/09/01 13:02:41 [crit] 9563#4045: *2151 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/05 13:43:34 [error] 4590#6060: *3522 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/27 15:17:28 [error] 2267#4955: *454 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/08 21:03:58 [alert] 5426#5037: *632 client sent invalid method while reading client request line
+2025/10/05 09:13:01 [alert] 5739#7290: *3593 no live upstreams while connecting to upstream
+2025/10/22 01:05:44 [error] 2471#3828: *3222 rewrite or internal redirection cycle
+2025/11/28 06:10:10 [warn] 9522#7854: *4744 client prematurely closed connection while reading client request body
+2025/09/04 11:01:33 [alert] 1268#4557: *654 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/30 16:57:36 [crit] 6839#8503: *1525 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/26 21:34:58 [alert] 6999#6979: *4822 rewrite or internal redirection cycle
+2025/10/27 13:03:48 [alert] 1068#5790: *4129 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/11 03:22:28 [warn] 1844#1366: *2461 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/10 05:14:31 [warn] 4832#5618: *402 client sent invalid method while reading client request line
+2025/09/17 02:28:43 [warn] 3466#2699: *2554 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/08 21:15:00 [error] 4802#8568: *193 no live upstreams while connecting to upstream
+2025/08/20 02:47:15 [alert] 3606#9890: *1031 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/16 04:16:05 [warn] 6033#6491: *1133 no live upstreams while connecting to upstream
+2025/09/18 11:55:04 [crit] 9745#5191: *830 client prematurely closed connection while reading client request body
+2025/10/29 06:16:34 [crit] 9257#6683: *3115 client sent invalid method while reading client request line
+2025/09/18 20:06:57 [crit] 1090#4875: *726 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/27 09:26:40 [warn] 2762#5507: *3243 client intended to send too large body
+2025/11/12 14:52:43 [warn] 2556#3550: *1274 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/16 22:08:46 [crit] 1014#9390: *4112 client prematurely closed connection while reading client request body
+2025/09/11 11:55:31 [crit] 9704#9240: *1085 client intended to send too large body
+2025/10/09 18:34:47 [alert] 7212#7775: *3716 client prematurely closed connection while reading client request body
+2025/09/13 00:58:34 [error] 8638#6764: *3471 client sent invalid method while reading client request line
+2025/08/28 09:09:44 [error] 4032#4730: *4137 client prematurely closed connection while reading client request body
+2025/08/23 11:49:06 [crit] 1999#3458: *4319 client intended to send too large body
+2025/11/19 02:44:40 [error] 8392#5942: *3520 no live upstreams while connecting to upstream
+2025/10/09 16:08:55 [error] 6101#3132: *3550 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/29 16:07:26 [warn] 9752#3618: *4722 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/14 13:38:20 [alert] 7936#5372: *2462 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/04 16:18:45 [alert] 4926#3398: *1127 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/07 18:28:26 [crit] 5202#9744: *2717 rewrite or internal redirection cycle
+2025/08/22 13:37:12 [crit] 2117#8566: *2763 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/07 15:43:28 [crit] 8635#2160: *702 client prematurely closed connection while reading client request body
+2025/10/30 19:59:49 [warn] 2237#8799: *1128 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/22 18:51:11 [warn] 6433#1808: *2764 client sent invalid method while reading client request line
+2025/10/18 06:32:55 [warn] 8795#9319: *3294 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/20 07:22:37 [alert] 8571#9951: *2445 rewrite or internal redirection cycle
+2025/10/15 11:29:22 [crit] 8068#1023: *260 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/06 20:29:18 [error] 3012#1427: *1296 rewrite or internal redirection cycle
+2025/09/10 09:05:04 [warn] 3970#4313: *1397 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/30 12:06:20 [crit] 8254#9574: *3038 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/18 07:23:05 [crit] 5679#3201: *2970 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/09 22:01:20 [error] 3216#2163: *1959 client prematurely closed connection while reading client request body
+2025/10/09 11:08:38 [crit] 7432#8385: *474 client sent invalid method while reading client request line
+2025/09/01 15:08:33 [crit] 8784#2253: *4624 no live upstreams while connecting to upstream
+2025/08/25 22:03:08 [crit] 8116#9987: *1471 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/05 03:46:24 [warn] 5221#2533: *2208 rewrite or internal redirection cycle
+2025/09/25 09:09:07 [warn] 8259#5264: *2148 no live upstreams while connecting to upstream
+2025/10/18 23:57:13 [alert] 5425#1597: *4722 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/10 18:07:39 [alert] 2283#7470: *2597 no live upstreams while connecting to upstream
+2025/11/11 09:24:28 [warn] 6043#9066: *4192 client sent invalid method while reading client request line
+2025/11/20 15:07:58 [crit] 4180#2977: *358 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/22 15:59:16 [alert] 7302#8672: *4680 client sent invalid method while reading client request line
+2025/09/30 14:37:16 [alert] 6530#1725: *3167 client intended to send too large body
+2025/09/04 00:48:43 [warn] 2834#2610: *403 no live upstreams while connecting to upstream
+2025/10/17 18:41:25 [crit] 7547#6895: *3838 client intended to send too large body
+2025/10/10 22:25:23 [alert] 2189#8663: *3154 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/03 16:02:18 [crit] 1214#8122: *1839 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/14 13:40:35 [error] 8176#7011: *378 client sent invalid method while reading client request line
+2025/10/20 09:28:06 [error] 1497#9878: *4025 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/30 04:52:27 [warn] 7862#2815: *2271 client prematurely closed connection while reading client request body
+2025/10/06 18:17:57 [warn] 8454#5140: *4885 rewrite or internal redirection cycle
+2025/10/16 19:42:21 [alert] 6350#6955: *771 client prematurely closed connection while reading client request body
+2025/10/23 09:49:14 [error] 8968#4604: *1919 client intended to send too large body
+2025/09/12 08:16:40 [error] 7902#8221: *406 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/13 11:18:49 [alert] 6395#2006: *4379 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/23 01:33:38 [error] 1539#1813: *3921 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/09 17:58:55 [crit] 6788#3664: *3557 client intended to send too large body
+2025/10/16 01:04:46 [error] 4226#8584: *99 client prematurely closed connection while reading client request body
+2025/08/31 08:34:59 [error] 8419#9803: *3385 rewrite or internal redirection cycle
+2025/09/03 01:16:06 [crit] 2531#5674: *531 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/22 02:01:23 [warn] 6330#2887: *167 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/18 11:31:54 [alert] 4685#2654: *4032 client intended to send too large body
+2025/11/26 05:54:45 [crit] 6391#3978: *314 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/13 09:51:06 [crit] 3655#2453: *142 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/30 06:17:10 [crit] 5695#2217: *2368 client sent invalid method while reading client request line
+2025/10/02 08:09:56 [error] 1401#7442: *1735 client prematurely closed connection while reading client request body
+2025/09/01 06:30:10 [warn] 3328#4973: *3627 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/07 08:47:54 [crit] 2349#2763: *1612 client prematurely closed connection while reading client request body
+2025/10/05 14:17:56 [alert] 9614#6098: *648 no live upstreams while connecting to upstream
+2025/08/22 21:06:24 [alert] 8023#3496: *2335 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/24 22:06:57 [warn] 9878#1504: *1566 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/30 19:23:39 [crit] 3124#7202: *4363 client intended to send too large body
+2025/11/05 07:11:30 [warn] 6132#6478: *317 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/29 14:19:17 [crit] 6113#5078: *1702 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/17 22:31:31 [crit] 7189#2189: *1148 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/07 02:11:48 [crit] 7941#3371: *184 rewrite or internal redirection cycle
+2025/11/07 17:41:02 [error] 5154#4323: *3303 client prematurely closed connection while reading client request body
+2025/08/25 10:27:43 [warn] 5536#4877: *3325 rewrite or internal redirection cycle
+2025/11/17 13:48:03 [alert] 9014#9809: *3588 rewrite or internal redirection cycle
+2025/08/30 03:47:07 [alert] 5844#2944: *3145 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/12 15:29:43 [error] 1642#2382: *2990 rewrite or internal redirection cycle
+2025/11/27 14:11:59 [alert] 1441#2215: *2467 no live upstreams while connecting to upstream
+2025/11/09 21:56:01 [alert] 8952#1336: *352 client sent invalid method while reading client request line
+2025/09/18 15:28:56 [error] 4986#3800: *2957 client sent invalid method while reading client request line
+2025/10/27 19:55:07 [error] 6306#6624: *562 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/31 10:53:46 [crit] 3258#6894: *500 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/19 01:50:36 [alert] 1971#1716: *1202 client prematurely closed connection while reading client request body
+2025/09/27 16:56:07 [warn] 3423#9719: *489 rewrite or internal redirection cycle
+2025/08/19 17:36:43 [alert] 5341#4196: *4177 no live upstreams while connecting to upstream
+2025/10/12 19:04:06 [crit] 2052#8741: *3663 client intended to send too large body
+2025/09/13 00:21:20 [warn] 8361#3973: *3990 client intended to send too large body
+2025/09/19 21:20:31 [warn] 6536#6697: *4087 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/26 17:17:17 [warn] 1776#5827: *1712 client sent invalid method while reading client request line
+2025/09/10 17:30:10 [alert] 8310#1438: *1396 client sent invalid method while reading client request line
+2025/11/11 11:31:09 [error] 8860#6046: *1438 rewrite or internal redirection cycle
+2025/10/20 05:26:25 [crit] 5796#5360: *2322 rewrite or internal redirection cycle
+2025/11/08 00:35:41 [error] 8344#6147: *4010 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/06 14:11:29 [crit] 9091#4160: *980 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/06 01:20:01 [warn] 5680#8824: *527 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/21 04:51:24 [error] 9622#2468: *2755 rewrite or internal redirection cycle
+2025/10/29 00:39:09 [crit] 5190#6698: *2486 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/04 05:45:07 [error] 4596#1702: *902 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/09 17:11:18 [alert] 6989#5433: *1826 no live upstreams while connecting to upstream
+2025/08/09 16:04:23 [error] 2305#1698: *2397 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/02 08:02:19 [error] 7584#8993: *997 rewrite or internal redirection cycle
+2025/09/27 22:48:57 [error] 7860#8269: *3465 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/16 15:24:57 [error] 7608#3049: *2632 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/06 02:46:16 [alert] 3980#9125: *1201 no live upstreams while connecting to upstream
+2025/08/07 02:31:14 [alert] 8841#7571: *3615 no live upstreams while connecting to upstream
+2025/10/02 05:05:19 [alert] 1251#5740: *1034 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/29 20:53:09 [warn] 6596#6002: *3877 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/26 20:05:33 [error] 6026#5574: *3942 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/12 18:44:55 [error] 5677#7581: *4474 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/07 04:25:03 [warn] 7647#5786: *4913 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/11 05:32:38 [alert] 2718#6809: *1022 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/24 04:07:17 [error] 9705#7794: *2087 client sent invalid method while reading client request line
+2025/11/15 23:37:54 [alert] 2960#6500: *3245 rewrite or internal redirection cycle
+2025/08/25 11:42:46 [alert] 1240#1096: *643 no live upstreams while connecting to upstream
+2025/10/13 17:30:11 [alert] 8043#4293: *4594 client prematurely closed connection while reading client request body
+2025/08/15 06:06:48 [alert] 2924#7198: *2749 rewrite or internal redirection cycle
+2025/09/25 03:05:05 [alert] 5070#5490: *510 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/13 08:29:57 [alert] 8883#9739: *2975 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/15 23:30:33 [crit] 1059#2648: *3678 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/30 23:16:51 [warn] 4895#7685: *229 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/10 10:07:19 [crit] 5807#1439: *2891 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/09 14:42:31 [alert] 9555#4089: *2294 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/27 21:18:43 [crit] 4489#2777: *1217 client sent invalid method while reading client request line
+2025/11/04 04:22:08 [warn] 6329#7576: *1679 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/29 01:01:49 [crit] 5122#6747: *4285 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/12 04:15:16 [alert] 3686#3139: *936 client intended to send too large body
+2025/09/20 20:02:44 [warn] 4720#5520: *1882 no live upstreams while connecting to upstream
+2025/09/19 04:23:23 [error] 9486#2851: *4316 rewrite or internal redirection cycle
+2025/10/19 07:58:42 [crit] 5462#3033: *1739 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/11 04:07:16 [error] 4115#8492: *4171 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/14 19:05:58 [error] 3355#2093: *2724 client sent invalid method while reading client request line
+2025/08/28 12:54:31 [crit] 2229#3263: *3049 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/20 06:51:45 [alert] 9844#4130: *3669 client prematurely closed connection while reading client request body
+2025/09/06 05:05:20 [crit] 9956#6139: *1160 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/18 02:18:10 [warn] 2358#1978: *2249 client prematurely closed connection while reading client request body
+2025/09/29 19:45:45 [error] 5825#1781: *3847 no live upstreams while connecting to upstream
+2025/08/26 11:36:43 [crit] 5754#5598: *2119 client prematurely closed connection while reading client request body
+2025/09/05 20:07:26 [alert] 8443#4287: *4909 rewrite or internal redirection cycle
+2025/11/20 15:02:23 [warn] 1821#8883: *3534 client prematurely closed connection while reading client request body
+2025/11/05 01:57:51 [crit] 9227#3904: *1824 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/25 11:34:02 [warn] 2308#2595: *1859 no live upstreams while connecting to upstream
+2025/10/29 08:30:43 [crit] 4588#2918: *2139 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/07 04:41:58 [warn] 9871#1968: *3887 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/11 00:41:46 [alert] 9126#3062: *525 client sent invalid method while reading client request line
+2025/10/08 21:36:41 [error] 2822#7790: *3123 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/13 14:37:13 [error] 6806#8655: *2106 rewrite or internal redirection cycle
+2025/11/13 17:58:42 [warn] 4967#2528: *272 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/03 06:38:00 [alert] 6661#4046: *532 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/09 02:04:47 [warn] 9250#4736: *249 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/27 21:02:48 [crit] 7595#8849: *79 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/05 16:34:25 [alert] 6016#5891: *2258 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/10 21:50:06 [crit] 3211#3575: *3029 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/21 05:11:13 [crit] 7535#7791: *4321 client prematurely closed connection while reading client request body
+2025/08/07 03:49:35 [error] 9002#5016: *488 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/15 00:35:24 [crit] 1524#4875: *3229 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/28 06:28:13 [warn] 5881#1350: *3598 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/07 01:20:42 [error] 5283#2910: *3420 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/26 01:06:58 [error] 3656#5776: *3141 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/13 00:50:25 [alert] 1869#7627: *629 client sent invalid method while reading client request line
+2025/10/24 15:03:10 [crit] 7737#7486: *4365 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/09 01:09:51 [crit] 7020#3822: *2271 rewrite or internal redirection cycle
+2025/10/05 06:04:54 [warn] 5228#1003: *2692 client prematurely closed connection while reading client request body
+2025/09/19 02:46:40 [alert] 3903#5358: *3189 rewrite or internal redirection cycle
+2025/08/19 18:17:40 [error] 5650#5836: *3562 client intended to send too large body
+2025/10/21 05:12:05 [error] 9805#5234: *2728 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/26 17:28:21 [crit] 1908#1727: *153 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/25 06:54:44 [crit] 4004#3067: *1265 client prematurely closed connection while reading client request body
+2025/08/12 18:11:10 [warn] 2309#9375: *3325 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/15 03:11:43 [error] 9038#1533: *4657 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/05 08:24:38 [warn] 7625#1091: *1997 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/17 01:00:38 [error] 5385#6591: *2844 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/08 20:32:24 [warn] 8609#3118: *500 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/13 07:34:55 [warn] 9617#4169: *11 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/05 19:36:19 [crit] 8028#1314: *3661 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/26 21:57:29 [error] 6551#5187: *394 client prematurely closed connection while reading client request body
+2025/09/22 09:20:27 [warn] 2721#5612: *327 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/05 21:33:58 [error] 5954#6234: *4516 client prematurely closed connection while reading client request body
+2025/09/06 02:47:35 [error] 3371#4533: *3757 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/08 08:14:12 [crit] 5152#6297: *1873 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/08 09:32:24 [warn] 8588#4712: *1890 client sent invalid method while reading client request line
+2025/10/17 16:06:36 [alert] 6955#5979: *3647 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/14 07:27:22 [error] 1439#4187: *1117 client prematurely closed connection while reading client request body
+2025/10/16 01:22:16 [crit] 2654#9117: *4234 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/05 08:32:04 [crit] 6300#3170: *1314 no live upstreams while connecting to upstream
+2025/09/24 12:11:07 [crit] 4005#2063: *3425 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/04 12:39:47 [crit] 7817#8935: *1822 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/04 07:18:59 [alert] 1391#2786: *4127 client prematurely closed connection while reading client request body
+2025/08/22 23:24:58 [alert] 2062#5145: *264 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/11 03:10:49 [crit] 2862#4078: *1704 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/25 05:07:55 [alert] 5820#6857: *1929 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/06 10:43:02 [error] 4625#5962: *724 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/11 14:11:21 [crit] 5571#3220: *3363 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/25 19:21:01 [error] 2536#8904: *3038 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/25 01:30:39 [warn] 4018#8406: *2884 no live upstreams while connecting to upstream
+2025/09/13 03:38:35 [crit] 8287#8387: *4619 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/01 09:05:19 [alert] 5210#8715: *3820 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/25 03:39:25 [error] 8385#1978: *167 client intended to send too large body
+2025/11/17 14:03:52 [crit] 8726#3056: *4373 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/12 09:19:40 [crit] 3091#5429: *1094 no live upstreams while connecting to upstream
+2025/11/18 18:37:57 [crit] 9634#9508: *4313 client sent invalid method while reading client request line
+2025/10/12 00:48:07 [error] 8799#7750: *3593 rewrite or internal redirection cycle
+2025/08/18 20:36:03 [crit] 2071#4321: *2427 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/06 18:52:47 [crit] 9194#8673: *4262 client intended to send too large body
+2025/08/09 07:03:24 [alert] 4208#7067: *4995 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/30 23:53:37 [warn] 9017#2541: *3957 client sent invalid method while reading client request line
+2025/09/22 19:19:55 [crit] 4326#5143: *4368 rewrite or internal redirection cycle
+2025/11/18 21:03:10 [error] 5203#3126: *2321 client intended to send too large body
+2025/10/12 18:49:13 [warn] 7463#2770: *3674 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/25 03:57:30 [alert] 1751#1821: *108 client intended to send too large body
+2025/10/22 17:00:34 [warn] 1488#5994: *1977 rewrite or internal redirection cycle
+2025/11/25 08:51:03 [warn] 8898#4317: *399 client intended to send too large body
+2025/11/23 04:23:00 [error] 6317#8159: *4711 rewrite or internal redirection cycle
+2025/08/11 04:47:42 [warn] 9978#6386: *3203 rewrite or internal redirection cycle
+2025/11/16 08:18:39 [error] 6277#5230: *2458 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/26 05:41:44 [alert] 7254#6176: *594 client prematurely closed connection while reading client request body
+2025/08/13 07:08:24 [crit] 3238#7323: *927 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/12 10:15:58 [error] 9104#3755: *3365 no live upstreams while connecting to upstream
+2025/08/13 16:24:02 [error] 9016#5806: *2214 no live upstreams while connecting to upstream
+2025/08/24 16:18:12 [error] 1322#1464: *3411 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/31 14:37:57 [alert] 2615#9604: *1694 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/10 11:33:56 [error] 9247#7966: *4419 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/01 10:10:26 [crit] 6310#9973: *1250 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/17 03:46:11 [error] 3394#6763: *498 rewrite or internal redirection cycle
+2025/08/17 20:00:22 [warn] 2959#4372: *944 client sent invalid method while reading client request line
+2025/08/31 15:27:20 [crit] 5906#5585: *1953 client sent invalid method while reading client request line
+2025/09/29 13:39:41 [warn] 4894#8969: *3180 client intended to send too large body
+2025/09/03 09:49:36 [warn] 3915#5219: *2343 rewrite or internal redirection cycle
+2025/09/21 08:39:54 [crit] 9336#5997: *3507 client prematurely closed connection while reading client request body
+2025/09/20 06:01:41 [crit] 6368#6077: *1373 client sent invalid method while reading client request line
+2025/10/20 13:36:05 [crit] 2117#2563: *3726 client prematurely closed connection while reading client request body
+2025/11/16 11:19:54 [error] 7561#7029: *3680 no live upstreams while connecting to upstream
+2025/10/12 22:07:05 [alert] 1586#6322: *930 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/03 16:05:59 [crit] 5105#1481: *2174 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/01 15:43:40 [error] 8314#9565: *2379 client intended to send too large body
+2025/09/13 01:39:42 [crit] 5138#2041: *2793 client sent invalid method while reading client request line
+2025/09/08 07:24:40 [warn] 5457#6468: *4616 client intended to send too large body
+2025/11/16 07:50:17 [warn] 8894#6692: *18 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/20 22:53:42 [alert] 9070#8025: *3483 client sent invalid method while reading client request line
+2025/09/10 20:32:14 [crit] 7159#3732: *2829 client intended to send too large body
+2025/10/12 02:10:25 [warn] 8153#8768: *4192 client intended to send too large body
+2025/10/06 20:02:25 [error] 4858#5540: *92 client intended to send too large body
+2025/09/05 14:22:23 [alert] 4688#9941: *3980 client prematurely closed connection while reading client request body
+2025/11/02 01:40:04 [crit] 8194#2549: *3210 client prematurely closed connection while reading client request body
+2025/11/27 21:03:21 [crit] 1941#2925: *4395 client intended to send too large body
+2025/11/22 18:27:30 [alert] 9193#3001: *3290 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/10 02:54:53 [error] 2392#8664: *4083 no live upstreams while connecting to upstream
+2025/11/18 20:40:53 [alert] 5713#9085: *1786 rewrite or internal redirection cycle
+2025/08/27 21:57:25 [alert] 4793#6109: *544 rewrite or internal redirection cycle
+2025/11/22 04:06:56 [error] 3202#5807: *1677 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/19 09:06:42 [alert] 9300#2155: *522 client intended to send too large body
+2025/08/22 06:35:36 [warn] 6421#2197: *3850 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/29 06:08:33 [error] 2726#2823: *1587 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/24 00:02:02 [crit] 1731#3620: *1899 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/05 09:32:04 [error] 2997#6977: *3417 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/28 23:12:12 [alert] 3655#5515: *485 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/13 03:51:12 [alert] 3560#3789: *2503 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/15 15:08:31 [crit] 7890#6982: *235 client prematurely closed connection while reading client request body
+2025/11/23 02:26:53 [warn] 1703#5552: *3035 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/04 05:34:21 [warn] 1784#6560: *1030 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/02 18:30:39 [alert] 8877#8913: *1764 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/03 11:38:54 [warn] 1504#6829: *1453 client intended to send too large body
+2025/11/08 13:59:02 [warn] 6099#8750: *3737 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/22 00:15:42 [crit] 5890#1493: *1161 client intended to send too large body
+2025/09/28 11:27:57 [error] 1894#1351: *8 client intended to send too large body
+2025/11/25 17:26:36 [alert] 6371#1932: *4681 client sent invalid method while reading client request line
+2025/08/22 17:28:33 [warn] 4838#1354: *3523 client sent invalid method while reading client request line
+2025/09/21 00:00:11 [warn] 1304#8173: *2014 client intended to send too large body
+2025/09/15 21:37:58 [alert] 1619#3271: *3414 no live upstreams while connecting to upstream
+2025/09/30 11:29:21 [alert] 7174#7098: *735 no live upstreams while connecting to upstream
+2025/11/19 20:43:16 [crit] 1766#4395: *1321 rewrite or internal redirection cycle
+2025/11/09 11:19:36 [crit] 8828#5738: *1270 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/15 05:47:58 [error] 5210#4466: *2296 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/31 20:57:59 [warn] 2752#9746: *1574 rewrite or internal redirection cycle
+2025/11/24 21:37:07 [crit] 2788#1520: *1451 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/04 00:44:19 [warn] 2542#4867: *3062 client sent invalid method while reading client request line
+2025/10/18 07:43:11 [alert] 4883#8438: *4737 client intended to send too large body
+2025/08/05 18:58:42 [alert] 7247#5916: *3274 client prematurely closed connection while reading client request body
+2025/09/07 19:10:51 [crit] 4884#2899: *3469 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/17 09:48:58 [warn] 7235#6128: *4748 client prematurely closed connection while reading client request body
+2025/11/01 12:59:36 [error] 7386#9992: *2606 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/31 20:24:41 [crit] 8953#3375: *348 client sent invalid method while reading client request line
+2025/09/27 17:12:18 [warn] 5487#8763: *1850 rewrite or internal redirection cycle
+2025/11/26 19:25:55 [crit] 6690#8500: *2430 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/14 23:09:13 [error] 2189#3521: *1976 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/15 05:50:17 [error] 4279#7141: *4421 no live upstreams while connecting to upstream
+2025/09/21 14:09:18 [error] 3190#2346: *877 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/18 07:24:47 [alert] 1554#1396: *3352 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/07 23:08:04 [warn] 8803#9782: *2770 client sent invalid method while reading client request line
+2025/11/28 18:50:21 [error] 8177#1136: *2199 no live upstreams while connecting to upstream
+2025/10/19 03:55:36 [crit] 3814#7194: *1514 client sent invalid method while reading client request line
+2025/11/09 15:27:18 [error] 1366#2977: *3456 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/02 02:58:39 [crit] 9595#2142: *4786 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/27 13:26:04 [error] 5539#7985: *1233 client intended to send too large body
+2025/08/21 16:25:42 [alert] 6038#1552: *413 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/29 14:50:53 [error] 6127#8065: *3200 rewrite or internal redirection cycle
+2025/10/01 10:49:19 [warn] 2576#2609: *1453 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/12 15:01:35 [error] 3032#5368: *1905 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/01 04:35:16 [error] 3696#7227: *4386 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/27 22:18:56 [crit] 2766#1127: *1072 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/30 00:46:27 [crit] 9568#9560: *1565 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/10 13:48:21 [error] 1856#8200: *2920 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/06 04:20:20 [crit] 6554#9357: *2322 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/21 19:04:23 [crit] 9225#3718: *2511 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/20 23:10:24 [error] 4490#6126: *3518 client prematurely closed connection while reading client request body
+2025/11/02 23:54:26 [warn] 6310#1721: *690 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/13 00:25:31 [alert] 5821#3723: *2219 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/08 13:23:25 [error] 2009#7466: *641 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/11 22:36:38 [warn] 6655#7226: *449 rewrite or internal redirection cycle
+2025/09/17 16:28:35 [crit] 6420#1606: *2335 client prematurely closed connection while reading client request body
+2025/10/25 22:00:16 [error] 5231#6808: *4495 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/09 23:40:15 [crit] 1884#9120: *1225 client prematurely closed connection while reading client request body
+2025/10/18 03:52:28 [alert] 5590#4966: *4892 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/24 08:11:30 [crit] 2227#4279: *2544 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/23 04:22:04 [alert] 4697#6934: *2744 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/28 13:37:33 [error] 1362#3256: *260 client prematurely closed connection while reading client request body
+2025/09/04 05:46:14 [alert] 2022#9897: *164 client prematurely closed connection while reading client request body
+2025/09/23 14:14:35 [crit] 9315#2162: *686 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/20 20:02:56 [alert] 1738#9075: *101 no live upstreams while connecting to upstream
+2025/10/17 20:48:01 [crit] 1522#2737: *2299 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/07 19:11:01 [crit] 4064#3758: *4013 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/20 08:19:15 [warn] 3845#7318: *4969 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/23 13:09:01 [alert] 2083#4171: *3108 client prematurely closed connection while reading client request body
+2025/08/28 17:02:19 [crit] 3380#1986: *342 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/20 20:06:48 [warn] 1410#8010: *4367 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/06 17:15:23 [alert] 9951#2309: *805 rewrite or internal redirection cycle
+2025/11/23 09:37:06 [alert] 9881#5117: *4020 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/01 05:17:53 [crit] 9572#7428: *3776 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/24 02:43:19 [crit] 6133#9089: *820 client prematurely closed connection while reading client request body
+2025/11/11 05:56:49 [error] 6137#9472: *796 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/17 10:25:48 [error] 3747#7373: *4009 client prematurely closed connection while reading client request body
+2025/11/17 13:12:20 [warn] 1453#4760: *2370 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/24 23:04:05 [alert] 7747#7325: *3994 no live upstreams while connecting to upstream
+2025/10/04 12:12:36 [error] 8618#1733: *1456 client intended to send too large body
+2025/09/03 09:41:54 [warn] 1870#4030: *4078 client intended to send too large body
+2025/09/21 00:54:11 [error] 9033#8092: *3748 no live upstreams while connecting to upstream
+2025/08/20 22:39:59 [alert] 5344#3038: *3715 client sent invalid method while reading client request line
+2025/09/03 03:47:57 [alert] 6133#7422: *2673 client prematurely closed connection while reading client request body
+2025/10/01 12:17:46 [warn] 7103#5032: *3006 client intended to send too large body
+2025/08/30 19:33:59 [alert] 5518#9980: *4868 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/16 00:56:40 [warn] 9605#5203: *3446 client prematurely closed connection while reading client request body
+2025/09/19 18:58:54 [crit] 1281#9384: *3994 client sent invalid method while reading client request line
+2025/10/02 12:56:19 [warn] 1386#6524: *4244 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/05 04:49:14 [alert] 2956#3955: *3432 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/29 08:59:36 [crit] 6285#3801: *2828 no live upstreams while connecting to upstream
+2025/09/08 17:16:41 [error] 7072#5841: *4297 client intended to send too large body
+2025/09/24 18:13:28 [alert] 9520#3869: *2084 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/01 16:12:03 [warn] 8096#4924: *863 client sent invalid method while reading client request line
+2025/08/13 07:28:37 [alert] 9177#3997: *1725 client prematurely closed connection while reading client request body
+2025/10/11 03:09:29 [crit] 3154#3564: *1635 client intended to send too large body
+2025/10/09 00:04:40 [warn] 4410#7689: *4154 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/06 13:21:22 [warn] 6910#6325: *2849 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/06 08:16:09 [error] 4619#4353: *4757 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/01 14:52:57 [error] 6031#8259: *4263 client prematurely closed connection while reading client request body
+2025/10/23 20:04:15 [error] 6440#7099: *4321 client intended to send too large body
+2025/10/24 23:04:45 [crit] 3587#9200: *3710 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/19 15:47:22 [crit] 9035#3562: *2161 client prematurely closed connection while reading client request body
+2025/08/08 22:28:46 [warn] 9361#2676: *4115 client intended to send too large body
+2025/10/20 06:35:52 [alert] 2071#7397: *957 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/16 20:36:41 [alert] 8469#7444: *2495 client prematurely closed connection while reading client request body
+2025/10/19 18:49:51 [alert] 2050#4250: *1524 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/05 01:25:32 [crit] 1784#8499: *2663 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/24 23:55:43 [error] 4552#4551: *1784 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/20 14:21:42 [error] 2646#6062: *3710 client intended to send too large body
+2025/11/14 18:57:19 [error] 6434#8435: *4384 client sent invalid method while reading client request line
+2025/10/18 14:51:25 [error] 2854#5964: *3454 no live upstreams while connecting to upstream
+2025/09/12 08:37:52 [crit] 8663#9151: *4643 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/15 16:46:51 [error] 3994#8378: *4932 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/23 05:03:56 [error] 8092#6518: *1099 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/14 01:09:28 [alert] 8890#7695: *4659 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/25 03:37:04 [error] 1013#9318: *3127 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/13 06:19:19 [warn] 4778#8529: *376 client prematurely closed connection while reading client request body
+2025/11/18 01:30:23 [alert] 3960#6990: *103 no live upstreams while connecting to upstream
+2025/09/08 15:20:32 [alert] 3692#9170: *1179 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/14 22:19:38 [warn] 4679#4256: *2437 client prematurely closed connection while reading client request body
+2025/09/14 17:54:20 [alert] 8563#2984: *3826 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/27 02:32:46 [alert] 1257#7869: *696 client sent invalid method while reading client request line
+2025/10/04 04:12:51 [alert] 3605#5296: *457 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/29 05:18:22 [warn] 8984#5295: *2382 client sent invalid method while reading client request line
+2025/08/22 13:38:01 [error] 3970#4589: *1125 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/10 16:49:39 [error] 7116#4723: *945 client prematurely closed connection while reading client request body
+2025/10/03 16:36:05 [error] 5778#8997: *4036 client sent invalid method while reading client request line
+2025/08/17 01:08:14 [crit] 4933#8913: *723 client intended to send too large body
+2025/09/03 04:37:36 [error] 3995#1135: *3044 client intended to send too large body
+2025/09/09 13:14:30 [alert] 5958#1378: *4608 client prematurely closed connection while reading client request body
+2025/09/13 17:58:57 [crit] 9579#9232: *3833 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/15 17:18:59 [warn] 5690#1418: *1300 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/19 09:21:36 [alert] 8822#1095: *494 client prematurely closed connection while reading client request body
+2025/10/01 06:50:51 [crit] 1774#3422: *4288 no live upstreams while connecting to upstream
+2025/08/31 22:01:39 [error] 5756#2310: *2942 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/11 04:39:11 [error] 3523#1289: *2179 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/21 12:42:30 [alert] 2679#1732: *2907 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/29 15:33:25 [error] 4470#7122: *2544 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/15 16:12:32 [error] 8060#3689: *97 rewrite or internal redirection cycle
+2025/09/25 16:40:45 [error] 7545#4220: *1642 no live upstreams while connecting to upstream
+2025/08/06 23:45:03 [crit] 1980#2091: *3903 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/31 07:00:58 [warn] 2189#4226: *1017 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/12 02:15:08 [crit] 3886#8121: *3393 client prematurely closed connection while reading client request body
+2025/08/23 00:23:07 [warn] 4970#9024: *2685 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/30 05:06:40 [error] 6098#6085: *2097 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/21 00:10:43 [crit] 4180#1727: *3042 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/10 22:01:48 [warn] 1105#2410: *4211 rewrite or internal redirection cycle
+2025/10/12 09:09:10 [error] 8131#8371: *143 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/14 18:46:19 [crit] 9178#3575: *4369 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/14 11:14:22 [crit] 5529#6061: *3673 client sent invalid method while reading client request line
+2025/10/09 12:27:38 [alert] 4895#7985: *2296 client prematurely closed connection while reading client request body
+2025/10/19 10:44:20 [warn] 8605#4165: *3227 client sent invalid method while reading client request line
+2025/08/24 06:51:41 [error] 5522#6875: *3784 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/23 19:12:44 [warn] 7721#2890: *3038 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/28 00:36:18 [error] 4016#7800: *1762 client intended to send too large body
+2025/09/01 21:03:22 [crit] 3025#4815: *57 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/11 05:45:00 [crit] 4799#2586: *4550 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/21 23:25:58 [warn] 5392#9070: *4139 rewrite or internal redirection cycle
+2025/11/20 06:57:12 [warn] 4777#8415: *1389 no live upstreams while connecting to upstream
+2025/09/18 07:00:05 [error] 2511#2590: *384 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/21 16:34:32 [crit] 2493#9126: *2158 client sent invalid method while reading client request line
+2025/11/19 17:49:58 [warn] 5182#8362: *3840 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/07 13:23:31 [warn] 6423#8336: *163 client prematurely closed connection while reading client request body
+2025/11/12 05:05:22 [crit] 8210#9851: *4048 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/23 10:51:58 [error] 7949#3048: *4547 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/30 06:44:45 [crit] 9664#1427: *4 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/15 20:38:02 [warn] 4735#2161: *3748 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/02 09:01:50 [crit] 5769#1865: *996 client sent invalid method while reading client request line
+2025/10/27 18:39:09 [error] 1007#6320: *1031 no live upstreams while connecting to upstream
+2025/10/11 04:55:28 [warn] 8755#5592: *3755 client sent invalid method while reading client request line
+2025/08/19 06:57:23 [warn] 5567#1146: *1562 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/08 00:14:51 [warn] 6245#5514: *412 rewrite or internal redirection cycle
+2025/11/27 00:25:10 [warn] 9114#9561: *4478 no live upstreams while connecting to upstream
+2025/08/14 12:29:19 [crit] 7986#4140: *814 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/20 18:25:51 [alert] 5880#3075: *563 client intended to send too large body
+2025/08/10 23:10:39 [alert] 8661#1367: *2390 no live upstreams while connecting to upstream
+2025/11/23 04:59:43 [alert] 6694#4544: *3902 client intended to send too large body
+2025/08/27 07:25:51 [alert] 2448#2203: *4078 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/22 00:30:43 [error] 2250#7951: *2164 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/25 06:01:50 [crit] 6881#1451: *4848 rewrite or internal redirection cycle
+2025/11/06 11:43:58 [crit] 4900#8002: *418 client prematurely closed connection while reading client request body
+2025/11/17 01:15:38 [crit] 1212#4907: *124 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/11 00:48:59 [warn] 9247#2688: *1452 client prematurely closed connection while reading client request body
+2025/10/28 17:24:02 [warn] 5653#3078: *658 rewrite or internal redirection cycle
+2025/09/30 16:27:46 [error] 9249#5162: *2967 client intended to send too large body
+2025/11/10 12:55:19 [error] 5108#3262: *4480 client sent invalid method while reading client request line
+2025/09/14 02:28:16 [warn] 2482#7590: *3603 no live upstreams while connecting to upstream
+2025/11/08 07:30:07 [error] 2998#6023: *1371 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/24 13:50:03 [alert] 8707#7363: *1180 client intended to send too large body
+2025/08/18 05:58:36 [warn] 3708#4076: *2034 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/19 23:42:27 [crit] 7575#1448: *4738 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/08 08:04:14 [error] 2437#4943: *4216 no live upstreams while connecting to upstream
+2025/09/08 03:32:24 [error] 6133#6335: *4986 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/21 00:45:41 [warn] 1711#6165: *1933 client intended to send too large body
+2025/08/17 00:47:18 [alert] 1776#1037: *792 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/21 13:42:12 [warn] 3286#8433: *2736 client prematurely closed connection while reading client request body
+2025/09/16 12:27:51 [alert] 2497#7437: *3587 client intended to send too large body
+2025/09/30 12:29:04 [warn] 2121#7240: *15 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/21 03:22:46 [alert] 6730#8322: *1473 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/18 11:55:01 [alert] 8598#9284: *1348 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/07 17:56:40 [alert] 4050#2511: *2076 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/12 03:38:52 [crit] 8700#7836: *4093 rewrite or internal redirection cycle
+2025/08/07 23:25:47 [alert] 7239#5032: *2360 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/09 12:27:17 [crit] 9813#8790: *2058 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/18 08:06:34 [warn] 8442#2053: *2245 client sent invalid method while reading client request line
+2025/09/16 21:42:55 [crit] 7250#7158: *3293 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/15 14:30:20 [alert] 2130#1767: *3501 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/22 05:40:12 [alert] 8614#1609: *380 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/31 17:13:18 [crit] 5275#4625: *2230 no live upstreams while connecting to upstream
+2025/10/08 09:01:42 [crit] 9071#8541: *978 client intended to send too large body
+2025/10/27 08:56:45 [crit] 5269#6093: *1264 client sent invalid method while reading client request line
+2025/10/15 01:29:20 [warn] 1161#3533: *3710 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/22 00:09:26 [alert] 3713#6268: *1849 no live upstreams while connecting to upstream
+2025/08/10 10:03:18 [alert] 7943#9860: *3648 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/18 02:51:31 [warn] 7318#7714: *1396 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/19 04:08:05 [alert] 7040#9694: *1655 client prematurely closed connection while reading client request body
+2025/10/04 16:56:55 [error] 4526#3669: *736 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/29 00:40:01 [alert] 6588#9177: *3283 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/17 10:13:31 [error] 6402#1605: *1270 rewrite or internal redirection cycle
+2025/08/27 13:13:31 [crit] 7565#9266: *376 no live upstreams while connecting to upstream
+2025/09/23 02:41:43 [crit] 9440#2738: *768 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/08 08:38:13 [crit] 6302#2520: *830 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/02 10:36:12 [crit] 5687#5044: *977 rewrite or internal redirection cycle
+2025/10/05 12:20:32 [warn] 8201#4808: *1887 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/10 09:56:26 [alert] 6834#9165: *4888 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/24 10:34:23 [error] 4214#2569: *3147 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/13 19:14:16 [alert] 2155#3615: *13 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/31 02:33:17 [alert] 3579#3460: *142 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/13 14:57:41 [warn] 6088#8890: *2066 no live upstreams while connecting to upstream
+2025/08/26 11:29:20 [alert] 1096#2226: *1950 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/08 02:25:15 [warn] 6789#9460: *3528 no live upstreams while connecting to upstream
+2025/10/13 08:32:07 [crit] 1485#4612: *927 rewrite or internal redirection cycle
+2025/09/03 23:08:34 [warn] 4853#4998: *2323 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/27 03:27:30 [crit] 7260#8274: *3568 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/09 06:11:50 [crit] 8282#9647: *119 client sent invalid method while reading client request line
+2025/10/15 07:07:53 [crit] 9089#6414: *802 rewrite or internal redirection cycle
+2025/10/18 17:24:04 [error] 5722#4180: *4468 rewrite or internal redirection cycle
+2025/11/20 21:41:56 [alert] 4680#4669: *1789 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/10 23:15:59 [warn] 5086#7200: *3330 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/22 19:52:23 [warn] 5882#6170: *208 no live upstreams while connecting to upstream
+2025/09/10 00:37:56 [alert] 1838#5290: *3442 client sent invalid method while reading client request line
+2025/08/08 20:08:11 [error] 5068#6004: *2981 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/20 23:52:23 [crit] 4922#4150: *565 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/02 04:07:02 [error] 5462#4989: *2968 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/12 07:23:23 [alert] 7242#2751: *4668 client prematurely closed connection while reading client request body
+2025/10/08 10:07:55 [alert] 4416#7259: *818 no live upstreams while connecting to upstream
+2025/09/02 08:06:10 [warn] 3626#6415: *4371 client sent invalid method while reading client request line
+2025/11/29 11:50:19 [crit] 2376#5899: *2860 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/11 00:40:46 [alert] 5935#8946: *959 rewrite or internal redirection cycle
+2025/11/25 17:57:06 [alert] 7161#6934: *943 client prematurely closed connection while reading client request body
+2025/11/20 06:01:27 [alert] 5579#7212: *1327 client intended to send too large body
+2025/08/23 00:38:57 [warn] 8940#3094: *1770 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/27 07:16:21 [warn] 3236#3244: *594 client sent invalid method while reading client request line
+2025/10/28 08:02:21 [warn] 3278#4377: *3160 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/25 02:09:43 [crit] 1106#6003: *1346 client intended to send too large body
+2025/08/30 19:38:03 [error] 7331#3571: *2757 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/27 09:40:40 [warn] 1139#3092: *4835 client intended to send too large body
+2025/11/18 19:16:48 [warn] 8514#2925: *4711 rewrite or internal redirection cycle
+2025/10/08 02:32:11 [error] 3767#9505: *539 client prematurely closed connection while reading client request body
+2025/10/01 12:18:54 [error] 6724#5355: *3088 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/04 12:02:31 [warn] 4011#1423: *311 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/26 20:53:31 [warn] 7029#1768: *694 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/22 08:31:52 [crit] 4623#5354: *4627 client sent invalid method while reading client request line
+2025/09/27 04:08:02 [crit] 2780#7037: *1140 client sent invalid method while reading client request line
+2025/10/21 15:15:06 [warn] 8867#3621: *1124 rewrite or internal redirection cycle
+2025/09/14 22:57:48 [error] 3400#6310: *145 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/21 03:24:56 [alert] 7298#1236: *2639 rewrite or internal redirection cycle
+2025/10/30 12:06:29 [alert] 5126#2887: *224 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/11 06:07:22 [crit] 3250#7790: *1612 client sent invalid method while reading client request line
+2025/09/27 18:57:06 [alert] 5801#9808: *1131 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/06 02:14:07 [crit] 3342#5594: *3437 client sent invalid method while reading client request line
+2025/10/21 05:53:27 [alert] 9190#7403: *1144 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/02 04:32:22 [alert] 1650#8055: *1973 rewrite or internal redirection cycle
+2025/09/10 09:01:35 [error] 2488#6220: *4884 no live upstreams while connecting to upstream
+2025/11/25 02:52:07 [crit] 7471#1592: *1169 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/13 08:33:54 [error] 3174#3031: *4103 client sent invalid method while reading client request line
+2025/11/20 08:25:11 [crit] 3319#8799: *9 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/31 06:16:01 [alert] 6315#2850: *3543 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/24 00:17:34 [error] 5158#5218: *2857 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/31 02:36:11 [error] 9121#1865: *3755 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/17 21:21:32 [warn] 6555#2008: *3912 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/12 11:37:29 [alert] 3750#6994: *421 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/28 03:21:05 [warn] 5400#7352: *3644 rewrite or internal redirection cycle
+2025/09/22 13:33:03 [crit] 2059#8956: *3806 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/08 21:17:24 [crit] 8913#4833: *4052 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/23 08:59:40 [warn] 3039#4944: *4326 client sent invalid method while reading client request line
+2025/09/07 00:45:24 [warn] 9877#6507: *1996 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/02 06:31:50 [alert] 3498#6217: *3836 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/08 18:31:53 [alert] 9470#7070: *4407 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/28 21:41:43 [crit] 7758#7439: *2287 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/06 14:54:44 [alert] 2449#3479: *3723 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/27 23:39:03 [error] 8308#8238: *1439 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/18 13:09:46 [crit] 4141#6116: *609 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/21 11:41:41 [alert] 1760#5783: *3848 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/28 20:35:18 [crit] 9429#1638: *3863 client sent invalid method while reading client request line
+2025/09/20 21:24:07 [alert] 2614#1261: *3329 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/23 12:46:14 [crit] 1769#1281: *1299 client sent invalid method while reading client request line
+2025/08/22 17:33:19 [alert] 3057#7008: *3700 rewrite or internal redirection cycle
+2025/10/08 18:16:34 [crit] 9902#2745: *945 client prematurely closed connection while reading client request body
+2025/11/25 08:55:21 [crit] 3082#2220: *4818 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/12 20:01:47 [crit] 9250#2269: *3170 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/03 20:15:36 [error] 4556#6972: *3426 rewrite or internal redirection cycle
+2025/09/12 19:23:28 [error] 2955#9069: *35 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/26 21:11:35 [error] 2052#2761: *1724 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/10 21:04:59 [alert] 6756#4607: *1312 client prematurely closed connection while reading client request body
+2025/10/19 00:25:19 [crit] 8054#1722: *952 client intended to send too large body
+2025/08/21 19:07:45 [warn] 7692#4611: *4904 client intended to send too large body
+2025/11/20 20:58:35 [error] 8758#2710: *333 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/23 05:23:56 [crit] 8454#6714: *4140 client intended to send too large body
+2025/11/07 00:05:30 [alert] 2807#4197: *2609 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/12 04:57:06 [alert] 2520#2724: *4472 client sent invalid method while reading client request line
+2025/11/21 17:35:18 [alert] 2642#2674: *2882 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/23 03:24:56 [warn] 8795#2070: *2622 no live upstreams while connecting to upstream
+2025/09/17 01:04:13 [warn] 1552#4920: *3642 no live upstreams while connecting to upstream
+2025/08/21 08:32:34 [warn] 7922#4277: *357 client prematurely closed connection while reading client request body
+2025/08/25 20:03:04 [alert] 2719#7346: *974 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/06 21:01:07 [warn] 8506#5516: *2555 client intended to send too large body
+2025/08/25 15:25:46 [warn] 5869#7969: *3731 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/05 05:54:08 [alert] 9778#7330: *3606 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/11 11:50:41 [crit] 9405#1746: *4383 client intended to send too large body
+2025/08/15 14:17:16 [alert] 4339#5134: *1868 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/08 04:20:25 [alert] 1317#5319: *3384 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/13 18:52:26 [error] 8461#7078: *1407 no live upstreams while connecting to upstream
+2025/10/04 12:43:56 [alert] 2848#1840: *3093 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/17 12:14:45 [error] 2407#3521: *2037 client intended to send too large body
+2025/10/12 16:17:17 [warn] 9664#8866: *3621 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/12 01:02:56 [alert] 2173#4362: *1960 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/06 07:52:22 [alert] 5888#4015: *3052 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/29 22:16:34 [error] 5743#4307: *4432 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/05 09:56:07 [crit] 5762#5755: *2330 client sent invalid method while reading client request line
+2025/08/06 16:29:03 [warn] 7218#4930: *1500 client prematurely closed connection while reading client request body
+2025/11/20 04:24:27 [crit] 8944#4574: *794 client intended to send too large body
+2025/11/09 12:59:02 [crit] 1807#9251: *1162 no live upstreams while connecting to upstream
+2025/10/13 13:02:13 [error] 6983#6856: *2704 no live upstreams while connecting to upstream
+2025/09/06 12:01:28 [crit] 8090#1043: *932 client sent invalid method while reading client request line
+2025/10/20 19:43:41 [error] 8081#5573: *3995 no live upstreams while connecting to upstream
+2025/10/21 22:48:43 [alert] 1563#6316: *2932 client intended to send too large body
+2025/10/20 02:23:37 [error] 5559#8088: *4489 client intended to send too large body
+2025/08/26 07:13:02 [warn] 5518#2335: *1730 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/03 07:18:05 [crit] 8792#3706: *4125 no live upstreams while connecting to upstream
+2025/11/04 00:10:39 [warn] 5280#4077: *3784 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/17 06:42:14 [crit] 2213#7155: *4688 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/29 01:17:06 [alert] 8214#1855: *3175 client intended to send too large body
+2025/08/12 14:22:50 [error] 6923#5071: *3797 no live upstreams while connecting to upstream
+2025/10/24 00:21:58 [warn] 9307#8064: *1685 client intended to send too large body
+2025/11/27 10:11:02 [crit] 5972#3384: *4957 client intended to send too large body
+2025/09/01 22:13:17 [error] 2774#5086: *180 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/06 01:08:20 [warn] 1933#8017: *1838 rewrite or internal redirection cycle
+2025/08/30 17:26:23 [warn] 5523#1671: *209 no live upstreams while connecting to upstream
+2025/09/19 05:13:42 [error] 7980#6005: *72 rewrite or internal redirection cycle
+2025/08/30 04:09:40 [error] 1040#9689: *1000 rewrite or internal redirection cycle
+2025/11/09 23:09:54 [warn] 9604#9075: *3644 client prematurely closed connection while reading client request body
+2025/09/19 08:30:30 [alert] 6718#1973: *3274 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/23 08:10:08 [alert] 8411#3119: *684 client prematurely closed connection while reading client request body
+2025/11/25 04:48:03 [alert] 4324#3230: *1152 client prematurely closed connection while reading client request body
+2025/10/20 00:59:59 [warn] 5846#1934: *845 no live upstreams while connecting to upstream
+2025/10/16 15:52:40 [alert] 5207#3147: *4663 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/20 22:02:25 [alert] 6627#7916: *1765 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/24 15:36:49 [alert] 6563#7573: *3595 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/05 13:49:25 [alert] 6438#7785: *1847 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/09 16:47:54 [warn] 8397#7423: *4059 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/03 14:57:56 [alert] 1311#9695: *3446 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/28 15:05:38 [warn] 7414#8957: *798 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/26 00:33:35 [warn] 9762#3157: *4965 client intended to send too large body
+2025/11/23 15:34:12 [alert] 4230#2612: *2625 client prematurely closed connection while reading client request body
+2025/10/31 19:41:45 [error] 4507#4683: *3657 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/21 03:33:27 [crit] 5864#1571: *49 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/20 20:28:07 [alert] 7234#7877: *3811 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/21 22:48:53 [error] 3555#1928: *2766 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/27 18:21:58 [crit] 3049#6976: *3816 rewrite or internal redirection cycle
+2025/08/20 10:51:52 [crit] 9310#8267: *2884 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/21 08:53:42 [crit] 6986#7615: *968 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/20 00:41:28 [error] 9748#1575: *1335 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/21 02:46:40 [warn] 9644#7944: *2264 rewrite or internal redirection cycle
+2025/08/26 20:18:55 [alert] 4088#7218: *3122 client intended to send too large body
+2025/08/09 05:46:51 [error] 6736#3479: *1953 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/01 18:45:05 [warn] 9319#3540: *4971 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/26 20:18:23 [crit] 1162#6731: *1630 no live upstreams while connecting to upstream
+2025/08/11 01:30:36 [error] 7365#9878: *4247 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/13 20:38:50 [alert] 3248#5998: *1815 client intended to send too large body
+2025/08/17 14:04:36 [crit] 1701#4299: *502 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/07 16:53:59 [error] 2360#1066: *2937 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/11 07:05:31 [alert] 5996#2085: *3688 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/20 19:50:34 [warn] 2084#4569: *4455 client sent invalid method while reading client request line
+2025/10/29 19:49:36 [crit] 3554#7200: *3794 rewrite or internal redirection cycle
+2025/09/13 00:42:49 [crit] 8197#3483: *4243 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/14 01:20:23 [crit] 4222#1461: *1025 rewrite or internal redirection cycle
+2025/11/19 12:42:08 [error] 6093#1964: *342 no live upstreams while connecting to upstream
+2025/08/14 09:25:14 [alert] 3726#2886: *4862 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/26 11:06:24 [crit] 1702#9700: *4876 rewrite or internal redirection cycle
+2025/11/26 14:38:25 [warn] 3231#1160: *3767 client intended to send too large body
+2025/09/22 18:26:38 [warn] 2274#1133: *273 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/08 08:49:22 [crit] 7160#7009: *3116 rewrite or internal redirection cycle
+2025/11/16 04:03:01 [error] 7591#3604: *1041 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/09 14:53:57 [crit] 3503#1922: *1094 client intended to send too large body
+2025/09/19 04:10:13 [alert] 6282#6683: *3488 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/14 17:57:21 [alert] 7181#6638: *4873 client sent invalid method while reading client request line
+2025/10/17 22:59:22 [error] 9491#1203: *1829 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/04 12:50:18 [error] 3841#1349: *509 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/26 00:43:02 [crit] 4372#2446: *833 no live upstreams while connecting to upstream
+2025/11/10 06:26:54 [warn] 6749#6968: *1762 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/27 01:07:21 [warn] 6465#9605: *2858 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/22 01:07:05 [crit] 1137#9629: *4155 client sent invalid method while reading client request line
+2025/11/23 16:36:02 [warn] 9233#1739: *1919 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/06 08:23:30 [warn] 3854#9304: *363 rewrite or internal redirection cycle
+2025/11/09 10:04:23 [alert] 3557#5779: *4405 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/15 22:15:18 [error] 5646#9447: *1674 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/26 08:35:58 [alert] 5553#7315: *4935 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/30 22:39:41 [error] 2014#1401: *578 client intended to send too large body
+2025/09/22 20:29:00 [crit] 3338#7862: *1670 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/17 19:31:45 [warn] 5115#5960: *3441 rewrite or internal redirection cycle
+2025/08/11 14:26:21 [warn] 6156#9464: *2162 client sent invalid method while reading client request line
+2025/10/08 00:05:13 [crit] 6024#9097: *1322 client intended to send too large body
+2025/10/08 04:24:02 [alert] 6861#6274: *4893 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/21 16:10:30 [alert] 3909#2115: *1375 client sent invalid method while reading client request line
+2025/10/13 04:22:15 [crit] 2480#3587: *2326 client sent invalid method while reading client request line
+2025/09/11 09:19:46 [warn] 5510#5837: *352 client sent invalid method while reading client request line
+2025/10/11 10:06:47 [crit] 7472#7632: *896 client sent invalid method while reading client request line
+2025/09/01 17:27:39 [warn] 1009#1827: *1103 rewrite or internal redirection cycle
+2025/10/13 10:22:38 [error] 9971#8988: *570 client sent invalid method while reading client request line
+2025/11/12 20:34:59 [alert] 9789#9920: *4478 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/19 15:54:47 [error] 6609#6585: *4787 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/15 18:59:47 [crit] 4600#2021: *539 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/06 11:38:08 [crit] 2967#4465: *2680 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/19 06:21:53 [alert] 6433#2105: *4423 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/06 05:10:30 [crit] 2917#2754: *2780 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/02 16:43:04 [crit] 5407#3492: *3660 no live upstreams while connecting to upstream
+2025/09/25 02:25:17 [alert] 8864#6969: *3701 rewrite or internal redirection cycle
+2025/09/07 13:03:33 [alert] 9697#6515: *3051 client intended to send too large body
+2025/08/26 11:19:32 [crit] 3644#6313: *2737 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/02 09:43:44 [error] 5231#6332: *817 client intended to send too large body
+2025/08/17 03:05:12 [alert] 5690#2638: *777 client sent invalid method while reading client request line
+2025/10/17 15:43:32 [alert] 4609#1823: *4286 client prematurely closed connection while reading client request body
+2025/11/23 21:02:43 [alert] 4859#2003: *1167 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/29 12:47:49 [alert] 3161#6275: *2290 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/28 14:54:04 [crit] 5050#7791: *2766 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/14 18:21:43 [alert] 2788#5974: *4335 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/31 15:16:49 [crit] 6519#8138: *2207 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/06 03:07:49 [alert] 9902#5301: *3293 client sent invalid method while reading client request line
+2025/11/19 11:04:41 [warn] 4830#4415: *481 client prematurely closed connection while reading client request body
+2025/09/22 02:06:09 [error] 6184#6968: *4230 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/09 02:37:04 [error] 1696#5194: *2320 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/20 01:59:44 [alert] 5965#4494: *2923 client sent invalid method while reading client request line
+2025/09/07 23:55:24 [crit] 2263#5074: *3615 rewrite or internal redirection cycle
+2025/08/14 10:22:52 [alert] 3939#1366: *4800 rewrite or internal redirection cycle
+2025/08/27 13:36:07 [crit] 8631#8863: *3361 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/04 02:55:20 [error] 1737#7397: *3567 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/07 07:38:59 [error] 8934#9916: *3499 client prematurely closed connection while reading client request body
+2025/09/18 11:49:27 [warn] 4013#6891: *4386 client prematurely closed connection while reading client request body
+2025/08/19 07:35:28 [warn] 3900#3107: *4736 no live upstreams while connecting to upstream
+2025/10/25 04:32:27 [crit] 3270#7579: *1834 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/24 13:48:10 [alert] 5238#5213: *97 client prematurely closed connection while reading client request body
+2025/08/22 22:36:59 [alert] 9112#4312: *2734 no live upstreams while connecting to upstream
+2025/09/07 00:50:14 [error] 2295#6024: *2224 client sent invalid method while reading client request line
+2025/10/03 12:07:24 [crit] 8680#6913: *872 no live upstreams while connecting to upstream
+2025/11/22 19:57:03 [crit] 7737#6405: *2961 no live upstreams while connecting to upstream
+2025/08/31 04:26:14 [error] 9727#9854: *3598 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/22 11:26:07 [crit] 7343#2888: *253 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/04 21:55:33 [error] 7054#7617: *2733 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/25 14:01:38 [error] 5367#8849: *360 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/08 12:14:08 [error] 9021#4061: *569 rewrite or internal redirection cycle
+2025/11/19 01:20:53 [error] 5261#9332: *4147 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/25 17:19:49 [error] 9700#3552: *1786 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/15 07:33:39 [crit] 9808#2512: *3990 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/05 12:54:09 [warn] 7476#1595: *804 rewrite or internal redirection cycle
+2025/09/27 19:36:45 [alert] 3798#1948: *2011 client sent invalid method while reading client request line
+2025/11/02 04:26:30 [alert] 5043#1681: *4207 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/19 11:38:19 [crit] 6625#6585: *3129 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/06 10:06:07 [error] 7533#5479: *2137 no live upstreams while connecting to upstream
+2025/09/06 00:50:46 [error] 6586#6100: *4503 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/02 20:17:27 [crit] 4388#6389: *987 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/31 16:26:31 [warn] 5336#3277: *4176 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/25 03:33:18 [error] 5114#3158: *4165 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/09/07 13:07:09 [crit] 3056#1400: *3889 client intended to send too large body
+2025/10/26 17:35:05 [crit] 2748#6169: *1929 rewrite or internal redirection cycle
+2025/09/12 05:16:26 [warn] 7516#1907: *483 client intended to send too large body
+2025/10/07 22:34:50 [warn] 9781#8995: *3667 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/27 08:35:25 [error] 8082#3514: *2209 client prematurely closed connection while reading client request body
+2025/10/26 14:32:35 [crit] 7992#7157: *202 no live upstreams while connecting to upstream
+2025/10/26 13:21:09 [crit] 1330#5039: *2952 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/22 21:19:01 [crit] 5626#6515: *595 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/04 09:04:44 [alert] 8761#2687: *2250 rewrite or internal redirection cycle
+2025/11/08 10:20:04 [alert] 6569#8129: *607 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/20 13:30:27 [warn] 3334#7637: *4949 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/14 03:31:56 [alert] 2462#4993: *2600 client sent invalid method while reading client request line
+2025/08/17 10:18:44 [error] 1884#8472: *912 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/20 14:44:02 [error] 8726#8902: *3069 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/23 15:58:20 [error] 2034#8493: *4199 client intended to send too large body
+2025/09/19 15:53:55 [alert] 5119#4890: *3606 rewrite or internal redirection cycle
+2025/09/09 11:43:47 [warn] 5808#2574: *41 client prematurely closed connection while reading client request body
+2025/08/07 07:50:55 [warn] 3296#8526: *4373 client intended to send too large body
+2025/11/14 18:37:09 [warn] 5308#8742: *864 no live upstreams while connecting to upstream
+2025/10/29 15:18:11 [alert] 3335#7420: *745 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/13 04:27:34 [alert] 9720#8153: *1193 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/07 01:32:13 [error] 9478#9730: *4094 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/29 01:05:41 [error] 9277#9728: *4384 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/30 23:41:46 [warn] 9183#8035: *2144 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/23 07:41:37 [warn] 9443#7668: *3961 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/05 19:35:38 [warn] 2940#9718: *2400 rewrite or internal redirection cycle
+2025/11/01 12:32:39 [error] 5180#3873: *579 no live upstreams while connecting to upstream
+2025/10/02 11:58:08 [alert] 8109#3130: *2715 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/18 23:23:23 [warn] 7537#5196: *805 client prematurely closed connection while reading client request body
+2025/10/25 00:10:56 [crit] 6756#2612: *2347 client prematurely closed connection while reading client request body
+2025/08/29 10:55:45 [crit] 6567#2250: *2559 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/01 07:34:42 [error] 9740#4941: *2236 client sent invalid method while reading client request line
+2025/10/10 23:58:11 [error] 3342#9138: *1631 client sent invalid method while reading client request line
+2025/11/12 10:07:27 [error] 4320#2878: *2751 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/24 06:11:32 [error] 7442#5293: *1540 client sent invalid method while reading client request line
+2025/11/08 01:05:17 [warn] 1966#1454: *1687 client sent invalid method while reading client request line
+2025/09/21 00:02:47 [alert] 9025#1659: *414 client intended to send too large body
+2025/10/02 19:54:01 [error] 8003#2354: *1513 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/17 14:58:12 [crit] 1504#9284: *1124 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/31 06:03:44 [warn] 3809#3221: *806 client prematurely closed connection while reading client request body
+2025/10/29 11:32:47 [warn] 5920#3390: *2759 client intended to send too large body
+2025/10/26 05:33:10 [warn] 7054#7054: *4899 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/24 01:45:35 [crit] 5369#5098: *1862 rewrite or internal redirection cycle
+2025/10/29 01:43:03 [warn] 2081#6067: *3560 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/17 07:34:27 [error] 6908#2024: *428 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/16 09:59:52 [alert] 9030#4381: *146 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/09 21:46:43 [alert] 8191#6727: *2538 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/30 07:19:03 [alert] 4765#7848: *4213 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/12 21:41:04 [alert] 6511#2505: *4397 rewrite or internal redirection cycle
+2025/11/02 09:48:36 [alert] 7251#6874: *3596 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/28 04:26:14 [warn] 7080#2533: *3854 no live upstreams while connecting to upstream
+2025/10/14 00:03:17 [error] 9413#3477: *1068 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/02 16:28:29 [warn] 8129#3828: *2238 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/18 12:37:51 [alert] 1271#6494: *4578 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/23 05:07:57 [error] 5615#9430: *2364 client intended to send too large body
+2025/09/08 04:29:55 [crit] 1774#1057: *5 client sent invalid method while reading client request line
+2025/09/11 12:48:46 [warn] 2275#4511: *3837 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/15 22:21:30 [error] 1494#7245: *1007 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/06 12:20:14 [crit] 7222#5947: *1543 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/24 14:06:47 [warn] 1654#8694: *1103 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/24 21:35:33 [warn] 8755#9176: *3908 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/17 04:49:26 [error] 7538#5281: *3078 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/15 22:58:40 [error] 7713#4489: *3520 no live upstreams while connecting to upstream
+2025/09/30 20:14:13 [warn] 5847#7478: *531 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/14 01:11:20 [alert] 3978#6907: *2982 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/06 09:30:43 [crit] 8627#2808: *1283 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/11 14:34:10 [crit] 1353#4167: *561 client intended to send too large body
+2025/09/01 04:38:34 [crit] 2895#8315: *3062 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/09 16:13:41 [warn] 9530#9871: *4816 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/09 21:35:36 [crit] 6729#3824: *2217 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/17 16:25:57 [error] 4329#2704: *4396 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/24 22:19:03 [alert] 4779#9283: *2569 client prematurely closed connection while reading client request body
+2025/08/15 17:36:36 [error] 7652#9261: *2131 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/17 02:46:38 [error] 3936#7650: *4076 client sent invalid method while reading client request line
+2025/11/11 15:37:45 [error] 4644#6838: *1009 client sent invalid method while reading client request line
+2025/09/25 05:53:08 [alert] 1755#6109: *3322 no live upstreams while connecting to upstream
+2025/10/26 20:09:53 [alert] 6038#4180: *2102 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/08 10:22:59 [error] 4983#5545: *725 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/03 23:54:56 [error] 6953#4971: *2858 client intended to send too large body
+2025/11/16 07:37:44 [alert] 1262#3702: *983 client intended to send too large body
+2025/09/10 16:30:08 [warn] 8666#1340: *3120 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/16 17:13:29 [error] 2098#1370: *4438 client intended to send too large body
+2025/08/18 13:10:16 [error] 2336#6103: *759 no live upstreams while connecting to upstream
+2025/11/09 19:56:07 [crit] 7390#1265: *4709 no live upstreams while connecting to upstream
+2025/11/01 18:43:51 [warn] 9924#8762: *971 client prematurely closed connection while reading client request body
+2025/09/28 01:05:54 [error] 5845#4388: *76 client intended to send too large body
+2025/09/01 02:24:18 [warn] 8768#9944: *700 rewrite or internal redirection cycle
+2025/11/14 08:41:35 [warn] 2914#6907: *1880 client sent invalid method while reading client request line
+2025/09/27 03:33:44 [error] 1225#2966: *4195 client prematurely closed connection while reading client request body
+2025/08/11 14:01:59 [warn] 6615#3183: *4158 client sent invalid method while reading client request line
+2025/11/19 15:55:50 [warn] 8975#4224: *1100 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/24 17:25:33 [alert] 6356#3857: *2012 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/25 18:09:25 [alert] 6003#7622: *3998 rewrite or internal redirection cycle
+2025/10/21 01:20:07 [alert] 2180#6018: *3575 rewrite or internal redirection cycle
+2025/09/01 20:54:06 [crit] 4279#8079: *1577 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/02 21:20:08 [error] 5519#5779: *3176 no live upstreams while connecting to upstream
+2025/10/24 19:08:26 [warn] 3795#2683: *2088 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/30 06:06:49 [crit] 8678#6156: *637 client intended to send too large body
+2025/08/14 10:33:03 [crit] 7286#9999: *394 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/13 00:40:21 [alert] 6109#4805: *2601 no live upstreams while connecting to upstream
+2025/11/19 00:29:08 [error] 8543#5935: *2106 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/11 02:59:40 [alert] 7607#7456: *1665 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/08 13:15:32 [alert] 8834#6144: *4202 rewrite or internal redirection cycle
+2025/08/09 20:48:31 [error] 4918#4748: *4059 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/21 00:56:05 [crit] 1929#5155: *4028 rewrite or internal redirection cycle
+2025/08/27 13:02:38 [error] 2856#3392: *4303 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/09 02:35:22 [warn] 7127#8661: *2055 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/04 16:07:27 [error] 7426#4355: *675 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/22 17:53:47 [warn] 9896#7642: *2815 client prematurely closed connection while reading client request body
+2025/08/20 11:32:48 [crit] 4904#1951: *1812 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/29 07:46:24 [crit] 4003#6823: *3918 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/26 15:02:12 [warn] 9802#6069: *1392 no live upstreams while connecting to upstream
+2025/11/03 02:57:27 [crit] 8283#3240: *4108 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/28 01:41:42 [error] 9536#7659: *280 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/24 12:53:01 [warn] 4130#1810: *4792 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/06 11:38:56 [crit] 6705#6774: *1285 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/23 02:06:46 [warn] 9325#2352: *2360 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/23 15:10:45 [crit] 2755#5209: *2091 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/27 14:15:24 [error] 3413#3953: *2592 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/31 19:39:14 [error] 9486#6559: *2290 no live upstreams while connecting to upstream
+2025/10/09 11:10:37 [alert] 9492#9350: *3525 client sent invalid method while reading client request line
+2025/11/26 00:47:21 [warn] 5376#6135: *4001 rewrite or internal redirection cycle
+2025/08/27 05:14:05 [alert] 3656#8681: *2034 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/17 18:36:59 [crit] 9588#5043: *1543 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/19 18:30:42 [alert] 8264#5364: *2628 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/26 00:28:50 [warn] 1936#2331: *968 client intended to send too large body
+2025/09/21 23:30:10 [alert] 9645#8697: *2441 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/16 00:13:30 [crit] 6729#9080: *375 client sent invalid method while reading client request line
+2025/11/19 06:48:05 [alert] 5563#7730: *3812 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/15 05:10:46 [error] 5599#7860: *2863 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/09/11 00:08:46 [error] 3358#2488: *1023 no live upstreams while connecting to upstream
+2025/10/11 09:59:39 [crit] 6630#7293: *2169 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/25 11:30:12 [alert] 9121#1389: *968 rewrite or internal redirection cycle
+2025/10/11 04:20:07 [alert] 4984#8734: *1443 rewrite or internal redirection cycle
+2025/08/28 03:17:42 [crit] 5814#5328: *2091 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/27 19:03:07 [crit] 4448#3537: *1909 no live upstreams while connecting to upstream
+2025/08/17 08:02:26 [alert] 3853#8757: *3532 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/22 20:49:19 [warn] 4500#7263: *697 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/11 13:06:53 [error] 8499#6779: *1892 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/11/17 01:56:27 [crit] 6408#5908: *3281 client intended to send too large body
+2025/10/26 10:02:50 [warn] 2594#8949: *443 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/09/22 04:51:09 [alert] 9246#3328: *2566 client intended to send too large body
+2025/08/17 19:16:47 [alert] 3391#1341: *4536 client prematurely closed connection while reading client request body
+2025/11/27 19:39:58 [error] 3545#8773: *597 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/09 22:50:45 [error] 6138#8501: *1984 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/17 16:05:17 [alert] 8251#1135: *3516 no live upstreams while connecting to upstream
+2025/10/30 15:43:17 [warn] 9581#5894: *3025 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/16 16:39:34 [warn] 8723#7485: *4976 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/25 04:55:48 [crit] 6999#3982: *4038 client sent invalid method while reading client request line
+2025/08/08 12:59:45 [crit] 8525#8729: *3861 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/26 20:06:37 [error] 3581#6681: *3672 client prematurely closed connection while reading client request body
+2025/11/17 01:06:57 [warn] 5942#9966: *4999 client prematurely closed connection while reading client request body
+2025/10/20 00:53:13 [error] 1617#4357: *2127 client prematurely closed connection while reading client request body
+2025/11/11 21:28:47 [warn] 4297#2394: *694 client intended to send too large body
+2025/10/13 23:46:10 [error] 1037#2090: *4962 no live upstreams while connecting to upstream
+2025/08/19 23:58:00 [warn] 9117#9982: *4503 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/09 20:34:02 [warn] 2951#9915: *2393 rewrite or internal redirection cycle
+2025/10/16 07:59:11 [crit] 7522#4021: *2951 client sent invalid method while reading client request line
+2025/10/02 21:42:57 [alert] 9380#5245: *1002 client sent invalid method while reading client request line
+2025/11/02 22:28:21 [warn] 8140#1497: *152 client prematurely closed connection while reading client request body
+2025/09/07 23:05:08 [error] 2704#9974: *4909 client intended to send too large body
+2025/08/26 04:32:19 [alert] 3447#5366: *1726 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/10/22 22:43:57 [crit] 6609#8368: *4410 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/09/16 01:35:10 [alert] 6669#8458: *4222 client intended to send too large body
+2025/08/23 21:56:26 [crit] 2220#4233: *2093 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/18 20:36:56 [warn] 8385#8567: *251 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/08/23 00:48:41 [warn] 8263#6672: *44 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/27 10:58:51 [crit] 1867#1981: *2562 rewrite or internal redirection cycle
+2025/09/26 20:21:13 [error] 9534#8732: *2160 client intended to send too large body
+2025/10/31 23:40:31 [warn] 4752#6921: *4269 connect() failed (111: Connection refused) while connecting to upstream
+2025/08/23 08:20:15 [alert] 7996#7417: *3666 client intended to send too large body
+2025/11/22 02:47:39 [alert] 6526#2871: *4199 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/07 11:27:59 [error] 5842#6607: *2145 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/16 11:25:36 [error] 3962#2305: *2771 no live upstreams while connecting to upstream
+2025/08/31 14:09:09 [warn] 1437#3845: *3860 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/17 06:24:03 [warn] 2057#5831: *2315 client intended to send too large body
+2025/10/26 18:29:14 [alert] 4260#4036: *1562 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/08/06 23:02:52 [warn] 5621#5487: *4564 client prematurely closed connection while reading client request body
+2025/08/30 19:10:22 [alert] 9387#9470: *1344 client sent invalid method while reading client request line
+2025/10/23 00:36:53 [warn] 9821#3246: *964 client prematurely closed connection while reading client request body
+2025/10/14 23:14:01 [crit] 2693#7103: *3915 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/23 09:06:26 [warn] 8153#2141: *3525 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/06 05:59:35 [warn] 4034#3006: *2009 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/27 02:50:54 [warn] 1876#4076: *3370 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/12 03:11:36 [warn] 2455#7910: *2415 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/26 17:27:50 [error] 5877#5277: *605 client intended to send too large body
+2025/10/27 16:30:09 [crit] 5724#7740: *3736 client sent invalid method while reading client request line
+2025/11/18 02:03:44 [error] 8406#4131: *3632 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/10/24 06:21:53 [alert] 2811#1710: *2141 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/28 09:13:30 [crit] 4099#7726: *568 client sent invalid method while reading client request line
+2025/09/12 15:44:08 [alert] 6366#6467: *2171 rewrite or internal redirection cycle
+2025/10/23 13:00:20 [warn] 2155#4289: *4751 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/20 11:13:47 [warn] 6315#3297: *1634 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/10/04 20:00:40 [error] 3700#6543: *944 connect() failed (111: Connection refused) while connecting to upstream
+2025/10/03 19:13:39 [crit] 3004#6977: *2080 client sent invalid method while reading client request line
+2025/10/19 08:00:24 [error] 6875#4636: *121 client sent invalid method while reading client request line
+2025/11/27 04:08:57 [crit] 1478#5131: *1750 client prematurely closed connection while reading client request body
+2025/10/16 09:02:36 [alert] 4004#4511: *201 rewrite or internal redirection cycle
+2025/09/11 21:33:55 [alert] 6350#3700: *3471 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/20 08:50:57 [crit] 5100#4974: *2340 client sent invalid method while reading client request line
+2025/10/27 03:13:58 [warn] 3688#9048: *2225 client prematurely closed connection while reading client request body
+2025/11/06 09:50:08 [warn] 8618#4556: *2399 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/10/01 03:03:14 [warn] 9243#8700: *2685 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/16 03:33:30 [error] 7142#8502: *663 connect() failed (111: Connection refused) while connecting to upstream
+2025/11/04 14:22:09 [warn] 6689#1449: *4947 client intended to send too large body
+2025/09/17 13:55:45 [crit] 8393#4802: *1680 rewrite or internal redirection cycle
+2025/11/12 12:23:19 [error] 2651#3468: *660 client intended to send too large body
+2025/10/12 07:59:54 [crit] 3176#2506: *986 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/04 07:41:16 [warn] 3712#5657: *4341 no live upstreams while connecting to upstream
+2025/09/07 11:19:26 [warn] 4866#4857: *1972 rewrite or internal redirection cycle
+2025/09/21 21:37:41 [crit] 1340#9659: *294 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/11/11 23:05:12 [error] 8407#7294: *109 open() "/var/www/html/favicon.ico" failed (2: No such file or directory)
+2025/08/14 16:38:59 [crit] 7990#8562: *689 client sent invalid method while reading client request line
+2025/09/05 14:29:06 [error] 3021#1129: *2605 no live upstreams while connecting to upstream
+2025/09/20 21:10:21 [warn] 2075#8809: *4336 recv() failed (104: Connection reset by peer) while reading response header from upstream
+2025/08/14 08:55:42 [error] 5241#3018: *3917 upstream timed out (110: Connection timed out) while reading response header from upstream
+2025/11/02 13:41:11 [alert] 2968#1731: *320 connect() failed (111: Connection refused) while connecting to upstream
+2025/09/30 21:28:03 [warn] 8375#8862: *396 client intended to send too large body
+2025/11/27 11:56:23 [warn] 6650#1533: *617 client intended to send too large body
+2025/09/30 16:29:56 [crit] 1621#1788: *460 rewrite or internal redirection cycle
+2025/10/05 00:43:18 [warn] 8809#7728: *2067 client prematurely closed connection while reading client request body
+2025/09/02 00:54:39 [crit] 2159#1634: *4145 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
+2025/11/05 08:57:06 [alert] 2267#6170: *4222 SSL_do_handshake() failed (SSL: error:1408F10B:SSL routines:ssl3_get_record:wrong version number)
