@@ -2,7 +2,7 @@
 """
 模拟工具模块 - 为故障诊断智能体提供模拟数据
 """
-from crewai.tools import BaseTool, tool  # 🆕 新增导入
+from crewai.tools import BaseTool, tool
 import random
 import time
 from datetime import datetime, timedelta
