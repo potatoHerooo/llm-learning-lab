@@ -1,0 +1,37 @@
+[
+  {
+    "ip": "10.0.1.101",
+    "hostname": "web-server-01",
+    "role": "web_frontend",
+    "region": "us-east-1",
+    "status": "healthy"
+  },
+  {
+    "ip": "10.0.1.102",
+    "hostname": "web-server-02",
+    "role": "web_frontend",
+    "region": "us-east-1",
+    "status": "healthy"
+  },
+  {
+    "ip": "10.0.2.101",
+    "hostname": "api-server-01",
+    "role": "api_backend",
+    "region": "us-west-2",
+    "status": "degraded"
+  },
+  {
+    "ip": "10.0.2.102",
+    "hostname": "api-server-02",
+    "role": "api_backend",
+    "region": "us-west-2",
+    "status": "healthy"
+  },
+  {
+    "ip": "10.0.3.101",
+    "hostname": "db-server-01",
+    "role": "database",
+    "region": "eu-central-1",
+    "status": "healthy"
+  }
+]

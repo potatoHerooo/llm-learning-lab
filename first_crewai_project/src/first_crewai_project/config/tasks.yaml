@@ -1,6 +1,19 @@
-research_task:
-  description: >
-    请研究一下关于 {topic} 的最新发展和趋势，并整理成一份摘要。
-  expected_output: >
-    一份关于 {topic} 的简洁、有条理的摘要报告，包含关键要点。
-  agent: researcher
+#任务一：搜索+提炼日志
+log_research_task:
+    description: 在日志中搜索与{api_endpoint}相关的日志。确保你提炼的日志记录是相关且完整的日志记录。
+    expected_output: 一份列表，包含关于{api_endpoint}相关的所有日志记录。
+    agent: log_analyst
+
+#任务二：搜索+提炼总结相关指标
+metrics_research_task:
+    description: 在所有指标中搜索与{api_endpoint}相关的所有指标，确保你提炼的指标是相关且完整的指标记录。
+    expected_output: 一份列表，包含关于{api_endpoint}相关的所有指标记录。
+    agent: metrics_inspector
+
+#任务三：最终决策
+root_case_task:
+    description: 审阅你获得的研究上下文（log_research_task和metrics_research_task的上下文），综合上下文和{api_endpoint}分析最有可能产生这个问题的原因。把最终的原因和相关的两个任务的上下文输出一个报告。
+    expected_output: 一份完整的报告，包含最可能的原因、相关证据以及分析过程。报告格式需要格式化成Markdown,但不要用""''代码块包裹。
+    agent: root_cause_diagnostician
+    markdown: true
+    output_file: report.md

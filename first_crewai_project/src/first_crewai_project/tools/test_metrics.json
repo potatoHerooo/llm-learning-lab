@@ -1,0 +1,38 @@
+{
+  "server_ip": "10.0.2.101",
+  "timestamp": "2025-12-04T09:16:33.365741",
+  "time_range_minutes": 60,
+  "success_rate": 0.7325896896722701,
+  "error_rate": 0.2674103103277299,
+  "total_requests": 35278,
+  "failed_requests": 9734,
+  "avg_latency_ms": 1010.853366582066,
+  "p50_latency_ms": 707.5973566074462,
+  "p95_latency_ms": 1819.536059847719,
+  "p99_latency_ms": 2527.133416455165,
+  "cpu_percent": 97.40636978390866,
+  "memory_percent": 94.45152534247985,
+  "disk_io_percent": 25.164529145640486,
+  "network_rx_mbps": 14.129192993063093,
+  "network_tx_mbps": 38.45920773283218,
+  "active_connections": 427,
+  "thread_pool_size": 138,
+  "queue_length": 38,
+  "database_connections": 100,
+  "database_latency_ms": 65.37494380970162,
+  "cache_hit_rate": 0.9469221894071995,
+  "timeline": [
+    {
+      "time_offset": -60,
+      "success_rate": 0.6325896896722701
+    },
+    {
+      "time_offset": -30,
+      "success_rate": 0.5325896896722702
+    },
+    {
+      "time_offset": 0,
+      "success_rate": 0.7325896896722701
+    }
+  ]
+}

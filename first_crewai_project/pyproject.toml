@@ -1,0 +1,13 @@
+#管理依赖
+[project]
+name = "first_crewai_project"
+version = "0.1.0"
+dependencies = [
+    "crewai",
+    "python-dotenv",
+    # 其他依赖，如 "duckduckgo-search" 用于搜索工具
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
