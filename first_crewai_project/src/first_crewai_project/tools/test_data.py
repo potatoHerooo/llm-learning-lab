@@ -56,12 +56,6 @@ def generate_servers() -> List[Dict[str, Any]]:
 def generate_nginx_logs_for_server(server_ip: str, time_range_minutes: int = 60) -> List[str]:
     """
     为指定服务器生成模拟的Nginx access_log日志
-
-    生成不同类型的错误日志：
-    - 5xx错误：服务器内部错误
-    - 4xx错误：客户端错误
-    - 慢请求：延迟过高
-    - 正常请求：用于对比
     """
     logs = []
 
@@ -72,10 +66,11 @@ def generate_nginx_logs_for_server(server_ip: str, time_range_minutes: int = 60)
     # 根据服务器IP决定错误类型
     if server_ip == "10.0.2.101":  # 有问题的服务器
         error_ratio = 0.4  # 40%的错误率
-        error_types = ["502", "500", "499", "200"]  # 包含各种错误码
+        # 为有问题的服务器特别设置，50%的请求是目标接口
+        target_endpoint_ratio = 0.5
     else:
         error_ratio = 0.05  # 5%的错误率
-        error_types = ["200", "404", "500"]  # 主要是正常请求
+        target_endpoint_ratio = 0.1  # 10%的请求是目标接口
 
     # 时间戳步进（假设每分钟有多个请求）
     time_step = time_range_minutes * 60 / 100  # 生成100条日志
@@ -85,7 +80,7 @@ def generate_nginx_logs_for_server(server_ip: str, time_range_minutes: int = 60)
         log_time = start_time + timedelta(seconds=i * time_step)
         timestamp = log_time.strftime('%d/%b/%Y:%H:%M:%S +0000')
 
-        # 随机决定是否生成错误
+        # 决定是否生成错误
         if random.random() < error_ratio:
             status_code = random.choice(["502", "500", "504", "499"])
             response_time = random.uniform(2.0, 10.0)  # 慢响应
@@ -93,18 +88,22 @@ def generate_nginx_logs_for_server(server_ip: str, time_range_minutes: int = 60)
             status_code = "200"
             response_time = random.uniform(0.05, 0.5)  # 正常响应
 
-        # 随机API端点
-        endpoints = [
-            "/api/v2/data.json",
-            "/api/v1/users",
-            "/api/v1/products",
-            "/static/js/app.js",
-            "/health"
-        ]
-        request_path = random.choice(endpoints)
+        # 决定使用哪个API端点
+        if random.random() < target_endpoint_ratio:
+            # 使用目标接口
+            request_path = "/api/v2/data.json"
+        else:
+            # 其他接口
+            endpoints = [
+                "/api/v1/users",
+                "/api/v1/products",
+                "/static/js/app.js",
+                "/health"
+            ]
+            request_path = random.choice(endpoints)
 
         # HTTP方法
-        method = random.choice(["GET", "POST"])
+        method = "GET" if request_path == "/api/v2/data.json" else random.choice(["GET", "POST"])
 
         # 客户端IP
         client_ips = ["192.168.1." + str(random.randint(1, 255)) for _ in range(5)]
@@ -115,7 +114,7 @@ def generate_nginx_logs_for_server(server_ip: str, time_range_minutes: int = 60)
 
         logs.append(log_line)
 
-    # 添加一些特定的错误模式（针对问题API）
+    # 对于有问题的服务器，添加错误激增
     if server_ip == "10.0.2.101":
         # 在特定时间点添加错误激增
         error_time = start_time + timedelta(minutes=30)

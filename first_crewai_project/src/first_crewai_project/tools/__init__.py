@@ -12,12 +12,15 @@ __init__.py是整个工具箱的目录和说明书
 具体功能：简化导入 直接from tools import get_nginx_servers
     如果没有整个文件的话，导入语句需要写成：from tools.mock_tools import get_nginx_servers
 """
+# tools/__init__.py
 from .mock_tools import (
     get_nginx_servers,
-    get_server_logs,
-    get_server_metrics,
-    generate_diagnosis_report
+    get_server_logs_simple,
+    get_server_metrics_simple
 )
+# 为了保持向后兼容性，创建别名
+get_server_logs = get_server_logs_simple
+get_server_metrics = get_server_metrics_simple
 
 from .test_data import (
     generate_servers,
@@ -30,7 +33,7 @@ __all__ = [
     'get_nginx_servers',
     'get_server_logs',
     'get_server_metrics',
-    'generate_diagnosis_report',
+    #'generate_diagnosis_report',
     'generate_servers',
     'generate_nginx_logs_for_server',
     'generate_metrics_for_server',
