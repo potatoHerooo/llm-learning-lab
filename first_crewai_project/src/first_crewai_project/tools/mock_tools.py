@@ -6,7 +6,7 @@ from crewai.tools import tool
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Union
 
-# 修改为绝对导入，去掉相对导入的点
+# 排除test_data从文件层面导入失败：修改为绝对导入，去掉相对导入的点
 try:
     # 尝试从当前目录导入
     from test_data import (
@@ -41,55 +41,70 @@ def get_nginx_servers() -> List[Dict[str, Any]]:
 @tool("获取服务器日志")
 def get_server_logs_simple(
         server_ip: str,
-        api_endpoint: str = None
+        api_endpoint: str = None,
+        keywords: Union[str, List[str]] = None
 ) -> List[Dict[str, Any]]:
-    """获取服务器日志，支持按接口路径过滤（简化可靠版）"""
-    print(f"[工具调用] get_server_logs_simple('{server_ip}', api_endpoint={api_endpoint})")
+    """获取服务器日志，支持按接口路径过滤和关键词过滤（增强版）
+    参数：
+        server_ip ：服务器IP地址
+        api_endpoint：重点关注的文件
+        keywords：日志关键词
+    """
+    print(f"[工具调用] get_server_logs_simple('{server_ip}', api_endpoint={api_endpoint}, keywords={keywords})")
 
     # 生成日志
     logs = generate_nginx_logs_for_server(server_ip, 60)
 
-    # 如果指定了接口，筛选包含该接口的日志
+    # ------------------------------
+    # ① 按 接口路径 过滤
+    # ------------------------------
     if api_endpoint:
-        filtered_logs = []
+        logs = [log for log in logs if api_endpoint in log]
+
+    # ------------------------------
+    # ② 按关键词过滤：不区分大小写，可以用自然语言告诉工具
+    # ------------------------------
+    if keywords:
+        if isinstance(keywords, str):
+            keywords = [keywords]  # 统一处理成列表
+
+        filtered = []
         for log in logs:
-            if api_endpoint in log:
-                filtered_logs.append(log)
-        logs = filtered_logs
+            if any(k.lower() in log.lower() for k in keywords):
+                filtered.append(log)
+
+        logs = filtered
 
     print(f"[工具调用] 找到 {len(logs)} 条相关日志")
 
-    # 转换为简单结构化格式
+    # ------------------------------
+    # ③ 解析结构化日志：大模型偏向使用的JSON格式的数据
+    # ------------------------------
     structured_logs = []
 
     for log in logs[:10]:  # 只处理前10条
         try:
-            # 简单解析：查找关键信息
-            # 查找路径
             import re
 
-            # 提取路径（简单方法）
-            path_match = re.search(r'"GET\s+([^\s?]+)', log)
-            if not path_match:
-                path_match = re.search(r'"POST\s+([^\s?]+)', log)
-
+            # 路径
+            path_match = re.search(r'"GET\s+([^\s?]+)', log) or \
+                         re.search(r'"POST\s+([^\s?]+)', log)
             path = path_match.group(1) if path_match else "unknown"
 
-            # 提取状态码
+            # 状态码
             status_match = re.search(r'"\s+(\d{3})\s+', log)
             status_code = status_match.group(1) if status_match else "000"
 
-            # 提取响应时间
-            rt_match = re.search(r'rt=([\d.]+)', log)
-            if not rt_match:
-                rt_match = re.search(r'([\d.]+)$', log)
+            # 响应时间
+            rt_match = re.search(r'rt=([\d.]+)', log) or \
+                       re.search(r'([\d.]+)$', log)
             response_time = float(rt_match.group(1)) if rt_match else 0.0
 
-            # 提取IP
+            # IP
             ip_match = re.match(r'(\S+)', log)
             client_ip = ip_match.group(1) if ip_match else "0.0.0.0"
 
-            # 提取时间（简化）
+            # 时间戳
             time_match = re.search(r'\[(.*?)\]', log)
             timestamp = time_match.group(1) if time_match else ""
 
@@ -108,6 +123,7 @@ def get_server_logs_simple(
             continue
 
     return structured_logs
+
 
 @tool("获取服务器指标")
 def get_server_metrics_simple(

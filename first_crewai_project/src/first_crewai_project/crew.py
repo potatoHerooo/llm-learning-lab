@@ -4,7 +4,7 @@ from crewai import Agent, Task, Crew, Process
 from crewai.llm import LLM
 from dotenv import load_dotenv
 
-# 导入工具函数
+# 导入工具函数（保持原来）
 from tools.mock_tools import (
     get_nginx_servers,
     get_server_logs_simple as get_server_logs,
@@ -17,9 +17,11 @@ load_dotenv()
 class FaultDiagnosisCrew:
     """故障诊断智能体团队 (树状并行结构)"""
 
-    def __init__(self, api_endpoint: str, metrics_to_analyze: list[str]):
+    def __init__(self, api_endpoint: str, metrics_to_analyze: list[str], log_keywords: list[str] = None):
         self.api_endpoint = api_endpoint
         self.metrics_to_analyze = metrics_to_analyze
+        self.log_keywords = log_keywords  # ★ 新增：把关键词传入整个系统
+
         self.llm = LLM(
             model="deepseek-chat",
             base_url="https://api.deepseek.com",
@@ -39,99 +41,98 @@ class FaultDiagnosisCrew:
 
         self._create_tasks()
 
+    # -------------------- Agent：日志分析 --------------------
     def create_log_analyst(self) -> Agent:
         return Agent(
             role="服务器日志分析专家",
-            goal=f"从Nginx日志中提取与{self.api_endpoint}相关的错误请求、响应码、延迟异常和客户端模式",
-            backstory="你是一个严谨的运维工程师，对 Nginx 日志格式了如指掌，能快速从海量日志中过滤出异常模式，并擅长发现可疑的IP、异常 User-Agent 和错误激增的时间点。",
+            goal=f"从Nginx日志中提取与 {self.api_endpoint} 相关的错误请求、响应码、异常关键词和延迟模式",
+            backstory="你是一个日志分析大师，擅长从复杂日志中发现隐藏异常，包括状态码错误、慢请求、超时以及关键词报警。",
             llm=self.llm,
             tools=[get_nginx_servers, get_server_logs],
             verbose=True,
             allow_delegation=False
         )
 
+    # -------------------- Agent：指标分析 --------------------
     def create_metrics_inspector(self) -> Agent:
         if not self.metrics_to_analyze:
             self.metrics_to_analyze = ["cpu", "memory", "成功率", "延迟"]
         metrics_desc = "、".join(self.metrics_to_analyze)
         return Agent(
             role="服务器指标分析专家",
-            goal=f"分析{self.api_endpoint}对应服务的{metrics_desc}等关键性能指标，找出指标异常和时间关联性。",
-            backstory="你是一个数据驱动的 SRE，精通各种监控系统。你对服务的健康指标非常敏感，能一眼看出成功率下降与 CPU 飙升、内存泄漏或下游依赖故障之间的关联。",
+            goal=f"分析 {self.api_endpoint} 接口的 {metrics_desc} 关键性能指标，找出异常规律。",
+            backstory="你擅长监控分析，能观察成功率、延迟、资源使用之间的关联性。",
             llm=self.llm,
             tools=[get_nginx_servers, get_server_metrics],
             verbose=True,
             allow_delegation=False
         )
 
+    # -------------------- Agent：根因诊断 --------------------
     def create_root_cause_diagnostician(self) -> Agent:
         return Agent(
             role="根因诊断官",
-            goal=f"综合日志和指标证据，推导出导致 {self.api_endpoint} 成功率下降最可能的根本原因，并提供下一步排查建议。",
-            backstory="你是一个逻辑缜密的系统架构师，拥有多年故障排查经验。你善于将零散的线索拼凑成完整的逻辑链，提出合理的假设，并给出清晰、可操作的行动建议。",
+            goal=f"综合日志与指标分析结果，推断导致 {self.api_endpoint} 异常的根本原因。",
+            backstory="你擅长将零散线索组合成完整链路，得出合理推断。",
             llm=self.llm,
             verbose=True,
             allow_delegation=False
         )
 
+    # -------------------- 任务定义 --------------------
     def _create_tasks(self):
-        """创建三个任务，使用简化的工具调用方式"""
+        """创建三个任务"""
 
-        # 任务一：简化的日志分析任务
+        keyword_hint = ""
+        if self.log_keywords:
+            keyword_hint = f"\n6. 并且使用关键词过滤日志：{self.log_keywords}\n"
+
+        # 任务 1：日志分析
         self.log_research_task = Task(
             description=(
                 f"请分析 {self.api_endpoint} 接口的Nginx日志。\n"
                 f"步骤：\n"
-                f"1. 首先使用 get_nginx_servers() 工具获取所有服务器列表\n"
-                f"2. 对每个服务器，使用 get_server_logs() 工具获取日志，传入 api_endpoint='{self.api_endpoint}' 参数\n"  # 修改这里
-                f"3. 分析日志中是否包含错误（如500、502、503、504状态码）\n"
-                f"4. 分析日志中是否包含超时、异常等关键词\n"
-                f"5. 总结发现的问题"
+                f"1. 使用 get_nginx_servers() 工具获取所有服务器\n"
+                f"2. 对每台服务器使用 get_server_logs() 工具，参数应包括：\n"
+                f"    - server_ip=服务器IP\n"
+                f"    - api_endpoint='{self.api_endpoint}'\n"
+                f"    - keywords={self.log_keywords}\n"
+                f"3. 寻找错误状态码（如 500/502/503/504）\n"
+                f"4. 检查是否有慢请求、超时或异常的响应时间\n"
+                f"5. 提取可疑 IP、接口路径、User-Agent\n"
+                f"{keyword_hint}"
             ),
             expected_output=(
-                "一份简明的日志分析报告，包含：\n"
-                "1. 检查了多少台服务器\n"
-                "2. 发现了多少条相关日志\n"
-                "3. 主要的错误类型和数量\n"
-                "4. 简要的分析结论"
+                "输出简要日志分析，包括：服务器数量、相关日志数量、错误类型、异常模式、关键词命中的日志总结。"
             ),
             agent=self.log_analyst,
             verbose=True,
         )
 
-        # 任务二：简化的指标分析任务
+        # 任务 2：指标分析
         self.metrics_research_task = Task(
             description=(
-                f"请分析 {self.api_endpoint} 接口的服务指标。\n"
+                f"请分析接口 {self.api_endpoint} 的服务指标。\n"
                 f"步骤：\n"
-                f"1. 首先使用 get_nginx_servers() 工具获取所有服务器列表\n"
-                f"2. 对每个服务器，使用 get_server_metrics() 工具获取性能指标\n"
-                f"3. 关注以下指标：{', '.join(self.metrics_to_analyze)}\n"
-                f"4. 分析哪些服务器指标异常"
+                f"1. 使用 get_nginx_servers() 获取服务器列表\n"
+                f"2. 使用 get_server_metrics() 获取各服务器关键指标\n"
+                f"3. 关注指标：{', '.join(self.metrics_to_analyze)}\n"
+                f"4. 找出异常服务器及其异常指标"
             ),
             expected_output=(
-                "一份简明的指标分析报告，包含：\n"
-                "1. 检查了多少台服务器\n"
-                "2. 各服务器的关键指标概览\n"
-                "3. 发现的问题服务器和异常指标\n"
-                "4. 简要的分析结论"
+                "输出各服务器的指标总览、异常服务器说明，以及总体观察结论。"
             ),
             agent=self.metrics_inspector,
             verbose=True,
         )
 
-        # 任务三：根因诊断
+        # 任务 3：根因诊断
         self.root_case_task = Task(
             description=(
-                f"请基于前两个专家的分析结果，综合分析 {self.api_endpoint} 成功率下降的原因。\n"
-                f"结合日志分析和指标分析的结果，提出最可能的根本原因。"
+                f"基于前两项分析，推断 {self.api_endpoint} 接口异常的最可能根因。"
             ),
             expected_output=(
-                "一份完整的故障诊断报告，使用Markdown格式，包含以下部分：\n"
-                "1. 问题概述\n"
-                "2. 证据分析\n"
-                "3. 根因假设\n"
-                "4. 建议措施"
+                "输出Markdown格式的故障诊断报告，包括问题概述、证据链、根因推测及建议措施。"
             ),
             agent=self.root_cause_diagnostician,
             context=[self.log_research_task, self.metrics_research_task],
@@ -140,15 +141,14 @@ class FaultDiagnosisCrew:
             verbose=True,
         )
 
+    # -------------------- Execute --------------------
     def assemble_and_run(self):
-        """组装Crew并运行"""
         print(f"🔍 开始故障诊断分析...")
         print(f"目标接口: {self.api_endpoint}")
-        if self.metrics_to_analyze is not None:
-            print(f"指定参数: {self.metrics_to_analyze}")
+        print(f"指定指标: {self.metrics_to_analyze}")
+        print(f"日志关键词: {self.log_keywords}")
         print("-" * 50)
 
-        # 创建Crew
         crew = Crew(
             agents=[
                 self.log_analyst,
@@ -164,27 +164,28 @@ class FaultDiagnosisCrew:
             verbose=True,
         )
 
-        # 运行Crew
         print("🚀 启动智能体团队...")
         result = crew.kickoff(inputs={"api_endpoint": self.api_endpoint})
 
         print("\n" + "=" * 60)
-        print("✅ 诊断完成！")
-        print(f"详细报告已保存至: diagnosis_report.md")
+        print("✅ 诊断完成！报告已保存至 diagnosis_report.md")
         print("=" * 60)
 
         return result
 
 
-# 主程序入口
+# -------------------- 主程序入口 --------------------
 if __name__ == "__main__":
-    # 使用示例
     api_to_diagnose = "/api/v2/data.json"
-    critical_metrics = ["cpu", "成功率"]  # 使用简化的指标名称
+    #指定指标
+    critical_metrics = ["cpu", "成功率"]
+    #日志关键词
+    keywords_to_search = ["timeout", "502", "error"]
 
     diagnosis_crew = FaultDiagnosisCrew(
         api_endpoint=api_to_diagnose,
-        metrics_to_analyze=critical_metrics
+        metrics_to_analyze=critical_metrics,
+        log_keywords=keywords_to_search
     )
 
     try:
@@ -194,6 +195,7 @@ if __name__ == "__main__":
         print(final_result)
 
     except Exception as e:
-        print(f"❌ 运行过程中出现错误: {e}")
+        print(f"❌ 运行时出现错误: {e}")
         import traceback
+
         traceback.print_exc()
