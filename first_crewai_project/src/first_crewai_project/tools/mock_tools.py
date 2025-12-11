@@ -25,6 +25,14 @@ except ImportError:
         generate_metrics_for_server
     )
 
+# 尝试导入 MySQL mock 数据生成器
+try:
+    from mysql_test_data import generate_mysql_logs_for_server
+except ImportError:
+    import sys, os
+    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    from mysql_test_data import generate_mysql_logs_for_server
+
 # ==================== 简化的工具版本（解决CrewAI验证问题）====================
 
 @tool("获取Nginx服务器列表")
@@ -44,11 +52,18 @@ def get_server_logs_simple(
         api_endpoint: str = None,
         keywords: Union[str, List[str]] = None
 ) -> List[Dict[str, Any]]:
-    """获取服务器日志，支持按接口路径过滤和关键词过滤（增强版）
-    参数：
-        server_ip ：服务器IP地址
-        api_endpoint：重点关注的文件
-        keywords：日志关键词
+    """
+    获取服务器日志（Nginx），并输出统一日志结构 UnifiedLogV1：
+    {
+        "source": "nginx",
+        "server_ip": "...",
+        "timestamp": "...",
+        "severity": "...",
+        "operation": "GET /api/v2/data.json",
+        "status": "502",
+        "latency_ms": 200.5,
+        "raw": "原始日志"
+    }
     """
     print(f"[工具调用] get_server_logs_simple('{server_ip}', api_endpoint={api_endpoint}, keywords={keywords})")
 
@@ -62,43 +77,41 @@ def get_server_logs_simple(
         logs = [log for log in logs if api_endpoint in log]
 
     # ------------------------------
-    # ② 按关键词过滤：不区分大小写，可以用自然语言告诉工具
+    # ② 按关键词过滤：不区分大小写
     # ------------------------------
     if keywords:
         if isinstance(keywords, str):
-            keywords = [keywords]  # 统一处理成列表
+            keywords = [keywords]
 
-        filtered = []
-        for log in logs:
-            if any(k.lower() in log.lower() for k in keywords):
-                filtered.append(log)
-
-        logs = filtered
+        logs = [
+            log for log in logs
+            if any(k.lower() in log.lower() for k in keywords)
+        ]
 
     print(f"[工具调用] 找到 {len(logs)} 条相关日志")
 
     # ------------------------------
-    # ③ 解析结构化日志：大模型偏向使用的JSON格式的数据
+    # ③ 解析 Nginx 日志 → 统一结构 UnifiedLogV1
     # ------------------------------
     structured_logs = []
 
-    for log in logs[:10]:  # 只处理前10条
+    for log in logs[:10]:  # 仍然只处理前10条，避免LLM负载过大
         try:
             import re
 
             # 路径
-            path_match = re.search(r'"GET\s+([^\s?]+)', log) or \
-                         re.search(r'"POST\s+([^\s?]+)', log)
-            path = path_match.group(1) if path_match else "unknown"
+            path_match = re.search(r'"(GET|POST)\s+([^\s?]+)', log)
+            method = path_match.group(1) if path_match else "UNKNOWN"
+            path = path_match.group(2) if path_match else "unknown"
 
             # 状态码
             status_match = re.search(r'"\s+(\d{3})\s+', log)
             status_code = status_match.group(1) if status_match else "000"
 
             # 响应时间
-            rt_match = re.search(r'rt=([\d.]+)', log) or \
-                       re.search(r'([\d.]+)$', log)
+            rt_match = re.search(r'([\d.]+)$', log)
             response_time = float(rt_match.group(1)) if rt_match else 0.0
+            latency_ms = response_time * 1000
 
             # IP
             ip_match = re.match(r'(\S+)', log)
@@ -108,18 +121,126 @@ def get_server_logs_simple(
             time_match = re.search(r'\[(.*?)\]', log)
             timestamp = time_match.group(1) if time_match else ""
 
+            # ------------------------------
+            # 统一结构 UnifiedLogV1
+            # ------------------------------
             structured_logs.append({
-                'timestamp': timestamp,
-                'client_ip': client_ip,
-                'method': 'GET' if 'GET' in log else 'POST',
-                'path': path,
-                'status_code': status_code,
-                'response_time': response_time,
-                'raw_log': log[:100] + "..." if len(log) > 100 else log
+                "source": "nginx",
+                "server_ip": server_ip,
+                "timestamp": timestamp,
+                "severity": "ERROR" if int(status_code) >= 500 else "INFO",
+                "operation": f"{method} {path}",
+                "status": status_code,
+                "latency_ms": latency_ms,
+                "raw": log
             })
 
         except Exception as e:
             print(f"[警告] 解析日志失败: {e}")
+            continue
+
+    return structured_logs
+
+
+@tool("获取MySQL日志")
+def get_mysql_logs_simple(
+        server_ip: str,
+        keywords: Optional[Union[str, List[str]]] = None,
+        min_duration: Optional[float] = None
+) -> List[Dict[str, Any]]:
+    """
+    获取 MySQL 日志（模拟），并解析为统一日志结构 UnifiedLogV1 格式。
+
+    返回结构：
+    {
+        "source": "mysql",
+        "server_ip": "...",
+        "timestamp": "...",
+        "severity": "INFO" | "WARN" | "ERROR",
+        "operation": "SELECT * FROM users",
+        "status": "OK" | "ERROR",
+        "latency_ms": 1234,
+        "raw": "原始日志"
+    }
+    """
+    print(f"[工具调用] get_mysql_logs_simple('{server_ip}', keywords={keywords}, min_duration={min_duration})")
+
+    # 1. 生成日志（原始字符串）
+    logs = generate_mysql_logs_for_server(server_ip, 60)
+
+    # ------------------------------
+    # ②关键词过滤
+    # ------------------------------
+    if keywords:
+        if isinstance(keywords, str):
+            keywords = [keywords]
+
+        logs = [
+            log for log in logs
+            if any(k.lower() in log.lower() for k in keywords)
+        ]
+
+    # ------------------------------
+    # ③最小耗时过滤（筛选慢 SQL）
+    # ------------------------------
+    if min_duration:
+        filtered = []
+        for log in logs:
+            import re
+            duration_match = re.search(r'duration=([\d.]+)s', log)
+            if duration_match:
+                duration = float(duration_match.group(1))
+                if duration >= min_duration:
+                    filtered.append(log)
+        logs = filtered
+
+    print(f"[工具调用] 找到 {len(logs)} 条 MySQL 日志")
+
+    # ------------------------------
+    # ④解析 → 统一结构 UnifiedLogV1
+    # ------------------------------
+    structured_logs = []
+
+    for log in logs[:15]:  # 避免 LLM 过载
+        try:
+            import re
+
+            # 时间戳
+            ts_match = re.match(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})", log)
+            timestamp = ts_match.group(1) if ts_match else ""
+
+            # 严重级别
+            sev_match = re.search(r"\[(INFO|WARN|ERROR)\]", log)
+            severity = sev_match.group(1) if sev_match else "INFO"
+
+            # SQL
+            sql_match = re.search(r'sql="([^"]+)"', log)
+            sql = sql_match.group(1) if sql_match else "UNKNOWN SQL"
+
+            # 耗时
+            dur_match = re.search(r'duration=([\d.]+)s', log)
+            duration_s = float(dur_match.group(1)) if dur_match else 0.0
+            latency_ms = duration_s * 1000
+
+            # 是否有 error 字段
+            err_flag = "ERROR" if "error=" in log or severity == "ERROR" else "OK"
+
+            # ------------------------------
+            # 构建 UnifiedLogV1
+            # ------------------------------
+            structured_logs.append({
+                "source": "mysql",
+                "server_ip": server_ip,
+                "timestamp": timestamp,
+                "severity": severity,
+                "operation": sql,
+                "status": err_flag,
+                "latency_ms": latency_ms,
+                "raw": log
+            })
+
+        except Exception as e:
+            print(f"[警告] 解析 MySQL 日志失败: {e}")
             continue
 
     return structured_logs
@@ -219,7 +340,7 @@ def test_tools_locally():
 
     if logs:
         for log in logs[:3]:
-            print(f"  - 状态码: {log['status_code']}, 路径: {log['path']}")
+            print(f"  - 严重级别: {log['severity']}, 操作: {log['operation']}")
 
     # 测试获取指标
     print(f"\n测试服务器 {test_server} 的指标:")

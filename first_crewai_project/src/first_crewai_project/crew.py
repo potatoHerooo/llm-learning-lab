@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 from tools.mock_tools import (
     get_nginx_servers,
     get_server_logs_simple as get_server_logs,
-    get_server_metrics_simple as get_server_metrics
+    get_server_metrics_simple as get_server_metrics,
+    get_mysql_logs_simple
 )
 
 load_dotenv()
@@ -30,7 +31,8 @@ class FaultDiagnosisCrew:
         )
 
         # 创建智能体
-        self.log_analyst = self.create_log_analyst()
+        self.log_analyst = self.create_log_analyst()    #nginx日志专家
+        self.mysql_analyst = self.create_mysql_analyst()    #SQL日志专家
         self.metrics_inspector = self.create_metrics_inspector()
         self.root_cause_diagnostician = self.create_root_cause_diagnostician()
 
@@ -41,7 +43,7 @@ class FaultDiagnosisCrew:
 
         self._create_tasks()
 
-    # -------------------- Agent：日志分析 --------------------
+    # -------------------- Agent：Nginx日志分析 --------------------
     def create_log_analyst(self) -> Agent:
         return Agent(
             role="服务器日志分析专家",
@@ -49,6 +51,18 @@ class FaultDiagnosisCrew:
             backstory="你是一个日志分析大师，擅长从复杂日志中发现隐藏异常，包括状态码错误、慢请求、超时以及关键词报警。",
             llm=self.llm,
             tools=[get_nginx_servers, get_server_logs],
+            verbose=True,
+            allow_delegation=False
+        )
+
+    # -------------------- Agent：SQL日志分析 --------------------
+    def create_mysql_analyst(self) -> Agent:
+        return Agent(
+            role="MySQL数据库日志分析专家",
+            goal="分析 MySQL 日志（Slow Query / Deadlock / Error），识别数据库层面的性能瓶颈与异常行为。",
+            backstory="你是数据库性能专家，熟悉 MySQL 慢查询、死锁、错误日志，能够定位数据库作为系统瓶颈的证据。",
+            llm=self.llm,
+            tools=[get_mysql_logs_simple],
             verbose=True,
             allow_delegation=False
         )
@@ -126,16 +140,41 @@ class FaultDiagnosisCrew:
             verbose=True,
         )
 
-        # 任务 3：根因诊断
+        # 任务 3：MySQL 日志分析任务
+        self.mysql_log_task = Task(
+            description=(
+                "请分析 MySQL 数据库日志，找出可能影响接口性能的慢查询、错误、死锁等异常。\n"
+                "步骤：\n"
+                "1. 使用 get_mysql_logs_simple(server_ip=服务器IP, keywords=可选, min_duration=可选) 获取 MySQL 日志\n"
+                "2. 识别慢查询（duration > 1 秒）、ERROR、Deadlock\n"
+                "3. 提取涉及的 SQL 类型、表名、错误模式\n"
+                "4. 查找异常的时间段是否与 Nginx 或指标异常重合\n"
+            ),
+            expected_output=(
+                "输出 MySQL 日志分析报告，包括：\n"
+                "1. 异常 SQL 类型\n"
+                "2. 慢查询情况\n"
+                "3. 错误与死锁分析\n"
+                "4. 与接口异常相关的时间段关联性"
+            ),
+            agent=self.mysql_analyst,
+            verbose=True,
+        )
+
+        # 任务 4：根因诊断
         self.root_case_task = Task(
             description=(
-                f"基于前两项分析，推断 {self.api_endpoint} 接口异常的最可能根因。"
+                f"综合 Nginx 日志、MySQL 日志和性能指标分析结果，推断 {self.api_endpoint} 接口异常的根本原因。"
             ),
             expected_output=(
                 "输出Markdown格式的故障诊断报告，包括问题概述、证据链、根因推测及建议措施。"
             ),
             agent=self.root_cause_diagnostician,
-            context=[self.log_research_task, self.metrics_research_task],
+            context=[
+                self.log_research_task,
+                self.metrics_research_task,
+                self.mysql_log_task
+            ],
             markdown=True,
             output_file="diagnosis_report.md",
             verbose=True,
@@ -153,13 +192,16 @@ class FaultDiagnosisCrew:
             agents=[
                 self.log_analyst,
                 self.metrics_inspector,
+                self.mysql_analyst,
                 self.root_cause_diagnostician
             ],
             tasks=[
                 self.log_research_task,
                 self.metrics_research_task,
+                self.mysql_log_task,
                 self.root_case_task
             ],
+
             process=Process.sequential,
             verbose=True,
         )
