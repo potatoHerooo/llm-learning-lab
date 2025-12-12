@@ -9,7 +9,8 @@ from tools.mock_tools import (
     get_nginx_servers,
     get_server_logs_simple as get_server_logs,
     get_server_metrics_simple as get_server_metrics,
-    get_mysql_logs_simple
+    get_mysql_logs_simple,
+    get_redis_logs_simple
 )
 
 load_dotenv()
@@ -33,6 +34,7 @@ class FaultDiagnosisCrew:
         # 创建智能体
         self.log_analyst = self.create_log_analyst()    #nginx日志专家
         self.mysql_analyst = self.create_mysql_analyst()    #SQL日志专家
+        self.redis_analyst = self.create_redis_analyst()    #Redis日志分析专家
         self.metrics_inspector = self.create_metrics_inspector()
         self.root_cause_diagnostician = self.create_root_cause_diagnostician()
 
@@ -63,6 +65,18 @@ class FaultDiagnosisCrew:
             backstory="你是数据库性能专家，熟悉 MySQL 慢查询、死锁、错误日志，能够定位数据库作为系统瓶颈的证据。",
             llm=self.llm,
             tools=[get_mysql_logs_simple],
+            verbose=True,
+            allow_delegation=False
+        )
+
+    # -------------------- Agent：Redis日志分析 --------------------
+    def create_redis_analyst(self) -> Agent:
+        return Agent(
+            role="Redis缓存日志分析专家",
+            goal="分析 Redis 慢查询、错误、超时，判断缓存层是否导致系统性能下降。",
+            backstory="你擅长分析 Redis slowlog、错误日志和命令异常，帮助定位缓存层瓶颈。",
+            llm=self.llm,
+            tools=[get_redis_logs_simple],
             verbose=True,
             allow_delegation=False
         )
@@ -161,7 +175,22 @@ class FaultDiagnosisCrew:
             verbose=True,
         )
 
-        # 任务 4：根因诊断
+        # 任务 4：Redis日志分析任务
+        self.redis_log_task = Task(
+            description=(
+                "请分析 Redis 日志，找出异常命令、慢查询、错误、超时等。\n"
+                "使用 get_redis_logs_simple(server_ip, keywords=可选, min_duration=可选)。\n"
+                "输出缓存层瓶颈、热点 key、超时命令等信息。"
+            ),
+            expected_output=(
+                "Redis 缓存层分析报告，包括：慢查询统计、异常命令、错误类型、"
+                "潜在缓存击穿或热点 key 问题。"
+            ),
+            agent=self.redis_analyst,
+            verbose=True,
+        )
+
+        # 任务 5：根因诊断
         self.root_case_task = Task(
             description=(
                 f"综合 Nginx 日志、MySQL 日志和性能指标分析结果，推断 {self.api_endpoint} 接口异常的根本原因。"
@@ -173,7 +202,8 @@ class FaultDiagnosisCrew:
             context=[
                 self.log_research_task,
                 self.metrics_research_task,
-                self.mysql_log_task
+                self.mysql_log_task,
+                self.redis_log_task
             ],
             markdown=True,
             output_file="diagnosis_report.md",
@@ -193,15 +223,16 @@ class FaultDiagnosisCrew:
                 self.log_analyst,
                 self.metrics_inspector,
                 self.mysql_analyst,
+                self.redis_analyst,
                 self.root_cause_diagnostician
             ],
             tasks=[
                 self.log_research_task,
                 self.metrics_research_task,
                 self.mysql_log_task,
+                self.redis_log_task,
                 self.root_case_task
             ],
-
             process=Process.sequential,
             verbose=True,
         )

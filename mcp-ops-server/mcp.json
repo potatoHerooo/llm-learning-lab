@@ -1,0 +1,11 @@
+{
+  "name": "mcp-ops-server",
+  "version": "0.1.0",
+  "mcpServers": {
+    "ops": {
+      "command": "python",
+      "args": ["server.py"],
+      "env": {}
+    }
+  }
+}

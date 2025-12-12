@@ -33,6 +33,14 @@ except ImportError:
     sys.path.append(os.path.dirname(os.path.abspath(__file__)))
     from mysql_test_data import generate_mysql_logs_for_server
 
+# 尝试导入 Redis mock 数据生成器
+try:
+    from redis_test_data import generate_redis_logs_for_server
+except ImportError:
+    import sys, os
+    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    from redis_test_data import generate_redis_logs_for_server
+
 # ==================== 简化的工具版本（解决CrewAI验证问题）====================
 
 @tool("获取Nginx服务器列表")
@@ -146,7 +154,8 @@ def get_server_logs_simple(
 def get_mysql_logs_simple(
         server_ip: str,
         keywords: Optional[Union[str, List[str]]] = None,
-        min_duration: Optional[float] = None
+        min_duration: Optional[float] = None,
+        **kwargs
 ) -> List[Dict[str, Any]]:
     """
     获取 MySQL 日志（模拟），并解析为统一日志结构 UnifiedLogV1 格式。
@@ -245,6 +254,72 @@ def get_mysql_logs_simple(
 
     return structured_logs
 
+@tool("获取Redis日志")
+def get_redis_logs_simple(
+    server_ip: str,
+    keywords: Optional[Union[str, List[str]]] = None,
+    min_duration: Optional[float] = None,
+    **kwargs
+) -> List[Dict[str, Any]]:
+    """
+    获取 Redis 日志并解析成 UnifiedLogV1 格式
+    """
+
+    print(f"[工具调用] get_redis_logs_simple('{server_ip}', keywords={keywords}, min_duration={min_duration})")
+
+    logs = generate_redis_logs_for_server(server_ip, 60)
+
+    # 关键词过滤
+    if keywords:
+        if isinstance(keywords, str):
+            keywords = [keywords]
+        logs = [log for log in logs if any(k.lower() in log.lower() for k in keywords)]
+
+    # 最小耗时过滤
+    if min_duration:
+        filtered = []
+        for log in logs:
+            import re
+            dur_match = re.search(r'duration=(\d+)ms', log)
+            if dur_match:
+                dur_ms = int(dur_match.group(1))
+                if dur_ms >= min_duration * 1000:
+                    filtered.append(log)
+        logs = filtered
+
+    # 统一结构化
+    structured = []
+    import re
+
+    for log in logs[:15]:
+        try:
+            ts = re.match(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})", log).group(1)
+            severity = re.search(r"\[(INFO|WARN|ERROR|SLOWLOG)\]", log).group(1)
+
+            cmd_match = re.search(r'command="([^"]+)"', log)
+            command = cmd_match.group(1) if cmd_match else "UNKNOWN"
+
+            dur_match = re.search(r'duration=(\d+)ms', log)
+            latency_ms = int(dur_match.group(1)) if dur_match else 0
+
+            status = "ERROR" if "ERROR" in severity else "OK"
+
+            structured.append({
+                "source": "redis",
+                "server_ip": server_ip,
+                "timestamp": ts,
+                "severity": severity,
+                "operation": command,
+                "status": status,
+                "latency_ms": latency_ms,
+                "raw": log
+            })
+
+        except Exception as e:
+            print(f"[警告] Redis 日志解析失败: {e}")
+            continue
+
+    return structured
 
 @tool("获取服务器指标")
 def get_server_metrics_simple(
