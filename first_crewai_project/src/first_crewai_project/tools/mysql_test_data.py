@@ -39,6 +39,7 @@ def generate_mysql_logs_for_server(server_ip: str, time_range_minutes: int = 60)
 
     logs = []
 
+    #从当前出错误时间一个小时之内出现错误的日志
     end_time = datetime.now()
     start_time = end_time - timedelta(minutes=time_range_minutes)
 

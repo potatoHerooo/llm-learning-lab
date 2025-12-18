@@ -5,12 +5,12 @@ from crewai.llm import LLM
 from dotenv import load_dotenv
 
 # 导入工具函数（保持原来）
-from tools.mock_tools import (
+from tools.mcp_client_tools import (
     get_nginx_servers,
-    get_server_logs_simple as get_server_logs,
-    get_server_metrics_simple as get_server_metrics,
+    get_server_logs,
+    get_server_metrics,
     get_mysql_logs_simple,
-    get_redis_logs_simple
+    get_redis_logs_simple,
 )
 
 load_dotenv()
@@ -52,6 +52,7 @@ class FaultDiagnosisCrew:
             goal=f"从Nginx日志中提取与 {self.api_endpoint} 相关的错误请求、响应码、异常关键词和延迟模式",
             backstory="你是一个日志分析大师，擅长从复杂日志中发现隐藏异常，包括状态码错误、慢请求、超时以及关键词报警。",
             llm=self.llm,
+            # 使用新的 MCP 客户端工具
             tools=[get_nginx_servers, get_server_logs],
             verbose=True,
             allow_delegation=False
@@ -109,7 +110,7 @@ class FaultDiagnosisCrew:
 
     # -------------------- 任务定义 --------------------
     def _create_tasks(self):
-        """创建三个任务"""
+        """创建五个任务"""
 
         keyword_hint = ""
         if self.log_keywords:
@@ -118,20 +119,19 @@ class FaultDiagnosisCrew:
         # 任务 1：日志分析
         self.log_research_task = Task(
             description=(
-                f"请分析 {self.api_endpoint} 接口的Nginx日志。\n"
-                f"步骤：\n"
-                f"1. 使用 get_nginx_servers() 工具获取所有服务器\n"
-                f"2. 对每台服务器使用 get_server_logs() 工具，参数应包括：\n"
-                f"    - server_ip=服务器IP\n"
-                f"    - api_endpoint='{self.api_endpoint}'\n"
-                f"    - keywords={self.log_keywords}\n"
-                f"3. 寻找错误状态码（如 500/502/503/504）\n"
-                f"4. 检查是否有慢请求、超时或异常的响应时间\n"
-                f"5. 提取可疑 IP、接口路径、User-Agent\n"
-                f"{keyword_hint}"
+                f"{self.api_endpoint} 接口出现异常访问现象。\n"
+                f"你可以使用你拥有的工具来获取相关信息。\n\n"
+                f"请你自行判断是否需要：\n"
+                f"- 查看服务器层面的访问日志\n"
+                f"- 关注异常响应、错误状态码或异常请求模式\n"
+                f"- 基于日志线索进行进一步推断\n\n"
+                f"请基于你获取的信息，总结你认为重要的异常现象和线索。\n"
+                "如果你发现已有信息不足以支持你的判断，你可以再次调用你认为有帮助的工具进行验证"
+
             ),
             expected_output=(
-                "输出简要日志分析，包括：服务器数量、相关日志数量、错误类型、异常模式、关键词命中的日志总结。"
+                "一份日志分析总结，包含：异常现象描述、关键证据、"
+                "以及这些证据可能说明的问题。"
             ),
             agent=self.log_analyst,
             verbose=True,
@@ -140,15 +140,17 @@ class FaultDiagnosisCrew:
         # 任务 2：指标分析
         self.metrics_research_task = Task(
             description=(
-                f"请分析接口 {self.api_endpoint} 的服务指标。\n"
-                f"步骤：\n"
-                f"1. 使用 get_nginx_servers() 获取服务器列表\n"
-                f"2. 使用 get_server_metrics() 获取各服务器关键指标\n"
-                f"3. 关注指标：{', '.join(self.metrics_to_analyze)}\n"
-                f"4. 找出异常服务器及其异常指标"
+                f"{self.api_endpoint}接口出现异常访问现象。\n"
+                f"你可以使用你拥有的工具来获取相关信息\n"
+                f"请你自行判断：\n"
+                f"- 是否使用相关工具获取所有服务器然后去拉取相关服务器指标\n"
+                f"- 是否需要关注相关指标来分析问题\n"
+                f"请基于你获取的信息，总结你认为重要的异常现象和线索。\n"
+                "如果你发现已有信息不足以支持你的判断，你可以再次调用你认为有帮助的工具进行验证"
             ),
             expected_output=(
-                "输出各服务器的指标总览、异常服务器说明，以及总体观察结论。"
+                "一份日志分析总结，包含：你关注的异常现象、"
+                "你认为重要的证据，以及这些证据可能说明的问题。"
             ),
             agent=self.metrics_inspector,
             verbose=True,
@@ -157,12 +159,14 @@ class FaultDiagnosisCrew:
         # 任务 3：MySQL 日志分析任务
         self.mysql_log_task = Task(
             description=(
-                "请分析 MySQL 数据库日志，找出可能影响接口性能的慢查询、错误、死锁等异常。\n"
-                "步骤：\n"
-                "1. 使用 get_mysql_logs_simple(server_ip=服务器IP, keywords=可选, min_duration=可选) 获取 MySQL 日志\n"
-                "2. 识别慢查询（duration > 1 秒）、ERROR、Deadlock\n"
-                "3. 提取涉及的 SQL 类型、表名、错误模式\n"
-                "4. 查找异常的时间段是否与 Nginx 或指标异常重合\n"
+                f"{self.api_endpoint}接口出现异常访问现象。\n"
+                f"你可以使用你拥有的工具来获取相关信息\n"
+                f"请你自行判断：\n"
+                f"- 是否需要从数据库层面获取日志辅助分析\n"
+                f"- 是否存在可能影响接口性能的慢查询、错误或死锁等异常行为\n"
+                f"- 当前已获取的信息是否足以支持你的分析结论\n"
+                f"请基于你获取的信息，总结你认为重要的异常现象和线索。\n"
+                "如果你发现已有信息不足以支持你的判断，你可以自行采取进一步行动来补充证据"
             ),
             expected_output=(
                 "输出 MySQL 日志分析报告，包括：\n"
@@ -180,7 +184,8 @@ class FaultDiagnosisCrew:
             description=(
                 "请分析 Redis 日志，找出异常命令、慢查询、错误、超时等。\n"
                 "使用 get_redis_logs_simple(server_ip, keywords=可选, min_duration=可选)。\n"
-                "输出缓存层瓶颈、热点 key、超时命令等信息。"
+                "输出缓存层瓶颈、热点 key、超时命令等信息。\n"
+                "如果你发现已有信息不足以支持你的判断，你可以再次调用你认为有帮助的工具进行验证"
             ),
             expected_output=(
                 "Redis 缓存层分析报告，包括：慢查询统计、异常命令、错误类型、"
@@ -193,22 +198,25 @@ class FaultDiagnosisCrew:
         # 任务 5：根因诊断
         self.root_case_task = Task(
             description=(
-                f"综合 Nginx 日志、MySQL 日志和性能指标分析结果，推断 {self.api_endpoint} 接口异常的根本原因。"
+                "你将收到来自多个分析 agent 的信息（日志、指标、数据库、缓存）。\n\n"
+                "你的任务是：\n"
+                "- 综合这些信息\n"
+                "- 判断哪些证据是最关键的\n"
+                "- 给出你认为最可能的 1~2 个根因解释\n\n"
+                "当你认为现有信息已经足以支持你的判断时，"
+                "请直接给出最终分析结论，不需要继续调用任何工具。\n"
+                "如果你发现已有信息不足以支持你的判断，你可以再次调用你认为有帮助的工具进行验证"
             ),
             expected_output=(
-                "输出Markdown格式的故障诊断报告，包括问题概述、证据链、根因推测及建议措施。"
+                "一份根因分析报告，包含：\n"
+                "- 最可能的根因（1-2个，不要超过）\n"
+                "- 支持该判断的关键证据（明确指出来自哪些分析agent）\n"
+                "- 如有不确定性，请明确指出"
             ),
             agent=self.root_cause_diagnostician,
-            context=[
-                self.log_research_task,
-                self.metrics_research_task,
-                self.mysql_log_task,
-                self.redis_log_task
-            ],
-            markdown=True,
-            output_file="diagnosis_report.md",
-            verbose=True,
+            verbose=True
         )
+
 
     # -------------------- Execute --------------------
     def assemble_and_run(self):
@@ -220,18 +228,18 @@ class FaultDiagnosisCrew:
 
         crew = Crew(
             agents=[
-                self.log_analyst,
-                self.metrics_inspector,
-                self.mysql_analyst,
-                self.redis_analyst,
-                self.root_cause_diagnostician
+                #self.log_analyst,
+                #self.metrics_inspector,
+                self.mysql_analyst
+                #self.redis_analyst,
+                #self.root_cause_diagnostician
             ],
             tasks=[
-                self.log_research_task,
-                self.metrics_research_task,
+                #self.log_research_task,
+                #self.metrics_research_task,
                 self.mysql_log_task,
-                self.redis_log_task,
-                self.root_case_task
+                #self.redis_log_task,
+                #self.root_case_task
             ],
             process=Process.sequential,
             verbose=True,

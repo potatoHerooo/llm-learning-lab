@@ -4,7 +4,7 @@
 """
 from crewai.tools import tool
 from datetime import datetime
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Any, Optional, Union,Tuple
 
 # 排除test_data从文件层面导入失败：修改为绝对导入，去掉相对导入的点
 try:
@@ -62,6 +62,7 @@ def get_server_logs_simple(
 ) -> List[Dict[str, Any]]:
     """
     获取服务器日志（Nginx），并输出统一日志结构 UnifiedLogV1：
+    根据【关键词或者时间戳】【分批】搜索出来
     {
         "source": "nginx",
         "server_ip": "...",
@@ -153,14 +154,26 @@ def get_server_logs_simple(
 @tool("获取MySQL日志")
 def get_mysql_logs_simple(
         server_ip: str,
+        start_time: Optional[str] = None,
+        end_time: Optional[str] = None,
         keywords: Optional[Union[str, List[str]]] = None,
-        min_duration: Optional[float] = None,
+        min_duration_s: Optional[float] = None,
+        limit: int = 1000,
         **kwargs
-) -> List[Dict[str, Any]]:
+) -> Tuple[List[Dict[str,Any]], Optional[str]]:
     """
     获取 MySQL 日志（模拟），并解析为统一日志结构 UnifiedLogV1 格式。
+    参数：
+    - server_ip：服务器IP地址
+    - start_time / end_time: 时间窗
+    - keywords: 筛选关键词
+    - min_duration_s：筛选运行时间超过最小耗时的慢SQL（单位是秒）
+    - limit: 返回日志总条数
 
     返回结构：
+    - logs: 当前批次日志（最多limit条）
+    - next_start_time: 下一次拉取的起始时间（若为None表示已取完）
+
     {
         "source": "mysql",
         "server_ip": "...",
@@ -172,10 +185,15 @@ def get_mysql_logs_simple(
         "raw": "原始日志"
     }
     """
-    print(f"[工具调用] get_mysql_logs_simple('{server_ip}', keywords={keywords}, min_duration={min_duration})")
+    print(
+        f"[工具调用] get_mysql_logs_simple("
+        f"server_ip={server_ip}, "
+        f"start_time={start_time}, end_time={end_time}, "
+        f"keywords={keywords}, min_duration_s={min_duration_s}, limit={limit})"
+    )
 
     # 1. 生成日志（原始字符串）
-    logs = generate_mysql_logs_for_server(server_ip, 60)
+    raw_logs = generate_mysql_logs_for_server(server_ip, 60)
 
     # ------------------------------
     # ②关键词过滤
@@ -184,40 +202,66 @@ def get_mysql_logs_simple(
         if isinstance(keywords, str):
             keywords = [keywords]
 
-        logs = [
-            log for log in logs
+        raw_logs = [
+            log for log in raw_logs
             if any(k.lower() in log.lower() for k in keywords)
         ]
 
     # ------------------------------
     # ③最小耗时过滤（筛选慢 SQL）
     # ------------------------------
-    if min_duration:
+    if min_duration_s:
         filtered = []
-        for log in logs:
+        for log in raw_logs:
             import re
             duration_match = re.search(r'duration=([\d.]+)s', log)
             if duration_match:
                 duration = float(duration_match.group(1))
-                if duration >= min_duration:
+                if duration >= min_duration_s:
                     filtered.append(log)
-        logs = filtered
-
-    print(f"[工具调用] 找到 {len(logs)} 条 MySQL 日志")
+        raw_logs = filtered
 
     # ------------------------------
-    # ④解析 → 统一结构 UnifiedLogV1
+    # ④时间窗过滤（限流）
     # ------------------------------
+    def parse_ts(log: str) -> Optional[datetime]:
+        try:
+            return datetime.strptime(log[:19] , "%Y-%m-%d %H:%M:%S")
+        except Exception:
+            return None
+
+    if start_time:
+        start_dt = datetime.strptime(start_time , "%Y-%m-%d %H:%M:%S")
+        raw_logs = [
+            log for log in raw_logs
+            if parse_ts(log) and parse_ts(log) >= start_dt
+        ]
+
+    if end_time:
+        end_dt = datetime.strptime(end_time , "%Y-%m-%d %H:%M:%S")
+        raw_logs = [
+            log for log in raw_logs
+            if parse_ts(log) and parse_ts(log) <= end_dt
+        ]
+
+    #排序，将所有日志按照时间戳升序排序
+    raw_logs.sort(key = lambda x:parse_ts(x) or datetime.min)
+    print(f"[工具调用] 找到 {len(raw_logs)} 条 MySQL 日志")
+
+    # ------------------------------
+    # ⑤解析 → 统一结构 UnifiedLogV1
+    #       → 并只筛选limit条日志
+    # ------------------------------
+    #批次切片
+    batch_logs = raw_logs[:limit]
     structured_logs = []
+    next_start_time = None
 
-    for log in logs[:15]:  # 避免 LLM 过载
+    for log in batch_logs:
         try:
             import re
-
-            # 时间戳
-            ts_match = re.match(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})", log)
-            timestamp = ts_match.group(1) if ts_match else ""
-
+            #时间戳
+            ts = log[:19]
             # 严重级别
             sev_match = re.search(r"\[(INFO|WARN|ERROR)\]", log)
             severity = sev_match.group(1) if sev_match else "INFO"
@@ -228,31 +272,33 @@ def get_mysql_logs_simple(
 
             # 耗时
             dur_match = re.search(r'duration=([\d.]+)s', log)
-            duration_s = float(dur_match.group(1)) if dur_match else 0.0
-            latency_ms = duration_s * 1000
+            latency_ms = float(dur_match.group(1)) * 1000 if dur_match else 0.0
 
-            # 是否有 error 字段
-            err_flag = "ERROR" if "error=" in log or severity == "ERROR" else "OK"
+            status = "ERROR" if severity == "ERROR" else "OK"
 
-            # ------------------------------
-            # 构建 UnifiedLogV1
-            # ------------------------------
             structured_logs.append({
                 "source": "mysql",
                 "server_ip": server_ip,
-                "timestamp": timestamp,
+                "timestamp": ts,
                 "severity": severity,
                 "operation": sql,
-                "status": err_flag,
+                "status": status,
                 "latency_ms": latency_ms,
                 "raw": log
             })
+
+            next_start_time = ts
 
         except Exception as e:
             print(f"[警告] 解析 MySQL 日志失败: {e}")
             continue
 
-    return structured_logs
+
+    #检查是否还有下一页
+    if len(batch_logs) < limit:
+        next_start_time = None
+
+    return structured_logs,next_start_time
 
 @tool("获取Redis日志")
 def get_redis_logs_simple(
@@ -265,7 +311,7 @@ def get_redis_logs_simple(
     获取 Redis 日志并解析成 UnifiedLogV1 格式
     """
 
-    print(f"[工具调用] get_redis_logs_simple('{server_ip}', keywords={keywords}, min_duration={min_duration})")
+    print(f"[工具调用] get_redis_logs_simple('{server_ip}', keywords={keywords}, min_duration_s={min_duration})")
 
     logs = generate_redis_logs_for_server(server_ip, 60)
 
