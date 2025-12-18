@@ -11,6 +11,7 @@ from tools.mcp_client_tools import (
     get_server_metrics,
     get_mysql_logs_simple,
     get_redis_logs_simple,
+    mysql_runtime_diagnosis
 )
 
 load_dotenv()
@@ -65,7 +66,7 @@ class FaultDiagnosisCrew:
             goal="分析 MySQL 日志（Slow Query / Deadlock / Error），识别数据库层面的性能瓶颈与异常行为。",
             backstory="你是数据库性能专家，熟悉 MySQL 慢查询、死锁、错误日志，能够定位数据库作为系统瓶颈的证据。",
             llm=self.llm,
-            tools=[get_mysql_logs_simple],
+            tools=[get_mysql_logs_simple, mysql_runtime_diagnosis],
             verbose=True,
             allow_delegation=False
         )
@@ -74,8 +75,8 @@ class FaultDiagnosisCrew:
     def create_redis_analyst(self) -> Agent:
         return Agent(
             role="Redis缓存日志分析专家",
-            goal="分析 Redis 慢查询、错误、超时，判断缓存层是否导致系统性能下降。",
-            backstory="你擅长分析 Redis slowlog、错误日志和命令异常，帮助定位缓存层瓶颈。",
+            goal="综合分析MySQL日志和运行时状态，识别数据库层面的性能瓶颈、异常行为和根本原因",
+            backstory="你是数据库性能专家，熟悉MySQL日志分析（慢查询/死锁/错误）以及运行时诊断（SHOW ENGINE STATUS/SHOW PROCESSLIST），能够通过多维度证据定位数据库问题",
             llm=self.llm,
             tools=[get_redis_logs_simple],
             verbose=True,
@@ -156,7 +157,7 @@ class FaultDiagnosisCrew:
             verbose=True,
         )
 
-        # 任务 3：MySQL 日志分析任务
+        # 任务 3：MySQL 日志 + 现场态分析任务
         self.mysql_log_task = Task(
             description=(
                 f"{self.api_endpoint}接口出现异常访问现象。\n"
@@ -228,18 +229,18 @@ class FaultDiagnosisCrew:
 
         crew = Crew(
             agents=[
-                #self.log_analyst,
-                #self.metrics_inspector,
-                self.mysql_analyst
-                #self.redis_analyst,
-                #self.root_cause_diagnostician
+                self.log_analyst,
+                self.metrics_inspector,
+                self.mysql_analyst,
+                self.redis_analyst,
+                self.root_cause_diagnostician
             ],
             tasks=[
-                #self.log_research_task,
-                #self.metrics_research_task,
+                self.log_research_task,
+                self.metrics_research_task,
                 self.mysql_log_task,
-                #self.redis_log_task,
-                #self.root_case_task
+                self.redis_log_task,
+                self.root_case_task
             ],
             process=Process.sequential,
             verbose=True,

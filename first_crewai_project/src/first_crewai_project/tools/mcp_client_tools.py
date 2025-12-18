@@ -10,6 +10,7 @@ from mock_tools import (
     get_server_metrics_simple as get_server_metrics,
     get_mysql_logs_simple,
     get_redis_logs_simple,
+    mysql_runtime_diagnosis
 )
 
 __all__ = [
@@ -18,4 +19,5 @@ __all__ = [
     "get_server_metrics",
     "get_mysql_logs_simple",
     "get_redis_logs_simple",
+    "mysql_runtime_diagnosis",
 ]
