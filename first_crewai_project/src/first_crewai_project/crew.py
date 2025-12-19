@@ -4,7 +4,7 @@ from crewai import Agent, Task, Crew, Process
 from crewai.llm import LLM
 from dotenv import load_dotenv
 
-# 导入工具函数（保持原来）
+# 导入工具函数（使用正确的调用方式）
 from tools.mcp_client_tools import (
     get_nginx_servers,
     get_server_logs,
@@ -53,7 +53,7 @@ class FaultDiagnosisCrew:
             goal=f"从Nginx日志中提取与 {self.api_endpoint} 相关的错误请求、响应码、异常关键词和延迟模式",
             backstory="你是一个日志分析大师，擅长从复杂日志中发现隐藏异常，包括状态码错误、慢请求、超时以及关键词报警。",
             llm=self.llm,
-            # 使用新的 MCP 客户端工具
+            # 使用MCP客户端工具 - CrewAI会自动处理工具调用
             tools=[get_nginx_servers, get_server_logs],
             verbose=True,
             allow_delegation=False
@@ -75,8 +75,8 @@ class FaultDiagnosisCrew:
     def create_redis_analyst(self) -> Agent:
         return Agent(
             role="Redis缓存日志分析专家",
-            goal="综合分析MySQL日志和运行时状态，识别数据库层面的性能瓶颈、异常行为和根本原因",
-            backstory="你是数据库性能专家，熟悉MySQL日志分析（慢查询/死锁/错误）以及运行时诊断（SHOW ENGINE STATUS/SHOW PROCESSLIST），能够通过多维度证据定位数据库问题",
+            goal="综合分析Redis日志和运行时状态，识别缓存层面的性能瓶颈、异常行为和根本原因",
+            backstory="你是Redis性能专家，熟悉Redis日志分析（慢查询/连接错误/内存溢出）以及运行时诊断，能够通过多维度证据定位缓存问题",
             llm=self.llm,
             tools=[get_redis_logs_simple],
             verbose=True,
