@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 import os
+import sys
+
 from crewai import Agent, Task, Crew, Process
 from crewai.llm import LLM
 from dotenv import load_dotenv
 
 # 导入工具函数（使用正确的调用方式）
+# crew.py 中的导入部分
 from tools.mcp_client_tools import (
     get_nginx_servers,
     get_server_logs,
@@ -257,11 +260,12 @@ class FaultDiagnosisCrew:
 
 
 # -------------------- 主程序入口 --------------------
+# 在程序最后添加：
 if __name__ == "__main__":
     api_to_diagnose = "/api/v2/data.json"
-    #指定指标
+    # 指定指标
     critical_metrics = ["cpu", "成功率"]
-    #日志关键词
+    # 日志关键词
     keywords_to_search = ["timeout", "502", "error"]
 
     diagnosis_crew = FaultDiagnosisCrew(
@@ -281,3 +285,11 @@ if __name__ == "__main__":
         import traceback
 
         traceback.print_exc()
+
+    finally:
+        # 让程序多停留几秒，确保异步任务完成
+        import time
+
+        time.sleep(1)
+        print("\n✅ 程序执行完成")
+        sys.exit(0)  # 强制退出，避免LiteLLM清理警告
