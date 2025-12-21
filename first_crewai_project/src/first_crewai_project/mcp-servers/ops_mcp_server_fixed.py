@@ -36,13 +36,16 @@ try:
         get_mysql_logs_simple_raw as get_mysql_logs_simple_func,
         mysql_runtime_diagnosis_raw as mysql_runtime_diagnosis_func,
         get_redis_logs_simple_raw as get_redis_logs_simple_func,
+        # 添加新的代码分析工具
+        search_code_in_repository_raw as search_code_in_repository_func,
+        get_code_context_raw as get_code_context_func,
+        analyze_code_pattern_raw as analyze_code_pattern_func,
     )
 
     print("✅ 成功导入运维工具", file=sys.stderr)
 except ImportError as e:
     print(f"❌ 导入运维工具失败: {e}", file=sys.stderr)
     sys.exit(1)
-
 # ================== 创建FastAPI应用 ==================
 app = FastAPI(title="运维MCP服务器", version="1.0.0")
 
@@ -108,6 +111,25 @@ async def call_tool(request: Request):
                 arguments.get("keywords"),
                 arguments.get("min_duration")
             )
+        # 添加新的代码分析工具
+        elif tool_name == "search_code_in_repository":
+            result = search_code_in_repository_func(
+                arguments.get("file_pattern", "*.py"),
+                arguments.get("keyword"),
+                arguments.get("file_path")
+            )
+        elif tool_name == "get_code_context":
+            result = get_code_context_func(
+                arguments.get("file_path"),
+                arguments.get("line_start", 1),
+                arguments.get("line_end", 50),
+                arguments.get("highlight_lines")
+            )
+        elif tool_name == "analyze_code_pattern":
+            result = analyze_code_pattern_func(
+                arguments.get("code_snippet", ""),
+                arguments.get("issue_type")
+            )
         else:
             raise HTTPException(status_code=404, detail=f"工具 '{tool_name}' 不存在")
 
@@ -122,6 +144,7 @@ async def list_tools():
     """列出所有可用工具"""
     return {
         "tools": [
+            # ... 原有工具 ...
             {
                 "name": "get_nginx_servers",
                 "description": "获取所有Nginx服务器的IP地址和基本信息。",
@@ -142,38 +165,41 @@ async def list_tools():
                     }
                 }
             },
+            # ... 其他原有工具 ...
+            # 添加新的代码分析工具
             {
-                "name": "get_mysql_logs_simple",
-                "description": "获取MySQL日志。",
+                "name": "search_code_in_repository",
+                "description": "在代码仓库中搜索特定文件或包含关键字的代码。",
                 "inputSchema": {
                     "type": "object",
                     "properties": {
-                        "server_ip": {"type": "string"},
-                        "keywords": {"type": "string"},
-                        "min_duration_s": {"type": "number"}
+                        "file_pattern": {"type": "string", "default": "*.py"},
+                        "keyword": {"type": "string"},
+                        "file_path": {"type": "string"}
                     }
                 }
             },
             {
-                "name": "mysql_runtime_diagnosis",
-                "description": "MySQL运行时诊断。",
+                "name": "get_code_context",
+                "description": "获取代码文件的上下文内容。",
                 "inputSchema": {
                     "type": "object",
                     "properties": {
-                        "server_ip": {"type": "string"},
-                        "action": {"type": "string"}
+                        "file_path": {"type": "string"},
+                        "line_start": {"type": "integer", "default": 1},
+                        "line_end": {"type": "integer", "default": 50},
+                        "highlight_lines": {"type": "array", "items": {"type": "integer"}}
                     }
                 }
             },
             {
-                "name": "get_redis_logs_simple",
-                "description": "获取Redis日志。",
+                "name": "analyze_code_pattern",
+                "description": "分析代码片段，识别常见问题模式。",
                 "inputSchema": {
                     "type": "object",
                     "properties": {
-                        "server_ip": {"type": "string"},
-                        "keywords": {"type": "string"},
-                        "min_duration": {"type": "number"}
+                        "code_snippet": {"type": "string"},
+                        "issue_type": {"type": "string"}
                     }
                 }
             }

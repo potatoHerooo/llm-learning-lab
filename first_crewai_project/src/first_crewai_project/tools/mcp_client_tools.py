@@ -298,6 +298,105 @@ def mysql_runtime_diagnosis(server_ip: str, action: str):
         return {"error": str(e)}
     finally:
         loop.close()
+
+        # 在已有的工具函数后面添加
+
+
+# mcp_client_tools.py 中修改以下函数
+
+from typing import Optional, List, Union
+
+
+@tool("搜索代码仓库")
+def search_code_in_repository(
+        file_pattern: Optional[str] = None,
+        keyword: Optional[str] = None,
+        file_path: Optional[str] = None
+):
+    """在代码仓库中搜索特定文件或包含关键字的代码"""
+    # 设置默认值
+    if file_pattern is None:
+        file_pattern = "*.py"
+
+    arguments = {
+        "file_pattern": file_pattern
+    }
+    if keyword:
+        arguments["keyword"] = keyword
+    if file_path:
+        arguments["file_path"] = file_path
+
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        result = loop.run_until_complete(ops_client.call_tool("search_code_in_repository", arguments))
+        return result
+    except Exception as e:
+        return {"error": str(e)}
+    finally:
+        loop.close()
+
+
+@tool("获取代码上下文")
+def get_code_context(
+        file_path: str,
+        line_start: Optional[int] = None,
+        line_end: Optional[int] = None,
+        highlight_lines: Optional[List[int]] = None
+):
+    """获取代码文件的上下文内容"""
+    arguments = {
+        "file_path": file_path
+    }
+
+    if line_start is not None:
+        arguments["line_start"] = line_start
+    else:
+        arguments["line_start"] = 1
+
+    if line_end is not None:
+        arguments["line_end"] = line_end
+    else:
+        arguments["line_end"] = 50
+
+    if highlight_lines:
+        arguments["highlight_lines"] = highlight_lines
+
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        result = loop.run_until_complete(ops_client.call_tool("get_code_context", arguments))
+        return result
+    except Exception as e:
+        return {"error": str(e)}
+    finally:
+        loop.close()
+
+
+@tool("分析代码模式")
+def analyze_code_pattern(
+        code_snippet: Optional[str] = None,
+        issue_type: Optional[str] = None
+):
+    """分析代码片段，识别常见问题模式"""
+    arguments = {}
+
+    if code_snippet:
+        arguments["code_snippet"] = code_snippet
+
+    if issue_type:
+        arguments["issue_type"] = issue_type
+
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        result = loop.run_until_complete(ops_client.call_tool("analyze_code_pattern", arguments))
+        return result
+    except Exception as e:
+        return {"error": str(e)}
+    finally:
+        loop.close()
+
 # 初始化客户端连接
 print("🚀 正在启动MCP客户端...", file=sys.stderr)
 try:

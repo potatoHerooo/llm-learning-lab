@@ -5,6 +5,10 @@
 """
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Union, Tuple
+import os
+import re
+import json
+from typing import Dict, List, Any, Optional, Tuple
 
 # 排除test_data从文件层面导入失败：修改为绝对导入，去掉相对导入的点
 try:
@@ -548,6 +552,416 @@ def test_tools_locally():
 
     print("\n✅ 本地测试完成")
 
+
+# 假设的代码仓库路径
+CODE_BASE_PATH = "/mnt/codebase"  # 你可以修改为实际路径或使用环境变量
+
+
+def search_code_in_repository_raw(
+        file_pattern: str = "*.py",
+        keyword: str = None,
+        file_path: str = None
+) -> Dict[str, Any]:
+    """
+    在代码仓库中搜索特定文件或包含关键字的代码
+
+    Args:
+        file_pattern: 文件模式，如 "*.py", "*.java"
+        keyword: 搜索的关键字
+        file_path: 直接指定文件路径（如果有）
+
+    Returns:
+        搜索结果的字典
+    """
+    # 新增：处理智能体可能传入的列表参数
+    import json
+    import sys
+
+    # 如果传入的是字符串，尝试解析为JSON
+    if isinstance(file_pattern, str) and file_pattern.startswith('['):
+        try:
+            params_list = json.loads(file_pattern)
+            # 取第一个参数集合
+            if params_list and isinstance(params_list, list) and len(params_list) > 0:
+                first_params = params_list[0]
+                file_pattern = first_params.get('file_pattern', "*.py")
+                keyword = first_params.get('keyword', keyword)
+                file_path = first_params.get('file_path', file_path)
+        except:
+            pass  # 如果解析失败，保持原样
+
+    print(
+        f"[工具调用] search_code_in_repository(file_pattern={file_pattern}, keyword={keyword}, file_path={file_path})")
+
+    # 如果是直接指定文件路径，直接返回该文件
+    if file_path:
+        if os.path.exists(file_path):
+            return {
+                "type": "direct_file",
+                "file_path": file_path,
+                "exists": True,
+                "suggestions": [f"已定位到文件: {file_path}"]
+            }
+        else:
+            # 尝试在代码仓库中查找
+            file_path = os.path.join(CODE_BASE_PATH, file_path.lstrip('/'))
+            if os.path.exists(file_path):
+                return {
+                    "type": "direct_file",
+                    "file_path": file_path,
+                    "exists": True,
+                    "suggestions": [f"已定位到文件: {file_path}"]
+                }
+
+    # 模拟搜索结果 - 实际项目中应该遍历目录
+    results = []
+
+    # 根据接口路径猜测可能的代码文件
+    if keyword and "/api/" in keyword:
+        # 从API路径推断代码文件
+        api_path = keyword
+        # 例如: /api/v2/data.json -> controllers/data_controller.py, views/data_view.py 等
+        parts = api_path.strip('/').split('/')
+        if len(parts) >= 2:
+            endpoint = parts[-1].replace('.json', '').replace('.', '_')
+
+            # 生成可能的文件路径
+            possible_files = [
+                f"app/controllers/{endpoint}_controller.py",
+                f"app/api/v{parts[1] if parts[1].startswith('v') and len(parts) > 1 else '1'}/{endpoint}.py",
+                f"src/routes/{endpoint}_routes.py",
+                f"api/views/{endpoint}_view.py",
+                f"handlers/{endpoint}_handler.py"
+            ]
+
+            for file in possible_files:
+                full_path = os.path.join(CODE_BASE_PATH, file)
+                results.append({
+                    "file_path": file,
+                    "full_path": full_path,
+                    "confidence": "high",
+                    "reason": f"根据API路径 {api_path} 推断"
+                })
+
+    # 根据关键字搜索（模拟）
+    if keyword:
+        # 模拟常见问题的代码文件
+        common_problem_files = {
+            "timeout": [
+                {"file": "app/services/order_service.py", "line": 45, "code": "time.sleep(5)"},
+                {"file": "app/utils/network_utils.py", "line": 78, "code": "requests.get(url, timeout=None)"}
+            ],
+            "memory": [
+                {"file": "app/utils/cache_manager.py", "line": 120, "code": "cache = []  # 内存泄漏风险"},
+                {"file": "app/services/data_service.py", "line": 33,
+                 "code": "data_list = []\nwhile True:\n    data_list.append(get_data())"}
+            ],
+            "deadlock": [
+                {"file": "app/services/payment_service.py", "line": 67,
+                 "code": "with lock1:\n    with lock2:\n        # 处理支付"},
+                {"file": "app/utils/db_manager.py", "line": 89,
+                 "code": "session1.query(User).filter(User.id==1).with_for_update()"}
+            ],
+            "502": [
+                {"file": "app/controllers/api_controller.py", "line": 112,
+                 "code": "response = requests.get('http://downstream-service')"},
+                {"file": "app/middlewares/error_handler.py", "line": 56,
+                 "code": "if status_code >= 500:\n    return '502 Bad Gateway'"}
+            ]
+        }
+
+        for problem_type, files in common_problem_files.items():
+            if problem_type in keyword.lower():
+                for file_info in files:
+                    results.append({
+                        "file_path": file_info["file"],
+                        "full_path": os.path.join(CODE_BASE_PATH, file_info["file"]),
+                        "confidence": "medium",
+                        "reason": f"常见{problem_type}问题相关文件",
+                        "line": file_info["line"],
+                        "sample_code": file_info["code"]
+                    })
+
+    # 如果没有找到具体结果，返回通用建议
+    if not results:
+        results = [
+            {
+                "file_path": "app/controllers/",
+                "full_path": os.path.join(CODE_BASE_PATH, "app/controllers"),
+                "confidence": "low",
+                "reason": "建议检查控制器目录"
+            },
+            {
+                "file_path": "app/services/",
+                "full_path": os.path.join(CODE_BASE_PATH, "app/services"),
+                "confidence": "low",
+                "reason": "建议检查服务层代码"
+            }
+        ]
+
+    return {
+        "search_results": results,
+        "total_count": len(results),
+        "keyword": keyword,
+        "file_pattern": file_pattern
+    }
+
+
+def get_code_context_raw(
+        file_path: str,
+        line_start: int = 1,
+        line_end: int = 50,
+        highlight_lines: List[int] = None
+) -> Dict[str, Any]:
+    """
+    获取代码文件的上下文内容
+
+    Args:
+        file_path: 文件路径
+        line_start: 起始行号
+        line_end: 结束行号
+        highlight_lines: 需要高亮显示的行号列表
+
+    Returns:
+        代码内容和元数据
+    """
+    print(f"[工具调用] get_code_context(file_path={file_path}, line_start={line_start}, line_end={line_end})")
+
+    # 处理相对路径
+    if not os.path.isabs(file_path):
+        file_path = os.path.join(CODE_BASE_PATH, file_path.lstrip('/'))
+
+    # 检查文件是否存在
+    if not os.path.exists(file_path):
+        return {
+            "error": f"文件不存在: {file_path}",
+            "suggestions": [
+                f"请检查文件路径是否正确",
+                f"可以尝试使用 search_code_in_repository 工具搜索"
+            ]
+        }
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+
+        total_lines = len(lines)
+
+        # 确保行号在有效范围内
+        line_start = max(1, min(line_start, total_lines))
+        line_end = max(line_start, min(line_end, total_lines))
+
+        # 获取指定行范围内的代码
+        code_snippet = lines[line_start - 1:line_end]
+
+        # 构建行号映射
+        code_with_lines = []
+        for i, line in enumerate(code_snippet, start=line_start):
+            is_highlighted = highlight_lines and i in highlight_lines
+            code_with_lines.append({
+                "line_number": i,
+                "content": line.rstrip('\n'),
+                "highlighted": is_highlighted
+            })
+
+        # 分析代码特征（简单版）
+        issues = []
+        for i, line_info in enumerate(code_with_lines):
+            line = line_info["content"]
+
+            # 检查常见问题模式
+            if "time.sleep(" in line and "time.sleep(0.1)" not in line:
+                issues.append({
+                    "line": line_info["line_number"],
+                    "type": "性能问题",
+                    "description": "长时间sleep可能导致请求超时",
+                    "severity": "high"
+                })
+
+            if "while True:" in line and "break" not in "".join([l["content"] for l in code_with_lines[i:i + 10]]):
+                issues.append({
+                    "line": line_info["line_number"],
+                    "type": "无限循环风险",
+                    "description": "可能缺少循环终止条件",
+                    "severity": "high"
+                })
+
+            if "requests.get(" in line and "timeout=" not in line:
+                issues.append({
+                    "line": line_info["line_number"],
+                    "type": "网络请求超时",
+                    "description": "缺少timeout参数可能导致请求挂起",
+                    "severity": "medium"
+                })
+
+            if "session.query(" in line and ".all()" in line:
+                issues.append({
+                    "line": line_info["line_number"],
+                    "type": "数据库查询优化",
+                    "description": "考虑使用分页查询避免内存溢出",
+                    "severity": "medium"
+                })
+
+        return {
+            "file_path": file_path,
+            "total_lines": total_lines,
+            "line_start": line_start,
+            "line_end": line_end,
+            "code": code_with_lines,
+            "issues_found": issues,
+            "language": "python" if file_path.endswith('.py') else
+            "java" if file_path.endswith('.java') else
+            "javascript" if file_path.endswith('.js') else "unknown"
+        }
+
+    except Exception as e:
+        return {
+            "error": f"读取文件失败: {str(e)}",
+            "file_path": file_path
+        }
+
+
+def analyze_code_pattern_raw(
+        code_snippet: str,
+        issue_type: str = None
+) -> Dict[str, Any]:
+    """
+    分析代码片段，识别常见问题模式
+
+    Args:
+        code_snippet: 代码片段
+        issue_type: 指定要分析的问题类型（可选）
+
+    Returns:
+        分析结果
+    """
+    print(f"[工具调用] analyze_code_pattern(issue_type={issue_type})")
+
+    # 常见问题模式检测
+    patterns = {
+        "memory_leak": [
+            # 使用非贪婪匹配 .*? 避免匹配过多
+            (r"\.append\(.*?\)\s*# 没有清理", "列表不断追加可能导致内存泄漏"),
+            (r"global\s+\w+\s*=\s*\[\]", "全局变量累积数据"),
+            (r"while True:\s*\n\s*\w+\.append", "循环中不断追加到列表"),
+            # 修正：使用 [^)]* 匹配括号内任意非右括号字符
+            (r"PIL\.Image\.new\([^)]*\)\s*# 没有关闭", "图片资源未释放"),
+            # 还可以添加更多常见内存泄漏模式：
+            (r"open\([^)]*\)\s*(#.*)?$", "文件打开后没有关闭"),
+            (r"connection\s*=\s*.+\.connect\(\)", "数据库连接没有关闭"),
+            (r"self\.cache\s*=\s*{}\s*# 无限增长", "缓存字典无限增长"),
+            (r"\.add\(.*?\)\s*# 集合不断添加", "集合不断添加元素"),
+            (r"threading\.Thread\(target=.*\)", "线程没有正确管理")
+        ],
+        "deadlock": [
+            (r"with lock[12]:\s*\n\s*with lock[21]:", "嵌套锁可能导致死锁"),
+            (r"lock\.acquire\(\)\s*\n.*lock\.acquire\(\)", "重复获取锁"),
+            (r"threading\.Lock\(\)\s*# 多线程死锁风险", "多线程同步问题")
+        ],
+        "timeout": [
+            (r"time\.sleep\([5-9]\)", "长时间sleep"),
+            (r"requests\.\w+\([^)]*timeout=None", "网络请求未设置超时"),
+            (r"while True:\s*if.*break", "可能无法退出的循环"),
+            (r"socket\.settimeout\(None\)", "socket未设置超时")
+        ],
+        "database": [
+            (r"\.all\(\)\s*# 查询所有数据", "未分页的全表查询"),
+            (r"N\+1\s+query", "N+1查询问题"),
+            (r"SELECT \*\s+FROM", "SELECT * 性能问题"),
+            (r"for.*in.*:\s*\n\s*session\.add", "循环中逐个插入数据")
+        ],
+        "security": [
+            (r"eval\(", "使用eval有安全风险"),
+            (r"exec\(", "使用exec有安全风险"),
+            (r"subprocess\.call\(.*shell=True", "shell命令注入风险"),
+            (r"password\s*=\s*['\"]\w+['\"]", "硬编码密码")
+        ]
+    }
+
+    findings = []
+
+    # 如果没有指定问题类型，检查所有类型
+    issue_types_to_check = [issue_type] if issue_type else patterns.keys()
+
+    for check_type in issue_types_to_check:
+        if check_type in patterns:
+            for pattern, description in patterns[check_type]:
+                matches = re.finditer(pattern, code_snippet, re.MULTILINE)
+                for match in matches:
+                    # 获取匹配的行
+                    line_start = code_snippet[:match.start()].count('\n') + 1
+                    line_content = match.group(0).strip()
+
+                    findings.append({
+                        "issue_type": check_type,
+                        "line": line_start,
+                        "pattern": pattern,
+                        "description": description,
+                        "matched_code": line_content,
+                        "severity": "high" if check_type in ["memory_leak", "deadlock"] else "medium"
+                    })
+
+    # 如果没有找到特定问题，进行通用分析
+    if not findings:
+        # 检查代码复杂度
+        lines = code_snippet.split('\n')
+
+        # 计算一些基本指标
+        metrics = {
+            "line_count": len(lines),
+            "function_count": len(re.findall(r"def \w+", code_snippet)),
+            "class_count": len(re.findall(r"class \w+", code_snippet)),
+            "import_count": len(re.findall(r"import |from ", code_snippet)),
+            "comment_ratio": sum(1 for line in lines if line.strip().startswith('#')) / len(lines) if lines else 0
+        }
+
+        # 简单复杂度分析
+        if metrics["line_count"] > 100:
+            findings.append({
+                "issue_type": "complexity",
+                "description": "代码文件过长，建议拆分",
+                "severity": "low",
+                "metrics": metrics
+            })
+
+    return {
+        "analysis_type": issue_type or "general",
+        "findings": findings,
+        "total_issues_found": len(findings),
+        "summary": "发现{}个潜在问题".format(len(findings)) if findings else "未发现明显问题"
+    }
+
+
+# ==================== 使用@tool装饰的版本（供CrewAI使用）====================
+
+@tool("搜索代码仓库")
+def search_code_in_repository(
+        file_pattern: str = "*.py",
+        keyword: str = None,
+        file_path: str = None
+) -> Dict[str, Any]:
+    """在代码仓库中搜索特定文件或包含关键字的代码"""
+    return search_code_in_repository_raw(file_pattern, keyword, file_path)
+
+
+@tool("获取代码上下文")
+def get_code_context(
+        file_path: str,
+        line_start: int = 1,
+        line_end: int = 50,
+        highlight_lines: List[int] = None
+) -> Dict[str, Any]:
+    """获取代码文件的上下文内容"""
+    return get_code_context_raw(file_path, line_start, line_end, highlight_lines)
+
+
+@tool("分析代码模式")
+def analyze_code_pattern(
+        code_snippet: str,
+        issue_type: str = None
+) -> Dict[str, Any]:
+    """分析代码片段，识别常见问题模式"""
+    return analyze_code_pattern_raw(code_snippet, issue_type)
 
 if __name__ == "__main__":
     test_tools_locally()
