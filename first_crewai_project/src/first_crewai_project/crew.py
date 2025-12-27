@@ -279,8 +279,8 @@ class FaultDiagnosisCrew:
         print("🚀 快速演示模式启动...")
 
         demo_crew = Crew(
-            agents=[self.metrics_inspector],
-            tasks=[self.metrics_research_task],
+            agents=[self.code_analyst],
+            tasks=[self.code_analysis_task],
             process=Process.sequential,
             verbose=True,
         )
@@ -305,7 +305,7 @@ if __name__ == "__main__":
     )
 
     try:
-        # 先运行快速演示，确保基础功能正常
+        #先运行快速演示，确保基础功能正常
         print("🎯 运行快速演示模式（测试基础功能）...")
         demo_result = diagnosis_crew.quick_demo()
         #
