@@ -9,6 +9,9 @@ import sys
 import os
 import traceback
 
+# ✅ 添加类型导入
+from typing import Optional, List, Union, Dict, Any, Tuple
+
 class MCPClient:
     """MCP客户端，通过HTTP连接到远程MCP服务器"""
 
@@ -82,7 +85,10 @@ class MCPClient:
                         "get_server_logs_simple": {},
                         "get_mysql_logs_simple": {},
                         "mysql_runtime_diagnosis": {},
-                        "get_redis_logs_simple": {}
+                        "get_redis_logs_simple": {},
+                        "search_code_in_repository": {},  # ✅ 添加
+                        "get_code_context": {},  # ✅ 添加
+                        "analyze_code_pattern": {}  # ✅ 添加
                     }
                 else:
                     self.tools = {
@@ -104,7 +110,10 @@ class MCPClient:
                     "get_server_logs_simple": {},
                     "get_mysql_logs_simple": {},
                     "mysql_runtime_diagnosis": {},
-                    "get_redis_logs_simple": {}
+                    "get_redis_logs_simple": {},
+                    "search_code_in_repository": {},  # ✅ 添加
+                    "get_code_context": {},  # ✅ 添加
+                    "analyze_code_pattern": {}  # ✅ 添加
                 }
             else:
                 self.tools = {
@@ -191,7 +200,7 @@ async def init_clients():
 from crewai.tools import tool
 
 @tool("获取Nginx服务器列表")
-def get_nginx_servers():
+def get_nginx_servers() -> Dict[str, Any]:
     """获取所有Nginx服务器的IP地址和基本信息。"""
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
@@ -204,7 +213,7 @@ def get_nginx_servers():
         loop.close()
 
 @tool("获取服务器日志")
-def get_server_logs(server_ip: str, api_endpoint: str = None, keywords=None):
+def get_server_logs(server_ip: str, api_endpoint: str = None, keywords=None) -> Dict[str, Any]:
     """获取指定服务器的Nginx日志。"""
     arguments = {"server_ip": server_ip}
     if api_endpoint:
@@ -223,7 +232,7 @@ def get_server_logs(server_ip: str, api_endpoint: str = None, keywords=None):
         loop.close()
 
 @tool("获取MySQL日志")
-def get_mysql_logs_simple(server_ip: str, keywords: str = "", min_duration_s: float = 0.0):
+def get_mysql_logs_simple(server_ip: str, keywords: str = "", min_duration_s: float = 0.0) -> Dict[str, Any]:
     """获取MySQL日志。"""
     arguments = {
         "server_ip": server_ip,
@@ -242,10 +251,21 @@ def get_mysql_logs_simple(server_ip: str, keywords: str = "", min_duration_s: fl
         loop.close()
 
 @tool("获取服务器指标")
-def get_server_metrics(server_ip: str, metric_name: str = None):
-    """获取服务器性能指标。"""
+def get_server_metrics(
+    server_ip: str,
+    metric_name: Union[str, List[str], None] = None
+) -> Dict[str, Any]:
+    """
+    获取服务器性能指标。
+
+    支持以下查询方式：
+    1. 不传参数: 返回所有指标
+    2. 单个指标名（字符串）: 返回该指标
+    3. 多个指标名（列表）: 返回多个指标
+    4. 预定义组合: 'all'（所有指标）、'basic'（基础指标）、'performance'（性能指标）
+    """
     arguments = {"server_ip": server_ip}
-    if metric_name:
+    if metric_name is not None:
         arguments["metric_name"] = metric_name
 
     loop = asyncio.new_event_loop()
@@ -262,7 +282,7 @@ def get_server_metrics(server_ip: str, metric_name: str = None):
 # 添加缺失的工具函数
 
 @tool("获取Redis日志")
-def get_redis_logs_simple(server_ip: str, keywords=None, min_duration=None):
+def get_redis_logs_simple(server_ip: str, keywords=None, min_duration=None) -> Dict[str, Any]:
     """获取Redis日志。"""
     arguments = {"server_ip": server_ip}
     if keywords:
@@ -282,7 +302,7 @@ def get_redis_logs_simple(server_ip: str, keywords=None, min_duration=None):
 
 
 @tool("MySQL运行时诊断")
-def mysql_runtime_diagnosis(server_ip: str, action: str):
+def mysql_runtime_diagnosis(server_ip: str, action: str) -> Dict[str, Any]:
     """MySQL运行时诊断。"""
     arguments = {
         "server_ip": server_ip,
@@ -299,20 +319,13 @@ def mysql_runtime_diagnosis(server_ip: str, action: str):
     finally:
         loop.close()
 
-        # 在已有的工具函数后面添加
-
-
-# mcp_client_tools.py 中修改以下函数
-
-from typing import Optional, List, Union
-
 
 @tool("搜索代码仓库")
 def search_code_in_repository(
         file_pattern: Optional[str] = None,
         keyword: Optional[str] = None,
         file_path: Optional[str] = None
-):
+) -> Dict[str, Any]:
     """在代码仓库中搜索特定文件或包含关键字的代码"""
     # 设置默认值
     if file_pattern is None:
@@ -321,9 +334,9 @@ def search_code_in_repository(
     arguments = {
         "file_pattern": file_pattern
     }
-    if keyword:
+    if keyword is not None:
         arguments["keyword"] = keyword
-    if file_path:
+    if file_path is not None:
         arguments["file_path"] = file_path
 
     loop = asyncio.new_event_loop()
@@ -343,7 +356,7 @@ def get_code_context(
         line_start: Optional[int] = None,
         line_end: Optional[int] = None,
         highlight_lines: Optional[List[int]] = None
-):
+) -> Dict[str, Any]:
     """获取代码文件的上下文内容"""
     arguments = {
         "file_path": file_path
@@ -377,7 +390,7 @@ def get_code_context(
 def analyze_code_pattern(
         code_snippet: Optional[str] = None,
         issue_type: Optional[str] = None
-):
+) -> Dict[str, Any]:
     """分析代码片段，识别常见问题模式"""
     arguments = {}
 

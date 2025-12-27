@@ -9,6 +9,9 @@ import os
 import re
 import json
 from typing import Dict, List, Any, Optional, Tuple
+# 假设的代码仓库路径
+CODE_BASE_PATH = "/mnt/codebase"  # 你可以修改为实际路径或使用环境变量
+
 
 # 排除test_data从文件层面导入失败：修改为绝对导入，去掉相对导入的点
 try:
@@ -429,133 +432,131 @@ def get_redis_logs_simple_raw(
 
 def get_server_metrics_simple_raw(
         server_ip: str,
-        metric_name: str = None
+        metric_name: Union[str, List[str]] = None
 ) -> Dict[str, Any]:
     """
-    简化的指标获取工具，避免复杂的参数验证问题。
+    简化的指标获取工具，支持批量查询和智能名称映射。
     """
     print(f"[工具调用] get_server_metrics_simple('{server_ip}', metric_name={metric_name})")
 
-    # 生成模拟指标
+    # 生成所有模拟指标
     all_metrics = generate_metrics_for_server(server_ip, 60)
 
-    # 过滤指定的指标
-    if metric_name:
-        metric_mapping = {
-            "cpu": "cpu_percent",
-            "cpu_usage_total": "cpu_percent",
-            "内存": "memory_percent",
-            "memory": "memory_percent",
-            "磁盘": "disk_percent",
-            "disk": "disk_percent",
-            "成功率": "success_rate",
-            "错误率": "success_rate",
-            "延迟": "avg_latency_ms",
-            "响应时间": "avg_latency_ms"
-        }
+    # 简化的指标名称映射表
+    metric_mapping = {
+        # CPU相关
+        "cpu": "cpu_percent",
+        "cpu_usage": "cpu_percent",
+        "cpu_percent": "cpu_percent",
+        "cpu_load": "cpu_percent",
 
-        actual_key = metric_mapping.get(metric_name.lower(), metric_name)
+        # 内存相关
+        "memory": "memory_percent",
+        "memory_usage": "memory_percent",
+        "memory_percent": "memory_percent",
+        "ram_usage": "memory_percent",
+
+        # 成功率相关
+        "success_rate": "success_rate",
+        "request_success_rate": "success_rate",
+        "success": "success_rate",
+
+        # 延迟相关
+        "latency": "avg_latency_ms",
+        "avg_latency": "avg_latency_ms",
+        "response_time": "avg_latency_ms",
+        "avg_response_time": "avg_latency_ms",
+
+        # 连接数相关
+        "active_connections": "active_connections",
+        "connections": "active_connections",
+        "connection_count": "active_connections",
+
+        # 其他常用别名
+        "requests_per_sec": "requests_per_sec",
+        "rps": "requests_per_sec",
+        "qps": "requests_per_sec",
+        "throughput": "requests_per_sec",
+
+        "error_rate": "error_rate",
+        "failure_rate": "error_rate",
+    }
+
+    # 添加 error_rate（如果不存在）
+    if "error_rate" not in all_metrics and "success_rate" in all_metrics:
+        all_metrics["error_rate"] = 100 - all_metrics["success_rate"]
+
+    # 1. 如果 metric_name 为 None，返回所有指标
+    if metric_name is None:
+        print(f"  未指定指标名称，返回所有 {len(all_metrics)} 个指标")
+        return all_metrics
+
+    # 2. 处理字符串类型的 metric_name
+    elif isinstance(metric_name, str):
+        # 特殊关键字 "all" 仍然支持
+        if metric_name.lower() == "all":
+            print(f"  关键字 'all'，返回所有 {len(all_metrics)} 个指标")
+            return all_metrics
+
+        # 尝试映射指标名称
+        actual_key = metric_mapping.get(metric_name, metric_name)
+
         if actual_key in all_metrics:
             return {actual_key: all_metrics[actual_key]}
         else:
-            return {"error": f"未找到指标: {metric_name}"}
+            # 返回可用指标列表和建议
+            available_metrics = list(all_metrics.keys())
+            return {
+                "error": f"指标 '{metric_name}' 不存在",
+                "available_metrics": available_metrics,
+                "common_aliases": {
+                    "cpu": ["cpu_usage", "cpu_percent"],
+                    "memory": ["memory_usage", "memory_percent"],
+                    "success_rate": ["request_success_rate"],
+                    "latency": ["avg_latency_ms", "response_time"]
+                }
+            }
+
+    # 3. 处理列表类型的 metric_name（批量查询）
+    elif isinstance(metric_name, list):
+        result = {}
+        not_found = []
+
+        for name in metric_name:
+            if isinstance(name, str):
+                # 映射指标名称
+                mapped_key = metric_mapping.get(name, name)
+
+                if mapped_key in all_metrics:
+                    result[mapped_key] = all_metrics[mapped_key]
+                else:
+                    result[name] = "指标不存在"
+                    not_found.append(name)
+
+        print(f"  批量查询 {len(metric_name)} 个指标，成功获取 {len(result) - len(not_found)} 个")
+
+        response = {
+            "server_ip": server_ip,
+            "metrics": result,
+            "total_requested": len(metric_name),
+            "found": len(result) - len(not_found),
+            "not_found": not_found if not_found else None,
+            "timestamp": datetime.now().isoformat()
+        }
+
+        return response
+
+    # 4. 其他类型
     else:
-        # 返回所有指标
-        return all_metrics
-
-
-# ==================== 使用@tool装饰的版本（供CrewAI使用）====================
-from crewai.tools import tool
-
-@tool("获取Nginx服务器列表")
-def get_nginx_servers() -> List[Dict[str, Any]]:
-    """获取所有Nginx服务器的IP地址和基本信息。"""
-    return get_nginx_servers_raw()
-
-
-@tool("获取服务器日志")
-def get_server_logs_simple(
-        server_ip: str,
-        api_endpoint: str = None,
-        keywords: Union[str, List[str]] = None
-) -> List[Dict[str, Any]]:
-    """获取服务器日志（Nginx），并输出统一日志结构 UnifiedLogV1"""
-    return get_server_logs_simple_raw(server_ip, api_endpoint, keywords)
-
-
-@tool("获取MySQL日志")
-def get_mysql_logs_simple(
-        server_ip: str,
-        start_time: str = "",
-        end_time: str = "",
-        keywords: str = "",
-        min_duration_s: float = 0.0,
-        limit: int = 1000
-) -> Tuple[List[Dict[str, Any]], Optional[str]]:
-    """获取 MySQL 日志（模拟），并解析为统一日志结构 UnifiedLogV1 格式。"""
-    return get_mysql_logs_simple_raw(server_ip, start_time, end_time, keywords, min_duration_s, limit)
-
-
-@tool("MYSQL运行时诊断")
-def mysql_runtime_diagnosis(
-        server_ip: str,
-        action: str,
-) -> Dict[str, Any]:
-    """MySQL 运行时诊断工具（模拟）"""
-    return mysql_runtime_diagnosis_raw(server_ip, action)
-
-
-@tool("获取Redis日志")
-def get_redis_logs_simple(
-    server_ip: str,
-    keywords: Optional[Union[str, List[str]]] = None,
-    min_duration: Optional[float] = None,
-    **kwargs
-) -> List[Dict[str, Any]]:
-    """获取 Redis 日志并解析成 UnifiedLogV1 格式"""
-    return get_redis_logs_simple_raw(server_ip, keywords, min_duration, **kwargs)
-
-
-@tool("获取服务器指标")
-def get_server_metrics_simple(
-        server_ip: str,
-        metric_name: str = None
-) -> Dict[str, Any]:
-    """简化的指标获取工具，避免复杂的参数验证问题。"""
-    return get_server_metrics_simple_raw(server_ip, metric_name)
-
-
-# ==================== 测试函数 ====================
-
-def test_tools_locally():
-    """本地测试工具函数"""
-    print("🔧 本地测试工具函数")
-
-    # 测试服务器列表
-    servers = get_nginx_servers_raw()
-    print(f"获取到 {len(servers)} 台服务器")
-
-    # 测试获取特定服务器的日志
-    test_server = "10.0.2.101"
-    print(f"\n测试服务器 {test_server} 的日志:")
-    logs = get_server_logs_simple_raw(test_server, api_endpoint="/api/v2/data.json")
-    print(f"获取到 {len(logs)} 条日志")
-
-    if logs:
-        for log in logs[:3]:
-            print(f"  - 严重级别: {log['severity']}, 操作: {log['operation']}")
-
-    # 测试获取指标
-    print(f"\n测试服务器 {test_server} 的指标:")
-    metrics = get_server_metrics_simple_raw(test_server, metric_name="cpu")
-    print(f"CPU使用率: {metrics.get('cpu_percent', 'N/A')}%")
-
-    print("\n✅ 本地测试完成")
-
-
-# 假设的代码仓库路径
-CODE_BASE_PATH = "/mnt/codebase"  # 你可以修改为实际路径或使用环境变量
-
+        return {
+            "error": f"不支持的 metric_name 类型: {type(metric_name)}",
+            "supported_types": ["str", "list", "None"],
+            "examples": {
+                "获取所有指标": {"metric_name": None},
+                "获取单个指标": {"metric_name": "cpu_percent"},
+                "获取多个指标": {"metric_name": ["cpu_percent", "memory_percent", "success_rate"]}
+            }
+        }
 
 def search_code_in_repository_raw(
         file_pattern: str = "*.py",
@@ -931,8 +932,64 @@ def analyze_code_pattern_raw(
         "summary": "发现{}个潜在问题".format(len(findings)) if findings else "未发现明显问题"
     }
 
-
 # ==================== 使用@tool装饰的版本（供CrewAI使用）====================
+from crewai.tools import tool
+
+@tool("获取Nginx服务器列表")
+def get_nginx_servers() -> List[Dict[str, Any]]:
+    """获取所有Nginx服务器的IP地址和基本信息。"""
+    return get_nginx_servers_raw()
+
+
+@tool("获取服务器日志")
+def get_server_logs_simple(
+        server_ip: str,
+        api_endpoint: str = None,
+        keywords: Union[str, List[str]] = None
+) -> List[Dict[str, Any]]:
+    """获取服务器日志（Nginx），并输出统一日志结构 UnifiedLogV1"""
+    return get_server_logs_simple_raw(server_ip, api_endpoint, keywords)
+
+
+@tool("获取MySQL日志")
+def get_mysql_logs_simple(
+        server_ip: str,
+        start_time: str = "",
+        end_time: str = "",
+        keywords: str = "",
+        min_duration_s: float = 0.0,
+        limit: int = 1000
+) -> Tuple[List[Dict[str, Any]], Optional[str]]:
+    """获取 MySQL 日志（模拟），并解析为统一日志结构 UnifiedLogV1 格式。"""
+    return get_mysql_logs_simple_raw(server_ip, start_time, end_time, keywords, min_duration_s, limit)
+
+
+@tool("MYSQL运行时诊断")
+def mysql_runtime_diagnosis(
+        server_ip: str,
+        action: str,
+) -> Dict[str, Any]:
+    """MySQL 运行时诊断工具（模拟）"""
+    return mysql_runtime_diagnosis_raw(server_ip, action)
+
+
+@tool("获取Redis日志")
+def get_redis_logs_simple(
+    server_ip: str,
+    keywords: Optional[Union[str, List[str]]] = None,
+    min_duration: Optional[float] = None,
+    **kwargs
+) -> List[Dict[str, Any]]:
+    """获取 Redis 日志并解析成 UnifiedLogV1 格式"""
+    return get_redis_logs_simple_raw(server_ip, keywords, min_duration, **kwargs)
+
+@tool("获取服务器指标")
+def get_server_metrics_simple(
+        server_ip: str,
+        metric_name: Union[str, List[str]] = None
+) -> Dict[str, Any]:
+    """简化的指标获取工具，支持批量查询和智能名称映射。"""
+    return get_server_metrics_simple_raw(server_ip, metric_name)
 
 @tool("搜索代码仓库")
 def search_code_in_repository(
@@ -962,6 +1019,35 @@ def analyze_code_pattern(
 ) -> Dict[str, Any]:
     """分析代码片段，识别常见问题模式"""
     return analyze_code_pattern_raw(code_snippet, issue_type)
+# ==================== 测试函数 ====================
+
+def test_tools_locally():
+    """本地测试工具函数"""
+    print("🔧 本地测试工具函数")
+
+    # 测试服务器列表
+    servers = get_nginx_servers_raw()
+    print(f"获取到 {len(servers)} 台服务器")
+
+    # 测试获取特定服务器的日志
+    test_server = "10.0.2.101"
+    print(f"\n测试服务器 {test_server} 的日志:")
+    logs = get_server_logs_simple_raw(test_server, api_endpoint="/api/v2/data.json")
+    print(f"获取到 {len(logs)} 条日志")
+
+    if logs:
+        for log in logs[:3]:
+            print(f"  - 严重级别: {log['severity']}, 操作: {log['operation']}")
+
+    # 测试获取指标
+    print(f"\n测试服务器 {test_server} 的指标:")
+    metrics = get_server_metrics_simple_raw(test_server, metric_name="cpu")
+    print(f"CPU使用率: {metrics.get('cpu_percent', 'N/A')}%")
+
+    print("\n✅ 本地测试完成")
+
+
+# ==================== 使用@tool装饰的版本（供CrewAI使用）====================
 
 if __name__ == "__main__":
     test_tools_locally()

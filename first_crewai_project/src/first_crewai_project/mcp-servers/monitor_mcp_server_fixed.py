@@ -77,10 +77,13 @@ async def call_tool(request: ToolCallRequest):
         if tool_name == "get_nginx_servers":
             result = get_nginx_servers_func()
         elif tool_name == "get_server_metrics_simple":
-            result = get_server_metrics_simple_func(
-                arguments.get("server_ip"),
-                arguments.get("metric_name")
-            )
+            # 直接传递参数
+            server_ip = arguments.get("server_ip")
+            metric_name = arguments.get("metric_name")
+
+            print(f"[DEBUG] 调用指标工具: server_ip={server_ip}, metric_name={metric_name}", file=sys.stderr)
+
+            result = get_server_metrics_simple_func(server_ip, metric_name)
         else:
             raise HTTPException(status_code=404, detail=f"工具 '{tool_name}' 不存在")
 
@@ -89,6 +92,8 @@ async def call_tool(request: ToolCallRequest):
     except Exception as e:
         print(f"[ERROR] 工具调用失败: {e}", file=sys.stderr)
         raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/tools/list")
 async def list_tools():
     """列出所有可用工具"""
@@ -104,18 +109,20 @@ async def list_tools():
             },
             {
                 "name": "get_server_metrics_simple",
-                "description": "获取服务器性能指标。",
+                "description": "获取服务器性能指标。支持单个指标、多个指标或全部指标。常见指标别名：cpu_usage->cpu_percent, memory_usage->memory_percent, request_success_rate->success_rate, avg_latency->avg_latency_ms",
                 "inputSchema": {
                     "type": "object",
                     "properties": {
                         "server_ip": {"type": "string"},
-                        "metric_name": {"type": "string"}
+                        "metric_name": {
+                            "type": ["string", "array", "null"],
+                            "description": "指标名称。可以是：字符串（单个指标），数组（多个指标），null（所有指标）。"
+                        }
                     }
                 }
             }
         ]
     }
-
 
 if __name__ == "__main__":
     print("🚀 Monitor MCP 服务器启动（端口: 3001）", file=sys.stderr)

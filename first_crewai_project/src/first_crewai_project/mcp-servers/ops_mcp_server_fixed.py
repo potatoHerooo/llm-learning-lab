@@ -63,7 +63,10 @@ async def root():
             "get_server_logs_simple",
             "get_mysql_logs_simple",
             "mysql_runtime_diagnosis",
-            "get_redis_logs_simple"
+            "get_redis_logs_simple",
+            "search_code_in_repository",
+            "get_code_context",
+            "analyze_code_pattern"
         ]
     }
 
@@ -173,9 +176,19 @@ async def list_tools():
                 "inputSchema": {
                     "type": "object",
                     "properties": {
-                        "file_pattern": {"type": "string", "default": "*.py"},
-                        "keyword": {"type": "string"},
-                        "file_path": {"type": "string"}
+                        "file_pattern": {
+                            "type": "string",
+                            "default": "*.py",
+                            "description": "文件模式，如 *.py, *.java"
+                        },
+                        "keyword": {
+                            "type": "string",
+                            "description": "搜索的关键字"
+                        },
+                        "file_path": {
+                            "type": "string",
+                            "description": "直接指定文件路径（可选）"
+                        }
                     }
                 }
             },

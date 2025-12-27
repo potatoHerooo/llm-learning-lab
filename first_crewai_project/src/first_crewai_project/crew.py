@@ -97,12 +97,14 @@ class FaultDiagnosisCrew:
         )
 
     def create_metrics_inspector(self) -> Agent:
-        if not self.metrics_to_analyze:
-            self.metrics_to_analyze = ["cpu", "memory", "成功率", "延迟"]
         return Agent(
             role="服务器指标分析专家",
-            goal=f"分析 {self.api_endpoint} 接口的性能指标，找出异常规律。",
-            backstory="你擅长监控分析，能观察成功率、延迟、资源使用之间的关联性。",
+            goal=f"分析 {self.api_endpoint} 接口的性能指标，找出异常规律。\n"
+                 f"提示：使用列表形式一次性获取多个指标，减少调用次数。\n"
+                 f"常用指标包括：cpu_percent（CPU使用率）、memory_percent（内存使用率）、success_rate（成功率）、avg_latency_ms（平均延迟）、requests_per_sec（请求速率）。\n"
+                 f"支持指标别名：cpu_usage->cpu_percent, memory_usage->memory_percent, request_success_rate->success_rate, avg_latency->avg_latency_ms",
+            backstory="你擅长监控分析，能观察成功率、延迟、资源使用之间的关联性。"
+                      "你知道如何高效地批量获取指标，并善于对比不同服务器的指标差异。",
             llm=self.llm,
             tools=[get_nginx_servers, get_server_metrics],
             verbose=True,
@@ -151,11 +153,20 @@ class FaultDiagnosisCrew:
         self.metrics_research_task = Task(
             description=(
                 f"{self.api_endpoint}接口出现异常访问现象。\n"
-                f"你可以使用你拥有的工具来获取相关信息\n"
-                f"请分析服务器指标，关注CPU、成功率等关键指标。"
+                f"你可以使用你拥有的工具来获取相关信息。\n"
+                f"请分析服务器指标，重点关注CPU使用率、内存使用率、请求成功率、延迟等关键指标。\n"
+                f"重要提示：\n"
+                f"1. 建议使用列表形式一次性获取多个指标，如：['cpu_percent', 'memory_percent', 'success_rate', 'avg_latency_ms']\n"
+                f"2. 支持指标别名：cpu_usage（自动映射为cpu_percent）、memory_usage（自动映射为memory_percent）\n"
+                f"3. 不指定metric_name参数时，将返回所有指标\n"
+                f"4. 对比不同服务器的指标差异有助于定位问题"
             ),
             expected_output=(
-                "指标分析总结：异常现象、关键证据、可能的问题。"
+                "指标分析总结：\n"
+                "1. 异常现象描述\n"
+                "2. 关键指标数值\n"
+                "3. 服务器间对比结果\n"
+                "4. 可能的问题分析"
             ),
             agent=self.metrics_inspector,
             verbose=True,
@@ -268,8 +279,8 @@ class FaultDiagnosisCrew:
         print("🚀 快速演示模式启动...")
 
         demo_crew = Crew(
-            agents=[self.log_analyst, self.metrics_inspector],
-            tasks=[self.log_research_task, self.metrics_research_task],
+            agents=[self.metrics_inspector],
+            tasks=[self.metrics_research_task],
             process=Process.sequential,
             verbose=True,
         )
@@ -280,7 +291,11 @@ class FaultDiagnosisCrew:
 # -------------------- 主程序入口 --------------------
 if __name__ == "__main__":
     api_to_diagnose = "/api/v2/data.json"
-    critical_metrics = ["cpu", "成功率"]
+    # "basic": ["cpu_percent", "memory_percent", "success_rate", "avg_latency_ms"],
+    # "all": None,  # 表示所有指标
+    # "performance": ["cpu_percent", "memory_percent", "success_rate", "avg_latency_ms", "requests_per_sec"],
+    # "errors": ["error_rate", "error_count_5m", "timeout_count_5m"],
+    critical_metrics = ["cpu_percent", "memory_percent", "success_rate", "avg_latency_ms"]
     keywords_to_search = ["timeout", "502", "error"]
 
     diagnosis_crew = FaultDiagnosisCrew(
@@ -291,18 +306,18 @@ if __name__ == "__main__":
 
     try:
         # 先运行快速演示，确保基础功能正常
-        # print("🎯 运行快速演示模式（测试基础功能）...")
-        # demo_result = diagnosis_crew.quick_demo()
+        print("🎯 运行快速演示模式（测试基础功能）...")
+        demo_result = diagnosis_crew.quick_demo()
         #
         # print("\n📋 演示结果:")
         # print("-" * 40)
-        # print(demo_result)
+        print(demo_result)
         #
         # # 询问是否继续完整版
         # print("\n" + "=" * 60)
-        # choice = input("✅ 演示完成！是否继续运行完整版诊断？(y/n): ")
+        choice = input("✅ 演示完成！是否继续运行完整版诊断？(y/n): ")
 
-        # if choice.lower() == 'y':
+        if choice.lower() == 'y':
             print("🎯 运行完整版诊断...")
             final_result = diagnosis_crew.assemble_and_run()
 

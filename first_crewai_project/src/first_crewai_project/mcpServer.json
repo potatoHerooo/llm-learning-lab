@@ -1,0 +1,11 @@
+{
+  "mcpServer": {
+    "ops_server": {
+      "type": "streamablehttp",
+      "url": ""
+    },
+    "monitor_server": {
+
+    }
+  }
+}
